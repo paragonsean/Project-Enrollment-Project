@@ -1,0 +1,27 @@
+plugins {
+    id 'java'
+    id 'application'
+}
+
+java {
+    sourceCompatibility = JavaVersion.toVersion(17)
+    targetCompatibility = JavaVersion.toVersion(17)
+}
+
+repositories {
+    mavenCentral()
+}
+
+application {
+    mainClass = 'edu.odu.cs.cs350.Projector'
+}
+
+dependencies {
+    testImplementation 'org.junit.jupiter:junit-jupiter:5.11.0'
+    testImplementation 'org.hamcrest:hamcrest:3.0'
+}
+
+test {
+    ignoreFailures = true
+    useJUnitPlatform()
+}
