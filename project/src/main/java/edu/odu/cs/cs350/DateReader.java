@@ -9,6 +9,10 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+//To be used for Parsing dates.txt for pre-registration and add deadline dates 
+//and extracting dates from the current semester dir to determine if snapshot files are needed in the 
+// next semester dir or previous semester dir
+
 public class DateReader {
     private final DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
 
@@ -100,7 +104,7 @@ public class DateReader {
      * Calculates the next semester code for a given semester code.
      *
      * @param currentSemesterCode The current semester code in YYYYTT format
-     * @return The next semester code as a String
+     * @return The next semester code as a String (YYYYTT format) representing the next academic year
      */
     public String parseNextSemesterCode(String currentSemesterCode) {
         int year = parseYearFromSemesterCode(currentSemesterCode);
@@ -115,7 +119,12 @@ public class DateReader {
         return String.format("%04d%02d", year, term);
     }
 
-  
+    /**
+     * Parses the year from a semester code.
+     *
+     * @param folderName The semester code in YYYYTT format
+     * @return The year as an integer (YYYY) representing the academic year
+     */
     public int parseYearFromSemesterCode(String folderName) {
         if (!folderName.matches("\\d{6}")) {
             throw new IllegalArgumentException("Invalid semester code format: " + folderName);
@@ -123,7 +132,12 @@ public class DateReader {
         return Integer.parseInt(folderName.substring(0, 4));
     }
 
-  
+    /**
+     * Parses the term from a semester code.
+     *
+     * @param folderName The semester code in YYYYTT format
+     * @return The term as an integer (10, 20, or 30) representing Fall, Spring, or Summer
+     */
     public int parseTermFromSemesterCode(String folderName) {
         if (!folderName.matches("\\d{6}")) {
             throw new IllegalArgumentException("Invalid semester code format: " + folderName);
