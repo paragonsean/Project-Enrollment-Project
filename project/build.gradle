@@ -19,9 +19,36 @@ application {
 dependencies {
     testImplementation 'org.junit.jupiter:junit-jupiter:5.11.0'
     testImplementation 'org.hamcrest:hamcrest:3.0'
+    testImplementation 'junit:junit:4.13.2' // or the latest JUnit 4 version
 }
 
+
 test {
+    testLogging {
+        showStandardStreams = true
+    }
     ignoreFailures = true
     useJUnitPlatform()
+}
+
+
+// Javadoc generation task
+task generatedocs(type: Javadoc) {
+    description = "Generates Javadocs for the project."
+    group = "Documentation"
+    destinationDir = file("$buildDir/docs/javadoc")
+    source = sourceSets.main.allJava
+    classpath = sourceSets.main.compileClasspath
+}
+
+// Copy Javadocs to another directory
+task copydocs(type: Copy) {
+    description = "Copies generated Javadocs to the docs directory."
+    group = "Documentation"
+    dependsOn generatedocs
+    from "$buildDir/docs/javadoc"
+    into "$rootDir/docs"
+    doLast {
+        println "Javadocs copied to $rootDir/docs"
+}
 }
