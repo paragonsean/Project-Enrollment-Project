@@ -17,7 +17,8 @@ public class Section {
 
     // Cross-list cap: the maximum number of students that can enroll in this section
     private int XLST_CAP;
-
+    // Cross-list group identifier
+    private String XLST_GROUP;
     // Number of students currently enrolled in this section
     private int ENR;
 
@@ -35,15 +36,19 @@ public class Section {
     // Whether the section is cross-listed
     private boolean crossListed;
 
-    public Section(String crn, String semester, String campus, int XLST_CAP, int ENR, String LINK) {
+    public Section(String crn, String semester, String campus, int XLST_CAP, int ENR, String LINK,String XLST_GROUP) {
         this.CRN = crn;
         this.semester = semester;
         this.LINK = LINK;
         this.campus = campus;
         this.XLST_CAP = XLST_CAP;
         this.ENR = ENR;
+        this.XLST_GROUP = XLST_GROUP;
     }
 
+    public String getXlstGroup(){
+        return XLST_GROUP;
+    }
     public String getCrn() {
         return CRN;
     }
@@ -56,7 +61,7 @@ public class Section {
         return campus;
     }
 
-    public int getXlstGroup() {
+    public int getXlstCap() {
         return XLST_CAP;
     }
 

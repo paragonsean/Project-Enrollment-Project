@@ -41,10 +41,9 @@ dependencies {
 
 test {
     testLogging {
-        showStandardStreams = true
+        events "passed", "skipped", "failed"
+        showStandardStreams = true  // This ensures that System.out.println output is displayed
     }
-    ignoreFailures = true
-    useJUnitPlatform()
 }
 
 

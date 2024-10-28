@@ -1,100 +1,139 @@
 package edu.odu.cs.cs350;
 
 import java.util.HashMap;
-import java.util.HashSet;
+import java.util.Iterator;
 import java.util.Map;
-import java.util.Set;
 
-public class Offering {
+public class Offering implements Iterable<Section> {
 
-    private Set<String> courseCodes;  // Cross-listed course codes, e.g., CS620, DASC620
-    private String professor;         // Instructor for all sections
-    private int overallCap;           // Max enrollment across all sections
-    private Map<String, Section> sections;  // Map from course code to Section
-
+    private String subj;                 // Department offering the course, e.g., "CS"
+    private String crse;                 // Course number, e.g., "418"
+    private String xlstGroup;            // Cross-list group identifier
+    private int overallCap;              // Maximum number of students that can enroll in this offering
+    private Map<String, Section> sections; // Map of sections in the offering, keyed by CRN
+    private String proffesor; // Name of the professor teaching the course
     /**
-     * Constructor for a new offering.
-     * 
-     * @param courseCodes a set of cross-listed course codes
-     * @param professor the professor for the offering
-     * @param overallCap the maximum number of students across all sections
+     * Constructor for a new Offering.
+     *
+     * @param subj       the department offering the course
+     * @param crse       the course number
+     * @param xlstGroup  cross-list group identifier
+     * @param overallCap the maximum number of students across all sections in this offering
      */
-    public Offering(Set<String> courseCodes, String professor, int overallCap) {
-        this.courseCodes = new HashSet<>(courseCodes);
-        this.professor = professor;
+    public Offering(String subj, String crse, String xlstGroup, int overallCap, String proffesor) {
+        this.subj = subj;
+        this.crse = crse;
+        this.xlstGroup = xlstGroup;
         this.overallCap = overallCap;
         this.sections = new HashMap<>();
+        this.proffesor = proffesor;
     }
 
-    public Set<String> getCourseCodes() {
-        return courseCodes;
+    public String getSubj() {
+        return subj;
     }
 
-    public String getProfessor() {
-        return professor;
+    public String getCrse() {
+        return crse;
+    }
+
+    public String getXlstGroup() {
+        return xlstGroup;
     }
 
     public int getOverallCap() {
         return overallCap;
     }
 
+    public int getOverallEnr() {
+        return sections.values().stream().mapToInt(Section::getEnr).sum();
+    }
+    public String getProfessor(){
+        return proffesor;
+    }
     /**
-     * Adds a section to this offering based on its unique course code.
-     * 
+     * Adds a section to this offering if it shares the same XLST GROUP.
+     *
      * @param section the section to add
-     * @return true if the section was added successfully, false if course code already exists
+     * @return true if the section was added successfully, false if it doesn’t match the offering's XLST GROUP
      */
     public boolean addSection(Section section) {
-        String courseCode = section.getCrn(); // Unique course code based on CRN and semester
-        if (sections.containsKey(courseCode)) {
-            System.out.println("Section with Course Code " + courseCode + " already exists.");
+        if (!section.getXlstGroup().equals(this.xlstGroup)) {
+            System.out.println("Section does not match the offering's XLST GROUP.");
             return false;
         }
-        sections.put(courseCode, section);
+
+        if (sections.containsKey(section.getCrn())) {
+            System.out.println("Section with CRN " + section.getCrn() + " already exists in this offering.");
+            return false;
+        }
+
+        sections.put(section.getCrn(), section);
         return true;
     }
 
     /**
-     * Get the total number of students enrolled across all sections.
+     * Check if a student can be enrolled without exceeding the overall cap.
+     *
+     * @return true if enrollment is possible, false if the overall cap is reached
      */
-    public int getOverallEnrollment() {
-        return sections.values().stream().mapToInt(Section::getEnr).sum();
+    public boolean canEnrollMoreStudents() {
+        return getOverallEnr() < overallCap;
     }
 
     /**
-     * Enroll a student in a specified section by course code, respecting section and overall caps.
-     * 
-     * @param courseCode the unique course code of the section
-     * @return true if enrollment succeeded, false if enrollment limits were reached
+     * Enroll a student in a specified section by CRN, respecting section and overall caps.
+     *
+     * @param crn the CRN of the section
+     * @return true if enrollment succeeded, false otherwise
      */
-    public boolean enrollStudentInSection(String courseCode) {
-        Section section = sections.get(courseCode);
+    public boolean enrollStudentInSection(String crn) {
+        Section section = sections.get(crn);
         if (section == null) {
-            System.out.println("Section not found for course code: " + courseCode);
+            System.out.println("Section with CRN " + crn + " not found in this offering.");
             return false;
         }
 
-        // Check overall cap
-        if (getOverallEnrollment() < overallCap && section.getEnr() < section.getXLST_CAP()) {
-            return section.enrollStudent();
+        if (!canEnrollMoreStudents()) {
+            System.out.println("Enrollment failed: Offering has reached the overall capacity of " + overallCap);
+            return false;
         }
 
-        System.out.println("Enrollment limit reached for section or overall offering.");
-        return false;
+        return section.enrollStudent();
+    }
+
+    /**
+     * Provides an iterator over the sections in this offering.
+     *
+     * @return an iterator over the sections in this offering
+     */
+    @Override
+    public Iterator<Section> iterator() {
+        return sections.values().iterator();
     }
 
     @Override
     public String toString() {
         StringBuilder builder = new StringBuilder();
-        builder.append("Offering: ").append(courseCodes);
-        builder.append("\nProfessor: ").append(professor);
-        builder.append("\nOverall Cap: ").append(overallCap);
-        builder.append("\nOverall Enrollment: ").append(getOverallEnrollment()).append("\nSections:\n");
-
+        builder.append("Offering [Course Name=").append(subj).append(crse)
+                .append(", Cross-list Group=").append(xlstGroup)
+                .append(", Overall Capacity=").append(overallCap)
+                .append(", Total Enrollment=").append(getOverallEnr())
+                .append(", Sections=\n");
         for (Section section : sections.values()) {
             builder.append("  ").append(section).append("\n");
         }
-
+        builder.append("]");
         return builder.toString();
+    }
+
+   
+
+    @Override
+    public boolean equals(Object obj) {
+        if (!(obj instanceof Offering)) return false;
+        Offering other = (Offering) obj;
+        return subj.equals(other.subj) && crse.equals(other.crse) && xlstGroup.equals(other.xlstGroup)
+                && overallCap == other.overallCap && sections.equals(other.sections);
     }
 }
