@@ -1,124 +1,130 @@
-// package edu.odu.cs.cs350.enp;
+// package edu.odu.cs.cs350;
 
-// import java.io.*;
-// import java.nio.file.*;
+// import java.io.File;
+// import java.io.IOException;
+// import java.net.MalformedURLException;
+// import java.net.URL;
+// import java.nio.file.Files;
+// import java.nio.file.Path;
+// import java.nio.file.Paths;
 // import java.time.LocalDate;
-// import java.time.format.DateTimeFormatter;
-// import java.util.*;
-// import java.util.logging.Logger;
+// import java.util.List;
+
+
 
 // public class Semester {
-//     private static final Logger logger = Logger.getLogger(Semester.class.getName());
-//     private String name;                          // Name of the semester
-//     private LocalDate preRegistrationStart;       // Pre-registration start date
-//     private LocalDate addDeadline;                // Add deadline date
-//     private DateTimeFormatter dateTimeFormatter;  // Formatter for parsing snapshot dates
-//     private List<Snapshot> snapshots;             // List of snapshots for this semester
-//     private CsvReader csvReader;                  // CSV reader utility for handling CSV files
+//     private boolean isURL;
+//     private String name;
+//     private LocalDate preRegDate;
+//     private LocalDate addDeadline;
+//     private URL url;
+//     private Path pathToSemesterDir;
+//     private List<File> csvFiles;
+//     private final DateReader dateReader = new DateReader(); // DateReader instance
 
-//     // Constructor
-//     public Semester(String name, LocalDate preRegistrationStart, LocalDate addDeadline, DateTimeFormatter dateTimeFormatter) {
-//         this.name = name;
-//         this.preRegistrationStart = preRegistrationStart;
+//     // Default constructor
+//     public Semester() {
+//         this.isURL = false;
+//         this.name = "";
+//         this.preRegDate = null;
+//         this.addDeadline = null;
+//     }
+
+//     // Parameterized constructor
+//     public Semester(String semesterPath, LocalDate preRegDate, LocalDate addDeadline) throws Throwable {
+//         this.isURL = false;
+//         setName(semesterPath);
+//         this.preRegDate = preRegDate;
 //         this.addDeadline = addDeadline;
-//         this.dateTimeFormatter = dateTimeFormatter;
-//         this.snapshots = new ArrayList<>();
-//         this.csvReader = new CsvReader();
+//         setPath(semesterPath);
 //     }
 
-//     // Getters
+//     public URL getURL() {
+//         return this.url;
+//     }
+
 //     public String getName() {
-//         return name;
+//         return this.name;
 //     }
 
-//     public LocalDate getPreRegistrationStart() {
-//         return preRegistrationStart;
+//     public LocalDate getPreRegDate() {
+//         return this.preRegDate;
 //     }
 
 //     public LocalDate getAddDeadline() {
-//         return addDeadline;
+//         return this.addDeadline;
 //     }
 
-//     public List<Snapshot> getSnapshots() {
-//         return new ArrayList<>(snapshots);
+//     public Path getPath() {
+//         return this.pathToSemesterDir;
 //     }
 
-//     /**
-//      * Lists all CSV files in the specified directory.
-//      *
-//      * @param semesterDir The directory containing snapshot files.
-//      * @return A list of CSV file paths.
-//      * @throws IOException If an error occurs while listing files.
-//      */
-//     public List<Path> listCsvFiles(String semesterDir) throws IOException {
-//         List<Path> csvFiles = new ArrayList<>();
-//         try (DirectoryStream<Path> directoryStream = Files.newDirectoryStream(Paths.get(semesterDir), "*.csv")) {
-//             for (Path path : directoryStream) {
-//                 csvFiles.add(path);
+//     public List<File> getCsvFiles() {
+//         return this.csvFiles;
+//     }
+
+//     // Sets the semester name based on the directory path
+//     public void setName(String semesterPath) {
+//         String[] tokens = semesterPath.split("[\\\\|/]");
+//         this.name = tokens[tokens.length - 1];
+//     }
+
+//     // Sets the path for the Semester instance, handling URLs and local paths
+//     public boolean setPath(String semesterDirPath) throws Throwable {
+//         String s = semesterDirPath.trim().toLowerCase();
+//         this.isURL = s.startsWith("http://") || s.startsWith("https://");
+
+//         try {
+//             if (isURL) {
+//                 this.url = new URL(semesterDirPath);
+//                 this.pathToSemesterDir = Paths.get(this.url.getPath());
+//             } else {
+//                 this.pathToSemesterDir = Paths.get(semesterDirPath);
+//             }
+//         } catch (MalformedURLException e) {
+//             throw new IOException("Invalid URL provided for semester path: " + semesterDirPath, e);
+//         }
+
+//         return this.isURL;
+//     }
+
+//     // Sets registration dates using DateReader
+//     public void setDates() throws IOException {
+//         LocalDate[] dates = dateReader.getRegistrationDates(this.pathToSemesterDir);
+//         this.preRegDate = dates[0];
+//         this.addDeadline = dates[1];
+//     }
+
+//     // Fetches files either from a URL or local directory
+//     public List<File> fetchFiles() throws IOException {
+//         if (isURL) {
+//             this.csvFiles = CSVUtils.fetchFilesFromURL(this.url);
+//         } else if (Files.isRegularFile(this.pathToSemesterDir)) {
+//             this.csvFiles = CSVUtils.fetchFilesFromPath(this.pathToSemesterDir);
+//         }
+
+//         // Set dates from dates.txt using DateReader
+//         for (File file : this.csvFiles) {
+//             if (file.getName().equals("dates.txt")) {
+//                 setDates();
+//                 break;
 //             }
 //         }
-//         return csvFiles;
+
+//         return this.csvFiles;
 //     }
 
-//     /**
-//      * Filters snapshots within the pre-registration start and add deadline dates.
-//      *
-//      * @param csvFiles A list of CSV file paths to filter.
-//      * @return A list of filtered Snapshot objects.
-//      * @throws Exception If an error occurs while processing snapshot files.
-//      */
-//     public List<Snapshot> filterSnapshots(List<Path> csvFiles) throws Exception {
-//         List<Snapshot> filteredSnapshots = new ArrayList<>();
-//         for (Path path : csvFiles) {
-//             String fileName = path.getFileName().toString();
-//             LocalDate snapshotDate;
-//             try {
-//                 snapshotDate = LocalDate.parse(fileName.substring(0, 10), dateTimeFormatter);
-//             } catch (Exception e) {
-//                 throw new RuntimeException("Error parsing date from file name: " + fileName, e);
-//             }
-//             if (!snapshotDate.isBefore(preRegistrationStart) && !snapshotDate.isAfter(addDeadline)) {
-//                 filteredSnapshots.add(new Snapshot(fileName, snapshotDate));
-//             }
-//         }
-//         filteredSnapshots.sort(Comparator.comparing(Snapshot::getDate));
-//         this.snapshots = filteredSnapshots; // Update snapshots list with valid snapshots
-//         return filteredSnapshots;
+// public List<SnapshotData> readCsvByLine(String filename) throws IOException {
+//     try {
+//         return CSVUtils.readCsvByLine(filename);
+//     } catch (Exception e) {
+//         throw new IOException("Error reading CSV file by line: " + filename, e);
 //     }
+// }
 
-//     /**
-//      * Adds a new snapshot to the semester.
-//      *
-//      * @param snapshot The snapshot to add.
-//      */
-//     public void addSnapshot(Snapshot snapshot) {
-//         snapshots.add(snapshot);
-//         snapshots.sort(Comparator.comparing(Snapshot::getDate)); // Keep snapshots sorted by date
-//     }
 
-//     /**
-//      * Lists all snapshots.
-//      *
-//      * @return A list of all snapshots.
-//      */
-//     public List<Snapshot> listSnapshots() {
-//         return new ArrayList<>(snapshots);
-//     }
-
-//     /**
-//      * Filters snapshots by a date range within the semester.
-//      *
-//      * @param startDate The start date of the range.
-//      * @param endDate   The end date of the range.
-//      * @return A list of snapshots within the specified date range.
-//      */
-//     public List<Snapshot> filterSnapshotsByDate(LocalDate startDate, LocalDate endDate) {
-//         List<Snapshot> filteredSnapshots = new ArrayList<>();
-//         for (Snapshot snapshot : snapshots) {
-//             if (!snapshot.getDate().isBefore(startDate) && !snapshot.getDate().isAfter(endDate)) {
-//                 filteredSnapshots.add(snapshot);
-//             }
-//         }
-//         return filteredSnapshots;
+//     // Get start and end dates from CSV files
+//     public LocalDate[] getSemesterStartAndEndDates() throws IOException {
+//         return dateReader.extractDatesFromCsvFiles(this.pathToSemesterDir);
 //     }
 // }

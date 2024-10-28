@@ -20,8 +20,24 @@ dependencies {
     testImplementation 'org.junit.jupiter:junit-jupiter:5.11.0'
     testImplementation 'org.hamcrest:hamcrest:3.0'
     testImplementation 'junit:junit:4.13.2' // or the latest JUnit 4 version
-}
 
+
+    implementation 'org.projectlombok:lombok:1.18.30'
+    annotationProcessor 'org.projectlombok:lombok:1.18.30'
+    testImplementation 'org.projectlombok:lombok:1.18.30'
+    testAnnotationProcessor 'org.projectlombok:lombok:1.18.30'
+    // This dependency is used by the application.
+    implementation 'com.google.guava:guava:32.1.2-jre'
+    
+    // This dependency is used by the application for CSV reading/writing
+    implementation 'com.opencsv:opencsv:5.8'
+    
+    // This dependency is used by the application for reading/writing Excel Spreadsheets
+    implementation 'org.apache.poi:poi:5.2.3','org.apache.poi:poi-ooxml:5.2.3'
+
+    // This dependency is used for parsing web pages given by a link
+    implementation 'org.jsoup:jsoup:1.16.1'
+}
 
 test {
     testLogging {
