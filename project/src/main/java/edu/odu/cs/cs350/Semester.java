@@ -1,130 +1,88 @@
-// package edu.odu.cs.cs350;
+package edu.odu.cs.cs350;
 
-// import java.io.File;
-// import java.io.IOException;
-// import java.net.MalformedURLException;
-// import java.net.URL;
-// import java.nio.file.Files;
-// import java.nio.file.Path;
-// import java.nio.file.Paths;
-// import java.time.LocalDate;
-// import java.util.List;
+import java.time.LocalDate;
+import java.util.TreeMap;
 
+public class Semester {
+    private String name;
+    private String preRegDate;
+    private String addDeadline;
+    private String semesterStart;
+    private String semesterEnd;
+    private int semesterYear;
+    private String semesterSeason;
+    private EnrollmentSnapshotData enrollmentData;
+    private TreeMap<String, Snapshot> Snapshots;
+    
+    public Semester(String name, String preRegDate, String addDeadline, String semesterStart, String semesterEnd, int semesterYear, String semesterSeason) {
+        this.name = name;
+        this.preRegDate = preRegDate;
+        this.addDeadline = addDeadline;
+        this.semesterStart = semesterStart;
+        this.semesterEnd = semesterEnd;
+        this.semesterYear = semesterYear;
+        this.semesterSeason = semesterSeason;
+        Snapshots = new TreeMap<>();
+    }
 
+    public void setName(String name) {
+        this.name = name;
+    }
 
-// public class Semester {
-//     private boolean isURL;
-//     private String name;
-//     private LocalDate preRegDate;
-//     private LocalDate addDeadline;
-//     private URL url;
-//     private Path pathToSemesterDir;
-//     private List<File> csvFiles;
-//     private final DateReader dateReader = new DateReader(); // DateReader instance
+    public void setPreRegDate(String preRegDate) {
+        this.preRegDate = preRegDate;
+    }
 
-//     // Default constructor
-//     public Semester() {
-//         this.isURL = false;
-//         this.name = "";
-//         this.preRegDate = null;
-//         this.addDeadline = null;
-//     }
+    public void setAddDeadline(String addDeadline) {
+        this.addDeadline = addDeadline;
+    }
 
-//     // Parameterized constructor
-//     public Semester(String semesterPath, LocalDate preRegDate, LocalDate addDeadline) throws Throwable {
-//         this.isURL = false;
-//         setName(semesterPath);
-//         this.preRegDate = preRegDate;
-//         this.addDeadline = addDeadline;
-//         setPath(semesterPath);
-//     }
+    public String getSemesterStart() {
+        return semesterStart;
+    }
 
-//     public URL getURL() {
-//         return this.url;
-//     }
+    public void setSemesterStart(String semesterStart) {
+        this.semesterStart = semesterStart;
+    }
 
-//     public String getName() {
-//         return this.name;
-//     }
+    public String getSemesterEnd() {
+        return semesterEnd;
+    }
 
-//     public LocalDate getPreRegDate() {
-//         return this.preRegDate;
-//     }
+    public void setSemesterEnd(String semesterEnd) {
+        this.semesterEnd = semesterEnd;
+    }
 
-//     public LocalDate getAddDeadline() {
-//         return this.addDeadline;
-//     }
+    public int getSemesterYear() {
+        return semesterYear;
+    }
 
-//     public Path getPath() {
-//         return this.pathToSemesterDir;
-//     }
+    public void setSemesterYear(int semesterYear) {
+        this.semesterYear = semesterYear;
+    }
 
-//     public List<File> getCsvFiles() {
-//         return this.csvFiles;
-//     }
+    public String getSemesterSeason() {
+        return semesterSeason;
+    }
 
-//     // Sets the semester name based on the directory path
-//     public void setName(String semesterPath) {
-//         String[] tokens = semesterPath.split("[\\\\|/]");
-//         this.name = tokens[tokens.length - 1];
-//     }
+    public void setSemesterSeason(String semesterSeason) {
+        this.semesterSeason = semesterSeason;
+    }
 
-//     // Sets the path for the Semester instance, handling URLs and local paths
-//     public boolean setPath(String semesterDirPath) throws Throwable {
-//         String s = semesterDirPath.trim().toLowerCase();
-//         this.isURL = s.startsWith("http://") || s.startsWith("https://");
+    public TreeMap<String, Snapshot> getSnapshots() {
+        return Snapshots;
+    }
 
-//         try {
-//             if (isURL) {
-//                 this.url = new URL(semesterDirPath);
-//                 this.pathToSemesterDir = Paths.get(this.url.getPath());
-//             } else {
-//                 this.pathToSemesterDir = Paths.get(semesterDirPath);
-//             }
-//         } catch (MalformedURLException e) {
-//             throw new IOException("Invalid URL provided for semester path: " + semesterDirPath, e);
-//         }
+    public void setSnapshots(TreeMap<String, Snapshot> snapshots) {
+        Snapshots = snapshots;
+    }
 
-//         return this.isURL;
-//     }
+    // Default constructor
+    public Semester() {
+        this.name = "";
+        this.preRegDate = null;
+        this.addDeadline = null;
+      
+    }
 
-//     // Sets registration dates using DateReader
-//     public void setDates() throws IOException {
-//         LocalDate[] dates = dateReader.getRegistrationDates(this.pathToSemesterDir);
-//         this.preRegDate = dates[0];
-//         this.addDeadline = dates[1];
-//     }
-
-//     // Fetches files either from a URL or local directory
-//     public List<File> fetchFiles() throws IOException {
-//         if (isURL) {
-//             this.csvFiles = CSVUtils.fetchFilesFromURL(this.url);
-//         } else if (Files.isRegularFile(this.pathToSemesterDir)) {
-//             this.csvFiles = CSVUtils.fetchFilesFromPath(this.pathToSemesterDir);
-//         }
-
-//         // Set dates from dates.txt using DateReader
-//         for (File file : this.csvFiles) {
-//             if (file.getName().equals("dates.txt")) {
-//                 setDates();
-//                 break;
-//             }
-//         }
-
-//         return this.csvFiles;
-//     }
-
-// public List<SnapshotData> readCsvByLine(String filename) throws IOException {
-//     try {
-//         return CSVUtils.readCsvByLine(filename);
-//     } catch (Exception e) {
-//         throw new IOException("Error reading CSV file by line: " + filename, e);
-//     }
-// }
-
-
-//     // Get start and end dates from CSV files
-//     public LocalDate[] getSemesterStartAndEndDates() throws IOException {
-//         return dateReader.extractDatesFromCsvFiles(this.pathToSemesterDir);
-//     }
-// }
+}

@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 
+
 public class Offering implements Iterable<Section> {
 
     private String subj;                 // Department offering the course, e.g., "CS"
@@ -12,6 +13,7 @@ public class Offering implements Iterable<Section> {
     private int overallCap;              // Maximum number of students that can enroll in this offering
     private Map<String, Section> sections; // Map of sections in the offering, keyed by CRN
     private String proffesor; // Name of the professor teaching the course
+    
     /**
      * Constructor for a new Offering.
      *
