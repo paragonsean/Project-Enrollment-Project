@@ -1,0 +1,606 @@
+Nov 13, 2024 8:45:38 PM edu.odu.cs.cs350.FileLogging configureFileLogging
+INFO: File logging configured successfully for logger: edu.odu.cs.cs350.Semester
+Nov 13, 2024 8:45:38 PM edu.odu.cs.cs350.Semester processCsvFilesToSnapshots
+INFO: Starting CSV processing for semester: Fall2023
+Nov 13, 2024 8:45:38 PM edu.odu.cs.cs350.Semester addCsvToSnapshot
+INFO: Reading CSV file: 2023-09-01.csv
+Nov 13, 2024 8:45:38 PM edu.odu.cs.cs350.Semester addCsvToSnapshot
+INFO: Added course: Course{subject='CS', courseNumber=101, offerings=1, Offering{offeringKey='XLST101-CS101', crossListGroup='XLST101', sections=[CRN101], 30/30 students currently enrolled}, Section{courseRegistrationNumber='CRN101', 15/20 students currently enrolled, link='CRN101'}}
+Nov 13, 2024 8:45:38 PM edu.odu.cs.cs350.Semester addCsvToSnapshot
+INFO: Added course: Course{subject='CS', courseNumber=102, offerings=1, Offering{offeringKey='XLST102-CS102', crossListGroup='XLST102', sections=[CRN102], 25/25 students currently enrolled}, Section{courseRegistrationNumber='CRN102', 10/15 students currently enrolled, link='CRN102'}}
+Nov 13, 2024 8:45:38 PM edu.odu.cs.cs350.Semester addCsvToSnapshot
+INFO: Reading CSV file: 2023-10-01.csv
+Nov 13, 2024 8:45:38 PM edu.odu.cs.cs350.Semester addCsvToSnapshot
+INFO: Added course: Course{subject='CS', courseNumber=101, offerings=1, Offering{offeringKey='XLST101-CS101', crossListGroup='XLST101', sections=[CRN101], 30/30 students currently enrolled}, Section{courseRegistrationNumber='CRN101', 15/20 students currently enrolled, link='CRN101'}}
+Nov 13, 2024 8:45:38 PM edu.odu.cs.cs350.Semester addCsvToSnapshot
+INFO: Added course: Course{subject='CS', courseNumber=102, offerings=1, Offering{offeringKey='XLST102-CS102', crossListGroup='XLST102', sections=[CRN102], 25/25 students currently enrolled}, Section{courseRegistrationNumber='CRN102', 10/15 students currently enrolled, link='CRN102'}}
+Nov 13, 2024 8:45:38 PM edu.odu.cs.cs350.Semester addCsvToSnapshot
+INFO: Reading CSV file: 2023-11-01.csv
+Nov 13, 2024 8:45:38 PM edu.odu.cs.cs350.Semester addCsvToSnapshot
+INFO: Added course: Course{subject='CS', courseNumber=101, offerings=1, Offering{offeringKey='XLST101-CS101', crossListGroup='XLST101', sections=[CRN101], 30/30 students currently enrolled}, Section{courseRegistrationNumber='CRN101', 15/20 students currently enrolled, link='CRN101'}}
+Nov 13, 2024 8:45:38 PM edu.odu.cs.cs350.Semester addCsvToSnapshot
+INFO: Added course: Course{subject='CS', courseNumber=102, offerings=1, Offering{offeringKey='XLST102-CS102', crossListGroup='XLST102', sections=[CRN102], 25/25 students currently enrolled}, Section{courseRegistrationNumber='CRN102', 10/15 students currently enrolled, link='CRN102'}}
+Nov 13, 2024 8:45:38 PM edu.odu.cs.cs350.Semester processCsvFilesToSnapshots
+INFO: Starting CSV processing for semester: Fall2023
+Nov 13, 2024 8:45:38 PM edu.odu.cs.cs350.Semester addCsvToSnapshot
+INFO: Reading CSV file: 2023-09-01.csv
+Nov 13, 2024 8:45:38 PM edu.odu.cs.cs350.Semester addCsvToSnapshot
+INFO: Added course: Course{subject='CS', courseNumber=101, offerings=1, Offering{offeringKey='XLST101-CS101', crossListGroup='XLST101', sections=[CRN101], 30/30 students currently enrolled}, Section{courseRegistrationNumber='CRN101', 15/20 students currently enrolled, link='CRN101'}}
+Nov 13, 2024 8:45:38 PM edu.odu.cs.cs350.Semester addCsvToSnapshot
+INFO: Added course: Course{subject='CS', courseNumber=102, offerings=1, Offering{offeringKey='XLST102-CS102', crossListGroup='XLST102', sections=[CRN102], 25/25 students currently enrolled}, Section{courseRegistrationNumber='CRN102', 10/15 students currently enrolled, link='CRN102'}}
+Nov 13, 2024 8:45:38 PM edu.odu.cs.cs350.Semester addCsvToSnapshot
+INFO: Reading CSV file: 2023-10-01.csv
+Nov 13, 2024 8:45:38 PM edu.odu.cs.cs350.Semester addCsvToSnapshot
+INFO: Added course: Course{subject='CS', courseNumber=101, offerings=1, Offering{offeringKey='XLST101-CS101', crossListGroup='XLST101', sections=[CRN101], 30/30 students currently enrolled}, Section{courseRegistrationNumber='CRN101', 15/20 students currently enrolled, link='CRN101'}}
+Nov 13, 2024 8:45:38 PM edu.odu.cs.cs350.Semester addCsvToSnapshot
+INFO: Added course: Course{subject='CS', courseNumber=102, offerings=1, Offering{offeringKey='XLST102-CS102', crossListGroup='XLST102', sections=[CRN102], 25/25 students currently enrolled}, Section{courseRegistrationNumber='CRN102', 10/15 students currently enrolled, link='CRN102'}}
+Nov 13, 2024 8:45:38 PM edu.odu.cs.cs350.Semester addCsvToSnapshot
+INFO: Reading CSV file: 2023-11-01.csv
+Nov 13, 2024 8:45:38 PM edu.odu.cs.cs350.Semester addCsvToSnapshot
+INFO: Added course: Course{subject='CS', courseNumber=101, offerings=1, Offering{offeringKey='XLST101-CS101', crossListGroup='XLST101', sections=[CRN101], 30/30 students currently enrolled}, Section{courseRegistrationNumber='CRN101', 15/20 students currently enrolled, link='CRN101'}}
+Nov 13, 2024 8:45:38 PM edu.odu.cs.cs350.Semester addCsvToSnapshot
+INFO: Added course: Course{subject='CS', courseNumber=102, offerings=1, Offering{offeringKey='XLST102-CS102', crossListGroup='XLST102', sections=[CRN102], 25/25 students currently enrolled}, Section{courseRegistrationNumber='CRN102', 10/15 students currently enrolled, link='CRN102'}}
+Nov 13, 2024 8:45:38 PM edu.odu.cs.cs350.Semester processCsvFilesToSnapshots
+INFO: Starting CSV processing for semester: Fall2023
+Nov 13, 2024 8:45:38 PM edu.odu.cs.cs350.Semester addCsvToSnapshot
+INFO: Reading CSV file: 2023-09-01.csv
+Nov 13, 2024 8:45:38 PM edu.odu.cs.cs350.Semester addCsvToSnapshot
+INFO: Added course: Course{subject='CS', courseNumber=101, offerings=1, Offering{offeringKey='XLST101-CS101', crossListGroup='XLST101', sections=[CRN101], 30/30 students currently enrolled}, Section{courseRegistrationNumber='CRN101', 15/20 students currently enrolled, link='CRN101'}}
+Nov 13, 2024 8:45:38 PM edu.odu.cs.cs350.Semester addCsvToSnapshot
+INFO: Added course: Course{subject='CS', courseNumber=102, offerings=1, Offering{offeringKey='XLST102-CS102', crossListGroup='XLST102', sections=[CRN102], 25/25 students currently enrolled}, Section{courseRegistrationNumber='CRN102', 10/15 students currently enrolled, link='CRN102'}}
+Nov 13, 2024 8:45:38 PM edu.odu.cs.cs350.Semester addCsvToSnapshot
+INFO: Reading CSV file: 2023-10-01.csv
+Nov 13, 2024 8:45:38 PM edu.odu.cs.cs350.Semester addCsvToSnapshot
+INFO: Added course: Course{subject='CS', courseNumber=101, offerings=1, Offering{offeringKey='XLST101-CS101', crossListGroup='XLST101', sections=[CRN101], 30/30 students currently enrolled}, Section{courseRegistrationNumber='CRN101', 15/20 students currently enrolled, link='CRN101'}}
+Nov 13, 2024 8:45:38 PM edu.odu.cs.cs350.Semester addCsvToSnapshot
+INFO: Added course: Course{subject='CS', courseNumber=102, offerings=1, Offering{offeringKey='XLST102-CS102', crossListGroup='XLST102', sections=[CRN102], 25/25 students currently enrolled}, Section{courseRegistrationNumber='CRN102', 10/15 students currently enrolled, link='CRN102'}}
+Nov 13, 2024 8:45:38 PM edu.odu.cs.cs350.Semester addCsvToSnapshot
+INFO: Reading CSV file: 2023-11-01.csv
+Nov 13, 2024 8:45:38 PM edu.odu.cs.cs350.Semester addCsvToSnapshot
+INFO: Added course: Course{subject='CS', courseNumber=101, offerings=1, Offering{offeringKey='XLST101-CS101', crossListGroup='XLST101', sections=[CRN101], 30/30 students currently enrolled}, Section{courseRegistrationNumber='CRN101', 15/20 students currently enrolled, link='CRN101'}}
+Nov 13, 2024 8:45:38 PM edu.odu.cs.cs350.Semester addCsvToSnapshot
+INFO: Added course: Course{subject='CS', courseNumber=102, offerings=1, Offering{offeringKey='XLST102-CS102', crossListGroup='XLST102', sections=[CRN102], 25/25 students currently enrolled}, Section{courseRegistrationNumber='CRN102', 10/15 students currently enrolled, link='CRN102'}}
+Nov 13, 2024 8:45:38 PM edu.odu.cs.cs350.Semester createSemester
+INFO: Creating semester: Fall2023
+Nov 13, 2024 8:45:38 PM edu.odu.cs.cs350.Semester processCsvFilesToSnapshots
+INFO: Starting CSV processing for semester: Fall2023
+Nov 13, 2024 8:45:38 PM edu.odu.cs.cs350.Semester addCsvToSnapshot
+INFO: Reading CSV file: 2023-09-01.csv
+Nov 13, 2024 8:45:38 PM edu.odu.cs.cs350.Semester addCsvToSnapshot
+INFO: Added course: Course{subject='CS', courseNumber=101, offerings=1, Offering{offeringKey='XLST101-CS101', crossListGroup='XLST101', sections=[CRN101], 30/30 students currently enrolled}, Section{courseRegistrationNumber='CRN101', 15/20 students currently enrolled, link='CRN101'}}
+Nov 13, 2024 8:45:38 PM edu.odu.cs.cs350.Semester addCsvToSnapshot
+INFO: Added course: Course{subject='CS', courseNumber=102, offerings=1, Offering{offeringKey='XLST102-CS102', crossListGroup='XLST102', sections=[CRN102], 25/25 students currently enrolled}, Section{courseRegistrationNumber='CRN102', 10/15 students currently enrolled, link='CRN102'}}
+Nov 13, 2024 8:45:38 PM edu.odu.cs.cs350.Semester addCsvToSnapshot
+INFO: Reading CSV file: 2023-10-01.csv
+Nov 13, 2024 8:45:38 PM edu.odu.cs.cs350.Semester addCsvToSnapshot
+INFO: Added course: Course{subject='CS', courseNumber=101, offerings=1, Offering{offeringKey='XLST101-CS101', crossListGroup='XLST101', sections=[CRN101], 30/30 students currently enrolled}, Section{courseRegistrationNumber='CRN101', 15/20 students currently enrolled, link='CRN101'}}
+Nov 13, 2024 8:45:38 PM edu.odu.cs.cs350.Semester addCsvToSnapshot
+INFO: Added course: Course{subject='CS', courseNumber=102, offerings=1, Offering{offeringKey='XLST102-CS102', crossListGroup='XLST102', sections=[CRN102], 25/25 students currently enrolled}, Section{courseRegistrationNumber='CRN102', 10/15 students currently enrolled, link='CRN102'}}
+Nov 13, 2024 8:45:38 PM edu.odu.cs.cs350.Semester addCsvToSnapshot
+INFO: Reading CSV file: 2023-11-01.csv
+Nov 13, 2024 8:45:38 PM edu.odu.cs.cs350.Semester addCsvToSnapshot
+INFO: Added course: Course{subject='CS', courseNumber=101, offerings=1, Offering{offeringKey='XLST101-CS101', crossListGroup='XLST101', sections=[CRN101], 30/30 students currently enrolled}, Section{courseRegistrationNumber='CRN101', 15/20 students currently enrolled, link='CRN101'}}
+Nov 13, 2024 8:45:38 PM edu.odu.cs.cs350.Semester addCsvToSnapshot
+INFO: Added course: Course{subject='CS', courseNumber=102, offerings=1, Offering{offeringKey='XLST102-CS102', crossListGroup='XLST102', sections=[CRN102], 25/25 students currently enrolled}, Section{courseRegistrationNumber='CRN102', 10/15 students currently enrolled, link='CRN102'}}
+Nov 13, 2024 8:45:38 PM edu.odu.cs.cs350.Semester extractDateFromFilename
+WARNING: No date found in filename: invalid.csv
+Nov 13, 2024 8:47:22 PM edu.odu.cs.cs350.FileLogging configureFileLogging
+INFO: File logging configured successfully for logger: edu.odu.cs.cs350.Semester
+Nov 13, 2024 8:47:22 PM edu.odu.cs.cs350.Semester processCsvFilesToSnapshots
+INFO: Starting CSV processing for semester: Fall2023
+Nov 13, 2024 8:47:22 PM edu.odu.cs.cs350.Semester addCsvToSnapshot
+INFO: Reading CSV file: 2023-09-01.csv
+Nov 13, 2024 8:47:22 PM edu.odu.cs.cs350.Semester addCsvToSnapshot
+INFO: Added course: Course{subject='CS', courseNumber=101, offerings=1, Offering{offeringKey='XLST101-CS101', crossListGroup='XLST101', sections=[CRN101], 30/30 students currently enrolled}, Section{courseRegistrationNumber='CRN101', 15/20 students currently enrolled, link='CRN101'}}
+Nov 13, 2024 8:47:22 PM edu.odu.cs.cs350.Semester addCsvToSnapshot
+INFO: Added course: Course{subject='CS', courseNumber=102, offerings=1, Offering{offeringKey='XLST102-CS102', crossListGroup='XLST102', sections=[CRN102], 25/25 students currently enrolled}, Section{courseRegistrationNumber='CRN102', 10/15 students currently enrolled, link='CRN102'}}
+Nov 13, 2024 8:47:22 PM edu.odu.cs.cs350.Semester addCsvToSnapshot
+INFO: Reading CSV file: 2023-10-01.csv
+Nov 13, 2024 8:47:22 PM edu.odu.cs.cs350.Semester addCsvToSnapshot
+INFO: Added course: Course{subject='CS', courseNumber=101, offerings=1, Offering{offeringKey='XLST101-CS101', crossListGroup='XLST101', sections=[CRN101], 30/30 students currently enrolled}, Section{courseRegistrationNumber='CRN101', 15/20 students currently enrolled, link='CRN101'}}
+Nov 13, 2024 8:47:22 PM edu.odu.cs.cs350.Semester addCsvToSnapshot
+INFO: Added course: Course{subject='CS', courseNumber=102, offerings=1, Offering{offeringKey='XLST102-CS102', crossListGroup='XLST102', sections=[CRN102], 25/25 students currently enrolled}, Section{courseRegistrationNumber='CRN102', 10/15 students currently enrolled, link='CRN102'}}
+Nov 13, 2024 8:47:22 PM edu.odu.cs.cs350.Semester addCsvToSnapshot
+INFO: Reading CSV file: 2023-11-01.csv
+Nov 13, 2024 8:47:22 PM edu.odu.cs.cs350.Semester addCsvToSnapshot
+INFO: Added course: Course{subject='CS', courseNumber=101, offerings=1, Offering{offeringKey='XLST101-CS101', crossListGroup='XLST101', sections=[CRN101], 30/30 students currently enrolled}, Section{courseRegistrationNumber='CRN101', 15/20 students currently enrolled, link='CRN101'}}
+Nov 13, 2024 8:47:22 PM edu.odu.cs.cs350.Semester addCsvToSnapshot
+INFO: Added course: Course{subject='CS', courseNumber=102, offerings=1, Offering{offeringKey='XLST102-CS102', crossListGroup='XLST102', sections=[CRN102], 25/25 students currently enrolled}, Section{courseRegistrationNumber='CRN102', 10/15 students currently enrolled, link='CRN102'}}
+Nov 13, 2024 8:47:22 PM edu.odu.cs.cs350.Semester processCsvFilesToSnapshots
+INFO: Starting CSV processing for semester: Fall2023
+Nov 13, 2024 8:47:22 PM edu.odu.cs.cs350.Semester addCsvToSnapshot
+INFO: Reading CSV file: 2023-09-01.csv
+Nov 13, 2024 8:47:22 PM edu.odu.cs.cs350.Semester addCsvToSnapshot
+INFO: Added course: Course{subject='CS', courseNumber=101, offerings=1, Offering{offeringKey='XLST101-CS101', crossListGroup='XLST101', sections=[CRN101], 30/30 students currently enrolled}, Section{courseRegistrationNumber='CRN101', 15/20 students currently enrolled, link='CRN101'}}
+Nov 13, 2024 8:47:22 PM edu.odu.cs.cs350.Semester addCsvToSnapshot
+INFO: Added course: Course{subject='CS', courseNumber=102, offerings=1, Offering{offeringKey='XLST102-CS102', crossListGroup='XLST102', sections=[CRN102], 25/25 students currently enrolled}, Section{courseRegistrationNumber='CRN102', 10/15 students currently enrolled, link='CRN102'}}
+Nov 13, 2024 8:47:22 PM edu.odu.cs.cs350.Semester addCsvToSnapshot
+INFO: Reading CSV file: 2023-10-01.csv
+Nov 13, 2024 8:47:22 PM edu.odu.cs.cs350.Semester addCsvToSnapshot
+INFO: Added course: Course{subject='CS', courseNumber=101, offerings=1, Offering{offeringKey='XLST101-CS101', crossListGroup='XLST101', sections=[CRN101], 30/30 students currently enrolled}, Section{courseRegistrationNumber='CRN101', 15/20 students currently enrolled, link='CRN101'}}
+Nov 13, 2024 8:47:22 PM edu.odu.cs.cs350.Semester addCsvToSnapshot
+INFO: Added course: Course{subject='CS', courseNumber=102, offerings=1, Offering{offeringKey='XLST102-CS102', crossListGroup='XLST102', sections=[CRN102], 25/25 students currently enrolled}, Section{courseRegistrationNumber='CRN102', 10/15 students currently enrolled, link='CRN102'}}
+Nov 13, 2024 8:47:22 PM edu.odu.cs.cs350.Semester addCsvToSnapshot
+INFO: Reading CSV file: 2023-11-01.csv
+Nov 13, 2024 8:47:22 PM edu.odu.cs.cs350.Semester addCsvToSnapshot
+INFO: Added course: Course{subject='CS', courseNumber=101, offerings=1, Offering{offeringKey='XLST101-CS101', crossListGroup='XLST101', sections=[CRN101], 30/30 students currently enrolled}, Section{courseRegistrationNumber='CRN101', 15/20 students currently enrolled, link='CRN101'}}
+Nov 13, 2024 8:47:22 PM edu.odu.cs.cs350.Semester addCsvToSnapshot
+INFO: Added course: Course{subject='CS', courseNumber=102, offerings=1, Offering{offeringKey='XLST102-CS102', crossListGroup='XLST102', sections=[CRN102], 25/25 students currently enrolled}, Section{courseRegistrationNumber='CRN102', 10/15 students currently enrolled, link='CRN102'}}
+Nov 13, 2024 8:47:22 PM edu.odu.cs.cs350.Semester processCsvFilesToSnapshots
+INFO: Starting CSV processing for semester: Fall2023
+Nov 13, 2024 8:47:22 PM edu.odu.cs.cs350.Semester addCsvToSnapshot
+INFO: Reading CSV file: 2023-09-01.csv
+Nov 13, 2024 8:47:22 PM edu.odu.cs.cs350.Semester addCsvToSnapshot
+INFO: Added course: Course{subject='CS', courseNumber=101, offerings=1, Offering{offeringKey='XLST101-CS101', crossListGroup='XLST101', sections=[CRN101], 30/30 students currently enrolled}, Section{courseRegistrationNumber='CRN101', 15/20 students currently enrolled, link='CRN101'}}
+Nov 13, 2024 8:47:22 PM edu.odu.cs.cs350.Semester addCsvToSnapshot
+INFO: Added course: Course{subject='CS', courseNumber=102, offerings=1, Offering{offeringKey='XLST102-CS102', crossListGroup='XLST102', sections=[CRN102], 25/25 students currently enrolled}, Section{courseRegistrationNumber='CRN102', 10/15 students currently enrolled, link='CRN102'}}
+Nov 13, 2024 8:47:22 PM edu.odu.cs.cs350.Semester addCsvToSnapshot
+INFO: Reading CSV file: 2023-10-01.csv
+Nov 13, 2024 8:47:22 PM edu.odu.cs.cs350.Semester addCsvToSnapshot
+INFO: Added course: Course{subject='CS', courseNumber=101, offerings=1, Offering{offeringKey='XLST101-CS101', crossListGroup='XLST101', sections=[CRN101], 30/30 students currently enrolled}, Section{courseRegistrationNumber='CRN101', 15/20 students currently enrolled, link='CRN101'}}
+Nov 13, 2024 8:47:22 PM edu.odu.cs.cs350.Semester addCsvToSnapshot
+INFO: Added course: Course{subject='CS', courseNumber=102, offerings=1, Offering{offeringKey='XLST102-CS102', crossListGroup='XLST102', sections=[CRN102], 25/25 students currently enrolled}, Section{courseRegistrationNumber='CRN102', 10/15 students currently enrolled, link='CRN102'}}
+Nov 13, 2024 8:47:22 PM edu.odu.cs.cs350.Semester addCsvToSnapshot
+INFO: Reading CSV file: 2023-11-01.csv
+Nov 13, 2024 8:47:22 PM edu.odu.cs.cs350.Semester addCsvToSnapshot
+INFO: Added course: Course{subject='CS', courseNumber=101, offerings=1, Offering{offeringKey='XLST101-CS101', crossListGroup='XLST101', sections=[CRN101], 30/30 students currently enrolled}, Section{courseRegistrationNumber='CRN101', 15/20 students currently enrolled, link='CRN101'}}
+Nov 13, 2024 8:47:22 PM edu.odu.cs.cs350.Semester addCsvToSnapshot
+INFO: Added course: Course{subject='CS', courseNumber=102, offerings=1, Offering{offeringKey='XLST102-CS102', crossListGroup='XLST102', sections=[CRN102], 25/25 students currently enrolled}, Section{courseRegistrationNumber='CRN102', 10/15 students currently enrolled, link='CRN102'}}
+Nov 13, 2024 8:47:22 PM edu.odu.cs.cs350.Semester createSemester
+INFO: Creating semester: Fall2023
+Nov 13, 2024 8:47:22 PM edu.odu.cs.cs350.Semester processCsvFilesToSnapshots
+INFO: Starting CSV processing for semester: Fall2023
+Nov 13, 2024 8:47:22 PM edu.odu.cs.cs350.Semester addCsvToSnapshot
+INFO: Reading CSV file: 2023-09-01.csv
+Nov 13, 2024 8:47:22 PM edu.odu.cs.cs350.Semester addCsvToSnapshot
+INFO: Added course: Course{subject='CS', courseNumber=101, offerings=1, Offering{offeringKey='XLST101-CS101', crossListGroup='XLST101', sections=[CRN101], 30/30 students currently enrolled}, Section{courseRegistrationNumber='CRN101', 15/20 students currently enrolled, link='CRN101'}}
+Nov 13, 2024 8:47:22 PM edu.odu.cs.cs350.Semester addCsvToSnapshot
+INFO: Added course: Course{subject='CS', courseNumber=102, offerings=1, Offering{offeringKey='XLST102-CS102', crossListGroup='XLST102', sections=[CRN102], 25/25 students currently enrolled}, Section{courseRegistrationNumber='CRN102', 10/15 students currently enrolled, link='CRN102'}}
+Nov 13, 2024 8:47:22 PM edu.odu.cs.cs350.Semester addCsvToSnapshot
+INFO: Reading CSV file: 2023-10-01.csv
+Nov 13, 2024 8:47:22 PM edu.odu.cs.cs350.Semester addCsvToSnapshot
+INFO: Added course: Course{subject='CS', courseNumber=101, offerings=1, Offering{offeringKey='XLST101-CS101', crossListGroup='XLST101', sections=[CRN101], 30/30 students currently enrolled}, Section{courseRegistrationNumber='CRN101', 15/20 students currently enrolled, link='CRN101'}}
+Nov 13, 2024 8:47:22 PM edu.odu.cs.cs350.Semester addCsvToSnapshot
+INFO: Added course: Course{subject='CS', courseNumber=102, offerings=1, Offering{offeringKey='XLST102-CS102', crossListGroup='XLST102', sections=[CRN102], 25/25 students currently enrolled}, Section{courseRegistrationNumber='CRN102', 10/15 students currently enrolled, link='CRN102'}}
+Nov 13, 2024 8:47:22 PM edu.odu.cs.cs350.Semester addCsvToSnapshot
+INFO: Reading CSV file: 2023-11-01.csv
+Nov 13, 2024 8:47:22 PM edu.odu.cs.cs350.Semester addCsvToSnapshot
+INFO: Added course: Course{subject='CS', courseNumber=101, offerings=1, Offering{offeringKey='XLST101-CS101', crossListGroup='XLST101', sections=[CRN101], 30/30 students currently enrolled}, Section{courseRegistrationNumber='CRN101', 15/20 students currently enrolled, link='CRN101'}}
+Nov 13, 2024 8:47:22 PM edu.odu.cs.cs350.Semester addCsvToSnapshot
+INFO: Added course: Course{subject='CS', courseNumber=102, offerings=1, Offering{offeringKey='XLST102-CS102', crossListGroup='XLST102', sections=[CRN102], 25/25 students currently enrolled}, Section{courseRegistrationNumber='CRN102', 10/15 students currently enrolled, link='CRN102'}}
+Nov 13, 2024 8:47:22 PM edu.odu.cs.cs350.Semester extractDateFromFilename
+WARNING: No date found in filename: invalid.csv
+Nov 13, 2024 8:48:33 PM edu.odu.cs.cs350.FileLogging configureFileLogging
+INFO: File logging configured successfully for logger: edu.odu.cs.cs350.Semester
+Nov 13, 2024 8:48:33 PM edu.odu.cs.cs350.Semester processCsvFilesToSnapshots
+INFO: Starting CSV processing for semester: Fall2023
+Nov 13, 2024 8:48:33 PM edu.odu.cs.cs350.Semester addCsvToSnapshot
+INFO: Reading CSV file: 2023-09-01.csv
+Nov 13, 2024 8:48:33 PM edu.odu.cs.cs350.Semester addCsvToSnapshot
+INFO: Added course: Course{subject='CS', courseNumber=101, offerings=1, Offering{offeringKey='XLST101-CS101', crossListGroup='XLST101', sections=[CRN101], 30/30 students currently enrolled}, Section{courseRegistrationNumber='CRN101', 15/20 students currently enrolled, link='CRN101'}}
+Nov 13, 2024 8:48:33 PM edu.odu.cs.cs350.Semester addCsvToSnapshot
+INFO: Added course: Course{subject='CS', courseNumber=102, offerings=1, Offering{offeringKey='XLST102-CS102', crossListGroup='XLST102', sections=[CRN102], 25/25 students currently enrolled}, Section{courseRegistrationNumber='CRN102', 10/15 students currently enrolled, link='CRN102'}}
+Nov 13, 2024 8:48:33 PM edu.odu.cs.cs350.Semester addCsvToSnapshot
+INFO: Reading CSV file: 2023-10-01.csv
+Nov 13, 2024 8:48:33 PM edu.odu.cs.cs350.Semester addCsvToSnapshot
+INFO: Added course: Course{subject='CS', courseNumber=101, offerings=1, Offering{offeringKey='XLST101-CS101', crossListGroup='XLST101', sections=[CRN101], 30/30 students currently enrolled}, Section{courseRegistrationNumber='CRN101', 15/20 students currently enrolled, link='CRN101'}}
+Nov 13, 2024 8:48:33 PM edu.odu.cs.cs350.Semester addCsvToSnapshot
+INFO: Added course: Course{subject='CS', courseNumber=102, offerings=1, Offering{offeringKey='XLST102-CS102', crossListGroup='XLST102', sections=[CRN102], 25/25 students currently enrolled}, Section{courseRegistrationNumber='CRN102', 10/15 students currently enrolled, link='CRN102'}}
+Nov 13, 2024 8:48:33 PM edu.odu.cs.cs350.Semester addCsvToSnapshot
+INFO: Reading CSV file: 2023-11-01.csv
+Nov 13, 2024 8:48:33 PM edu.odu.cs.cs350.Semester addCsvToSnapshot
+INFO: Added course: Course{subject='CS', courseNumber=101, offerings=1, Offering{offeringKey='XLST101-CS101', crossListGroup='XLST101', sections=[CRN101], 30/30 students currently enrolled}, Section{courseRegistrationNumber='CRN101', 15/20 students currently enrolled, link='CRN101'}}
+Nov 13, 2024 8:48:33 PM edu.odu.cs.cs350.Semester addCsvToSnapshot
+INFO: Added course: Course{subject='CS', courseNumber=102, offerings=1, Offering{offeringKey='XLST102-CS102', crossListGroup='XLST102', sections=[CRN102], 25/25 students currently enrolled}, Section{courseRegistrationNumber='CRN102', 10/15 students currently enrolled, link='CRN102'}}
+Nov 13, 2024 8:48:33 PM edu.odu.cs.cs350.Semester processCsvFilesToSnapshots
+INFO: Starting CSV processing for semester: Fall2023
+Nov 13, 2024 8:48:33 PM edu.odu.cs.cs350.Semester addCsvToSnapshot
+INFO: Reading CSV file: 2023-09-01.csv
+Nov 13, 2024 8:48:33 PM edu.odu.cs.cs350.Semester addCsvToSnapshot
+INFO: Added course: Course{subject='CS', courseNumber=101, offerings=1, Offering{offeringKey='XLST101-CS101', crossListGroup='XLST101', sections=[CRN101], 30/30 students currently enrolled}, Section{courseRegistrationNumber='CRN101', 15/20 students currently enrolled, link='CRN101'}}
+Nov 13, 2024 8:48:33 PM edu.odu.cs.cs350.Semester addCsvToSnapshot
+INFO: Added course: Course{subject='CS', courseNumber=102, offerings=1, Offering{offeringKey='XLST102-CS102', crossListGroup='XLST102', sections=[CRN102], 25/25 students currently enrolled}, Section{courseRegistrationNumber='CRN102', 10/15 students currently enrolled, link='CRN102'}}
+Nov 13, 2024 8:48:33 PM edu.odu.cs.cs350.Semester addCsvToSnapshot
+INFO: Reading CSV file: 2023-10-01.csv
+Nov 13, 2024 8:48:33 PM edu.odu.cs.cs350.Semester addCsvToSnapshot
+INFO: Added course: Course{subject='CS', courseNumber=101, offerings=1, Offering{offeringKey='XLST101-CS101', crossListGroup='XLST101', sections=[CRN101], 30/30 students currently enrolled}, Section{courseRegistrationNumber='CRN101', 15/20 students currently enrolled, link='CRN101'}}
+Nov 13, 2024 8:48:33 PM edu.odu.cs.cs350.Semester addCsvToSnapshot
+INFO: Added course: Course{subject='CS', courseNumber=102, offerings=1, Offering{offeringKey='XLST102-CS102', crossListGroup='XLST102', sections=[CRN102], 25/25 students currently enrolled}, Section{courseRegistrationNumber='CRN102', 10/15 students currently enrolled, link='CRN102'}}
+Nov 13, 2024 8:48:33 PM edu.odu.cs.cs350.Semester addCsvToSnapshot
+INFO: Reading CSV file: 2023-11-01.csv
+Nov 13, 2024 8:48:33 PM edu.odu.cs.cs350.Semester addCsvToSnapshot
+INFO: Added course: Course{subject='CS', courseNumber=101, offerings=1, Offering{offeringKey='XLST101-CS101', crossListGroup='XLST101', sections=[CRN101], 30/30 students currently enrolled}, Section{courseRegistrationNumber='CRN101', 15/20 students currently enrolled, link='CRN101'}}
+Nov 13, 2024 8:48:33 PM edu.odu.cs.cs350.Semester addCsvToSnapshot
+INFO: Added course: Course{subject='CS', courseNumber=102, offerings=1, Offering{offeringKey='XLST102-CS102', crossListGroup='XLST102', sections=[CRN102], 25/25 students currently enrolled}, Section{courseRegistrationNumber='CRN102', 10/15 students currently enrolled, link='CRN102'}}
+Nov 13, 2024 8:48:33 PM edu.odu.cs.cs350.Semester processCsvFilesToSnapshots
+INFO: Starting CSV processing for semester: Fall2023
+Nov 13, 2024 8:48:33 PM edu.odu.cs.cs350.Semester addCsvToSnapshot
+INFO: Reading CSV file: 2023-09-01.csv
+Nov 13, 2024 8:48:33 PM edu.odu.cs.cs350.Semester addCsvToSnapshot
+INFO: Added course: Course{subject='CS', courseNumber=101, offerings=1, Offering{offeringKey='XLST101-CS101', crossListGroup='XLST101', sections=[CRN101], 30/30 students currently enrolled}, Section{courseRegistrationNumber='CRN101', 15/20 students currently enrolled, link='CRN101'}}
+Nov 13, 2024 8:48:33 PM edu.odu.cs.cs350.Semester addCsvToSnapshot
+INFO: Added course: Course{subject='CS', courseNumber=102, offerings=1, Offering{offeringKey='XLST102-CS102', crossListGroup='XLST102', sections=[CRN102], 25/25 students currently enrolled}, Section{courseRegistrationNumber='CRN102', 10/15 students currently enrolled, link='CRN102'}}
+Nov 13, 2024 8:48:33 PM edu.odu.cs.cs350.Semester addCsvToSnapshot
+INFO: Reading CSV file: 2023-10-01.csv
+Nov 13, 2024 8:48:33 PM edu.odu.cs.cs350.Semester addCsvToSnapshot
+INFO: Added course: Course{subject='CS', courseNumber=101, offerings=1, Offering{offeringKey='XLST101-CS101', crossListGroup='XLST101', sections=[CRN101], 30/30 students currently enrolled}, Section{courseRegistrationNumber='CRN101', 15/20 students currently enrolled, link='CRN101'}}
+Nov 13, 2024 8:48:33 PM edu.odu.cs.cs350.Semester addCsvToSnapshot
+INFO: Added course: Course{subject='CS', courseNumber=102, offerings=1, Offering{offeringKey='XLST102-CS102', crossListGroup='XLST102', sections=[CRN102], 25/25 students currently enrolled}, Section{courseRegistrationNumber='CRN102', 10/15 students currently enrolled, link='CRN102'}}
+Nov 13, 2024 8:48:33 PM edu.odu.cs.cs350.Semester addCsvToSnapshot
+INFO: Reading CSV file: 2023-11-01.csv
+Nov 13, 2024 8:48:33 PM edu.odu.cs.cs350.Semester addCsvToSnapshot
+INFO: Added course: Course{subject='CS', courseNumber=101, offerings=1, Offering{offeringKey='XLST101-CS101', crossListGroup='XLST101', sections=[CRN101], 30/30 students currently enrolled}, Section{courseRegistrationNumber='CRN101', 15/20 students currently enrolled, link='CRN101'}}
+Nov 13, 2024 8:48:33 PM edu.odu.cs.cs350.Semester addCsvToSnapshot
+INFO: Added course: Course{subject='CS', courseNumber=102, offerings=1, Offering{offeringKey='XLST102-CS102', crossListGroup='XLST102', sections=[CRN102], 25/25 students currently enrolled}, Section{courseRegistrationNumber='CRN102', 10/15 students currently enrolled, link='CRN102'}}
+Nov 13, 2024 8:48:33 PM edu.odu.cs.cs350.Semester createSemester
+INFO: Creating semester: Fall2023
+Nov 13, 2024 8:48:33 PM edu.odu.cs.cs350.Semester processCsvFilesToSnapshots
+INFO: Starting CSV processing for semester: Fall2023
+Nov 13, 2024 8:48:33 PM edu.odu.cs.cs350.Semester addCsvToSnapshot
+INFO: Reading CSV file: 2023-09-01.csv
+Nov 13, 2024 8:48:33 PM edu.odu.cs.cs350.Semester addCsvToSnapshot
+INFO: Added course: Course{subject='CS', courseNumber=101, offerings=1, Offering{offeringKey='XLST101-CS101', crossListGroup='XLST101', sections=[CRN101], 30/30 students currently enrolled}, Section{courseRegistrationNumber='CRN101', 15/20 students currently enrolled, link='CRN101'}}
+Nov 13, 2024 8:48:33 PM edu.odu.cs.cs350.Semester addCsvToSnapshot
+INFO: Added course: Course{subject='CS', courseNumber=102, offerings=1, Offering{offeringKey='XLST102-CS102', crossListGroup='XLST102', sections=[CRN102], 25/25 students currently enrolled}, Section{courseRegistrationNumber='CRN102', 10/15 students currently enrolled, link='CRN102'}}
+Nov 13, 2024 8:48:33 PM edu.odu.cs.cs350.Semester addCsvToSnapshot
+INFO: Reading CSV file: 2023-10-01.csv
+Nov 13, 2024 8:48:33 PM edu.odu.cs.cs350.Semester addCsvToSnapshot
+INFO: Added course: Course{subject='CS', courseNumber=101, offerings=1, Offering{offeringKey='XLST101-CS101', crossListGroup='XLST101', sections=[CRN101], 30/30 students currently enrolled}, Section{courseRegistrationNumber='CRN101', 15/20 students currently enrolled, link='CRN101'}}
+Nov 13, 2024 8:48:33 PM edu.odu.cs.cs350.Semester addCsvToSnapshot
+INFO: Added course: Course{subject='CS', courseNumber=102, offerings=1, Offering{offeringKey='XLST102-CS102', crossListGroup='XLST102', sections=[CRN102], 25/25 students currently enrolled}, Section{courseRegistrationNumber='CRN102', 10/15 students currently enrolled, link='CRN102'}}
+Nov 13, 2024 8:48:33 PM edu.odu.cs.cs350.Semester addCsvToSnapshot
+INFO: Reading CSV file: 2023-11-01.csv
+Nov 13, 2024 8:48:33 PM edu.odu.cs.cs350.Semester addCsvToSnapshot
+INFO: Added course: Course{subject='CS', courseNumber=101, offerings=1, Offering{offeringKey='XLST101-CS101', crossListGroup='XLST101', sections=[CRN101], 30/30 students currently enrolled}, Section{courseRegistrationNumber='CRN101', 15/20 students currently enrolled, link='CRN101'}}
+Nov 13, 2024 8:48:33 PM edu.odu.cs.cs350.Semester addCsvToSnapshot
+INFO: Added course: Course{subject='CS', courseNumber=102, offerings=1, Offering{offeringKey='XLST102-CS102', crossListGroup='XLST102', sections=[CRN102], 25/25 students currently enrolled}, Section{courseRegistrationNumber='CRN102', 10/15 students currently enrolled, link='CRN102'}}
+Nov 13, 2024 8:48:33 PM edu.odu.cs.cs350.Semester extractDateFromFilename
+WARNING: No date found in filename: invalid.csv
+Nov 13, 2024 8:49:29 PM edu.odu.cs.cs350.FileLogging configureFileLogging
+INFO: File logging configured successfully for logger: edu.odu.cs.cs350.Semester
+Nov 13, 2024 8:49:29 PM edu.odu.cs.cs350.Semester processCsvFilesToSnapshots
+INFO: Starting CSV processing for semester: Fall2023
+Nov 13, 2024 8:49:29 PM edu.odu.cs.cs350.Semester addCsvToSnapshot
+INFO: Reading CSV file: 2023-09-01.csv
+Nov 13, 2024 8:49:29 PM edu.odu.cs.cs350.Semester addCsvToSnapshot
+INFO: Added course: Course{subject='CS', courseNumber=101, offerings=1, Offering{offeringKey='XLST101-CS101', crossListGroup='XLST101', sections=[CRN101], 30/30 students currently enrolled}, Section{courseRegistrationNumber='CRN101', 15/20 students currently enrolled, link='CRN101'}}
+Nov 13, 2024 8:49:29 PM edu.odu.cs.cs350.Semester addCsvToSnapshot
+INFO: Added course: Course{subject='CS', courseNumber=102, offerings=1, Offering{offeringKey='XLST102-CS102', crossListGroup='XLST102', sections=[CRN102], 25/25 students currently enrolled}, Section{courseRegistrationNumber='CRN102', 10/15 students currently enrolled, link='CRN102'}}
+Nov 13, 2024 8:49:29 PM edu.odu.cs.cs350.Semester addCsvToSnapshot
+INFO: Reading CSV file: 2023-10-01.csv
+Nov 13, 2024 8:49:29 PM edu.odu.cs.cs350.Semester addCsvToSnapshot
+INFO: Added course: Course{subject='CS', courseNumber=101, offerings=1, Offering{offeringKey='XLST101-CS101', crossListGroup='XLST101', sections=[CRN101], 30/30 students currently enrolled}, Section{courseRegistrationNumber='CRN101', 15/20 students currently enrolled, link='CRN101'}}
+Nov 13, 2024 8:49:29 PM edu.odu.cs.cs350.Semester addCsvToSnapshot
+INFO: Added course: Course{subject='CS', courseNumber=102, offerings=1, Offering{offeringKey='XLST102-CS102', crossListGroup='XLST102', sections=[CRN102], 25/25 students currently enrolled}, Section{courseRegistrationNumber='CRN102', 10/15 students currently enrolled, link='CRN102'}}
+Nov 13, 2024 8:49:29 PM edu.odu.cs.cs350.Semester addCsvToSnapshot
+INFO: Reading CSV file: 2023-11-01.csv
+Nov 13, 2024 8:49:29 PM edu.odu.cs.cs350.Semester addCsvToSnapshot
+INFO: Added course: Course{subject='CS', courseNumber=101, offerings=1, Offering{offeringKey='XLST101-CS101', crossListGroup='XLST101', sections=[CRN101], 30/30 students currently enrolled}, Section{courseRegistrationNumber='CRN101', 15/20 students currently enrolled, link='CRN101'}}
+Nov 13, 2024 8:49:29 PM edu.odu.cs.cs350.Semester addCsvToSnapshot
+INFO: Added course: Course{subject='CS', courseNumber=102, offerings=1, Offering{offeringKey='XLST102-CS102', crossListGroup='XLST102', sections=[CRN102], 25/25 students currently enrolled}, Section{courseRegistrationNumber='CRN102', 10/15 students currently enrolled, link='CRN102'}}
+Nov 13, 2024 8:49:29 PM edu.odu.cs.cs350.Semester processCsvFilesToSnapshots
+INFO: Starting CSV processing for semester: Fall2023
+Nov 13, 2024 8:49:29 PM edu.odu.cs.cs350.Semester addCsvToSnapshot
+INFO: Reading CSV file: 2023-09-01.csv
+Nov 13, 2024 8:49:29 PM edu.odu.cs.cs350.Semester addCsvToSnapshot
+INFO: Added course: Course{subject='CS', courseNumber=101, offerings=1, Offering{offeringKey='XLST101-CS101', crossListGroup='XLST101', sections=[CRN101], 30/30 students currently enrolled}, Section{courseRegistrationNumber='CRN101', 15/20 students currently enrolled, link='CRN101'}}
+Nov 13, 2024 8:49:29 PM edu.odu.cs.cs350.Semester addCsvToSnapshot
+INFO: Added course: Course{subject='CS', courseNumber=102, offerings=1, Offering{offeringKey='XLST102-CS102', crossListGroup='XLST102', sections=[CRN102], 25/25 students currently enrolled}, Section{courseRegistrationNumber='CRN102', 10/15 students currently enrolled, link='CRN102'}}
+Nov 13, 2024 8:49:29 PM edu.odu.cs.cs350.Semester addCsvToSnapshot
+INFO: Reading CSV file: 2023-10-01.csv
+Nov 13, 2024 8:49:29 PM edu.odu.cs.cs350.Semester addCsvToSnapshot
+INFO: Added course: Course{subject='CS', courseNumber=101, offerings=1, Offering{offeringKey='XLST101-CS101', crossListGroup='XLST101', sections=[CRN101], 30/30 students currently enrolled}, Section{courseRegistrationNumber='CRN101', 15/20 students currently enrolled, link='CRN101'}}
+Nov 13, 2024 8:49:29 PM edu.odu.cs.cs350.Semester addCsvToSnapshot
+INFO: Added course: Course{subject='CS', courseNumber=102, offerings=1, Offering{offeringKey='XLST102-CS102', crossListGroup='XLST102', sections=[CRN102], 25/25 students currently enrolled}, Section{courseRegistrationNumber='CRN102', 10/15 students currently enrolled, link='CRN102'}}
+Nov 13, 2024 8:49:29 PM edu.odu.cs.cs350.Semester addCsvToSnapshot
+INFO: Reading CSV file: 2023-11-01.csv
+Nov 13, 2024 8:49:29 PM edu.odu.cs.cs350.Semester addCsvToSnapshot
+INFO: Added course: Course{subject='CS', courseNumber=101, offerings=1, Offering{offeringKey='XLST101-CS101', crossListGroup='XLST101', sections=[CRN101], 30/30 students currently enrolled}, Section{courseRegistrationNumber='CRN101', 15/20 students currently enrolled, link='CRN101'}}
+Nov 13, 2024 8:49:29 PM edu.odu.cs.cs350.Semester addCsvToSnapshot
+INFO: Added course: Course{subject='CS', courseNumber=102, offerings=1, Offering{offeringKey='XLST102-CS102', crossListGroup='XLST102', sections=[CRN102], 25/25 students currently enrolled}, Section{courseRegistrationNumber='CRN102', 10/15 students currently enrolled, link='CRN102'}}
+Nov 13, 2024 8:49:29 PM edu.odu.cs.cs350.Semester processCsvFilesToSnapshots
+INFO: Starting CSV processing for semester: Fall2023
+Nov 13, 2024 8:49:29 PM edu.odu.cs.cs350.Semester addCsvToSnapshot
+INFO: Reading CSV file: 2023-09-01.csv
+Nov 13, 2024 8:49:29 PM edu.odu.cs.cs350.Semester addCsvToSnapshot
+INFO: Added course: Course{subject='CS', courseNumber=101, offerings=1, Offering{offeringKey='XLST101-CS101', crossListGroup='XLST101', sections=[CRN101], 30/30 students currently enrolled}, Section{courseRegistrationNumber='CRN101', 15/20 students currently enrolled, link='CRN101'}}
+Nov 13, 2024 8:49:29 PM edu.odu.cs.cs350.Semester addCsvToSnapshot
+INFO: Added course: Course{subject='CS', courseNumber=102, offerings=1, Offering{offeringKey='XLST102-CS102', crossListGroup='XLST102', sections=[CRN102], 25/25 students currently enrolled}, Section{courseRegistrationNumber='CRN102', 10/15 students currently enrolled, link='CRN102'}}
+Nov 13, 2024 8:49:29 PM edu.odu.cs.cs350.Semester addCsvToSnapshot
+INFO: Reading CSV file: 2023-10-01.csv
+Nov 13, 2024 8:49:29 PM edu.odu.cs.cs350.Semester addCsvToSnapshot
+INFO: Added course: Course{subject='CS', courseNumber=101, offerings=1, Offering{offeringKey='XLST101-CS101', crossListGroup='XLST101', sections=[CRN101], 30/30 students currently enrolled}, Section{courseRegistrationNumber='CRN101', 15/20 students currently enrolled, link='CRN101'}}
+Nov 13, 2024 8:49:29 PM edu.odu.cs.cs350.Semester addCsvToSnapshot
+INFO: Added course: Course{subject='CS', courseNumber=102, offerings=1, Offering{offeringKey='XLST102-CS102', crossListGroup='XLST102', sections=[CRN102], 25/25 students currently enrolled}, Section{courseRegistrationNumber='CRN102', 10/15 students currently enrolled, link='CRN102'}}
+Nov 13, 2024 8:49:29 PM edu.odu.cs.cs350.Semester addCsvToSnapshot
+INFO: Reading CSV file: 2023-11-01.csv
+Nov 13, 2024 8:49:29 PM edu.odu.cs.cs350.Semester addCsvToSnapshot
+INFO: Added course: Course{subject='CS', courseNumber=101, offerings=1, Offering{offeringKey='XLST101-CS101', crossListGroup='XLST101', sections=[CRN101], 30/30 students currently enrolled}, Section{courseRegistrationNumber='CRN101', 15/20 students currently enrolled, link='CRN101'}}
+Nov 13, 2024 8:49:29 PM edu.odu.cs.cs350.Semester addCsvToSnapshot
+INFO: Added course: Course{subject='CS', courseNumber=102, offerings=1, Offering{offeringKey='XLST102-CS102', crossListGroup='XLST102', sections=[CRN102], 25/25 students currently enrolled}, Section{courseRegistrationNumber='CRN102', 10/15 students currently enrolled, link='CRN102'}}
+Nov 13, 2024 8:49:29 PM edu.odu.cs.cs350.Semester createSemester
+INFO: Creating semester: Fall2023
+Nov 13, 2024 8:49:29 PM edu.odu.cs.cs350.Semester processCsvFilesToSnapshots
+INFO: Starting CSV processing for semester: Fall2023
+Nov 13, 2024 8:49:29 PM edu.odu.cs.cs350.Semester addCsvToSnapshot
+INFO: Reading CSV file: 2023-09-01.csv
+Nov 13, 2024 8:49:29 PM edu.odu.cs.cs350.Semester addCsvToSnapshot
+INFO: Added course: Course{subject='CS', courseNumber=101, offerings=1, Offering{offeringKey='XLST101-CS101', crossListGroup='XLST101', sections=[CRN101], 30/30 students currently enrolled}, Section{courseRegistrationNumber='CRN101', 15/20 students currently enrolled, link='CRN101'}}
+Nov 13, 2024 8:49:29 PM edu.odu.cs.cs350.Semester addCsvToSnapshot
+INFO: Added course: Course{subject='CS', courseNumber=102, offerings=1, Offering{offeringKey='XLST102-CS102', crossListGroup='XLST102', sections=[CRN102], 25/25 students currently enrolled}, Section{courseRegistrationNumber='CRN102', 10/15 students currently enrolled, link='CRN102'}}
+Nov 13, 2024 8:49:29 PM edu.odu.cs.cs350.Semester addCsvToSnapshot
+INFO: Reading CSV file: 2023-10-01.csv
+Nov 13, 2024 8:49:29 PM edu.odu.cs.cs350.Semester addCsvToSnapshot
+INFO: Added course: Course{subject='CS', courseNumber=101, offerings=1, Offering{offeringKey='XLST101-CS101', crossListGroup='XLST101', sections=[CRN101], 30/30 students currently enrolled}, Section{courseRegistrationNumber='CRN101', 15/20 students currently enrolled, link='CRN101'}}
+Nov 13, 2024 8:49:29 PM edu.odu.cs.cs350.Semester addCsvToSnapshot
+INFO: Added course: Course{subject='CS', courseNumber=102, offerings=1, Offering{offeringKey='XLST102-CS102', crossListGroup='XLST102', sections=[CRN102], 25/25 students currently enrolled}, Section{courseRegistrationNumber='CRN102', 10/15 students currently enrolled, link='CRN102'}}
+Nov 13, 2024 8:49:29 PM edu.odu.cs.cs350.Semester addCsvToSnapshot
+INFO: Reading CSV file: 2023-11-01.csv
+Nov 13, 2024 8:49:29 PM edu.odu.cs.cs350.Semester addCsvToSnapshot
+INFO: Added course: Course{subject='CS', courseNumber=101, offerings=1, Offering{offeringKey='XLST101-CS101', crossListGroup='XLST101', sections=[CRN101], 30/30 students currently enrolled}, Section{courseRegistrationNumber='CRN101', 15/20 students currently enrolled, link='CRN101'}}
+Nov 13, 2024 8:49:29 PM edu.odu.cs.cs350.Semester addCsvToSnapshot
+INFO: Added course: Course{subject='CS', courseNumber=102, offerings=1, Offering{offeringKey='XLST102-CS102', crossListGroup='XLST102', sections=[CRN102], 25/25 students currently enrolled}, Section{courseRegistrationNumber='CRN102', 10/15 students currently enrolled, link='CRN102'}}
+Nov 13, 2024 8:49:29 PM edu.odu.cs.cs350.Semester extractDateFromFilename
+WARNING: No date found in filename: invalid.csv
+Nov 13, 2024 8:52:51 PM edu.odu.cs.cs350.FileLogging configureFileLogging
+INFO: File logging configured successfully for logger: edu.odu.cs.cs350.Semester
+Nov 13, 2024 8:52:51 PM edu.odu.cs.cs350.Semester processCsvFilesToSnapshots
+INFO: Starting CSV processing for semester: Fall2023
+Nov 13, 2024 8:52:51 PM edu.odu.cs.cs350.Semester addCsvToSnapshot
+INFO: Reading CSV file: 2023-09-01.csv
+Nov 13, 2024 8:52:51 PM edu.odu.cs.cs350.Semester addCsvToSnapshot
+INFO: Added course: Course{subject='CS', courseNumber=101, offerings=1, Offering{offeringKey='XLST101-CS101', crossListGroup='XLST101', sections=[CRN101], 30/30 students currently enrolled}, Section{courseRegistrationNumber='CRN101', 15/20 students currently enrolled, link='CRN101'}}
+Nov 13, 2024 8:52:51 PM edu.odu.cs.cs350.Semester addCsvToSnapshot
+INFO: Added course: Course{subject='CS', courseNumber=102, offerings=1, Offering{offeringKey='XLST102-CS102', crossListGroup='XLST102', sections=[CRN102], 25/25 students currently enrolled}, Section{courseRegistrationNumber='CRN102', 10/15 students currently enrolled, link='CRN102'}}
+Nov 13, 2024 8:52:51 PM edu.odu.cs.cs350.Semester addCsvToSnapshot
+INFO: Reading CSV file: 2023-10-01.csv
+Nov 13, 2024 8:52:51 PM edu.odu.cs.cs350.Semester addCsvToSnapshot
+INFO: Added course: Course{subject='CS', courseNumber=101, offerings=1, Offering{offeringKey='XLST101-CS101', crossListGroup='XLST101', sections=[CRN101], 30/30 students currently enrolled}, Section{courseRegistrationNumber='CRN101', 15/20 students currently enrolled, link='CRN101'}}
+Nov 13, 2024 8:52:51 PM edu.odu.cs.cs350.Semester addCsvToSnapshot
+INFO: Added course: Course{subject='CS', courseNumber=102, offerings=1, Offering{offeringKey='XLST102-CS102', crossListGroup='XLST102', sections=[CRN102], 25/25 students currently enrolled}, Section{courseRegistrationNumber='CRN102', 10/15 students currently enrolled, link='CRN102'}}
+Nov 13, 2024 8:52:51 PM edu.odu.cs.cs350.Semester addCsvToSnapshot
+INFO: Reading CSV file: 2023-11-01.csv
+Nov 13, 2024 8:52:51 PM edu.odu.cs.cs350.Semester addCsvToSnapshot
+INFO: Added course: Course{subject='CS', courseNumber=101, offerings=1, Offering{offeringKey='XLST101-CS101', crossListGroup='XLST101', sections=[CRN101], 30/30 students currently enrolled}, Section{courseRegistrationNumber='CRN101', 15/20 students currently enrolled, link='CRN101'}}
+Nov 13, 2024 8:52:51 PM edu.odu.cs.cs350.Semester addCsvToSnapshot
+INFO: Added course: Course{subject='CS', courseNumber=102, offerings=1, Offering{offeringKey='XLST102-CS102', crossListGroup='XLST102', sections=[CRN102], 25/25 students currently enrolled}, Section{courseRegistrationNumber='CRN102', 10/15 students currently enrolled, link='CRN102'}}
+Nov 13, 2024 8:52:51 PM edu.odu.cs.cs350.Semester processCsvFilesToSnapshots
+INFO: Starting CSV processing for semester: Fall2023
+Nov 13, 2024 8:52:51 PM edu.odu.cs.cs350.Semester addCsvToSnapshot
+INFO: Reading CSV file: 2023-09-01.csv
+Nov 13, 2024 8:52:51 PM edu.odu.cs.cs350.Semester addCsvToSnapshot
+INFO: Added course: Course{subject='CS', courseNumber=101, offerings=1, Offering{offeringKey='XLST101-CS101', crossListGroup='XLST101', sections=[CRN101], 30/30 students currently enrolled}, Section{courseRegistrationNumber='CRN101', 15/20 students currently enrolled, link='CRN101'}}
+Nov 13, 2024 8:52:51 PM edu.odu.cs.cs350.Semester addCsvToSnapshot
+INFO: Added course: Course{subject='CS', courseNumber=102, offerings=1, Offering{offeringKey='XLST102-CS102', crossListGroup='XLST102', sections=[CRN102], 25/25 students currently enrolled}, Section{courseRegistrationNumber='CRN102', 10/15 students currently enrolled, link='CRN102'}}
+Nov 13, 2024 8:52:51 PM edu.odu.cs.cs350.Semester addCsvToSnapshot
+INFO: Reading CSV file: 2023-10-01.csv
+Nov 13, 2024 8:52:51 PM edu.odu.cs.cs350.Semester addCsvToSnapshot
+INFO: Added course: Course{subject='CS', courseNumber=101, offerings=1, Offering{offeringKey='XLST101-CS101', crossListGroup='XLST101', sections=[CRN101], 30/30 students currently enrolled}, Section{courseRegistrationNumber='CRN101', 15/20 students currently enrolled, link='CRN101'}}
+Nov 13, 2024 8:52:51 PM edu.odu.cs.cs350.Semester addCsvToSnapshot
+INFO: Added course: Course{subject='CS', courseNumber=102, offerings=1, Offering{offeringKey='XLST102-CS102', crossListGroup='XLST102', sections=[CRN102], 25/25 students currently enrolled}, Section{courseRegistrationNumber='CRN102', 10/15 students currently enrolled, link='CRN102'}}
+Nov 13, 2024 8:52:51 PM edu.odu.cs.cs350.Semester addCsvToSnapshot
+INFO: Reading CSV file: 2023-11-01.csv
+Nov 13, 2024 8:52:51 PM edu.odu.cs.cs350.Semester addCsvToSnapshot
+INFO: Added course: Course{subject='CS', courseNumber=101, offerings=1, Offering{offeringKey='XLST101-CS101', crossListGroup='XLST101', sections=[CRN101], 30/30 students currently enrolled}, Section{courseRegistrationNumber='CRN101', 15/20 students currently enrolled, link='CRN101'}}
+Nov 13, 2024 8:52:51 PM edu.odu.cs.cs350.Semester addCsvToSnapshot
+INFO: Added course: Course{subject='CS', courseNumber=102, offerings=1, Offering{offeringKey='XLST102-CS102', crossListGroup='XLST102', sections=[CRN102], 25/25 students currently enrolled}, Section{courseRegistrationNumber='CRN102', 10/15 students currently enrolled, link='CRN102'}}
+Nov 13, 2024 8:52:51 PM edu.odu.cs.cs350.Semester processCsvFilesToSnapshots
+INFO: Starting CSV processing for semester: Fall2023
+Nov 13, 2024 8:52:51 PM edu.odu.cs.cs350.Semester addCsvToSnapshot
+INFO: Reading CSV file: 2023-09-01.csv
+Nov 13, 2024 8:52:51 PM edu.odu.cs.cs350.Semester addCsvToSnapshot
+INFO: Added course: Course{subject='CS', courseNumber=101, offerings=1, Offering{offeringKey='XLST101-CS101', crossListGroup='XLST101', sections=[CRN101], 30/30 students currently enrolled}, Section{courseRegistrationNumber='CRN101', 15/20 students currently enrolled, link='CRN101'}}
+Nov 13, 2024 8:52:51 PM edu.odu.cs.cs350.Semester addCsvToSnapshot
+INFO: Added course: Course{subject='CS', courseNumber=102, offerings=1, Offering{offeringKey='XLST102-CS102', crossListGroup='XLST102', sections=[CRN102], 25/25 students currently enrolled}, Section{courseRegistrationNumber='CRN102', 10/15 students currently enrolled, link='CRN102'}}
+Nov 13, 2024 8:52:51 PM edu.odu.cs.cs350.Semester addCsvToSnapshot
+INFO: Reading CSV file: 2023-10-01.csv
+Nov 13, 2024 8:52:51 PM edu.odu.cs.cs350.Semester addCsvToSnapshot
+INFO: Added course: Course{subject='CS', courseNumber=101, offerings=1, Offering{offeringKey='XLST101-CS101', crossListGroup='XLST101', sections=[CRN101], 30/30 students currently enrolled}, Section{courseRegistrationNumber='CRN101', 15/20 students currently enrolled, link='CRN101'}}
+Nov 13, 2024 8:52:51 PM edu.odu.cs.cs350.Semester addCsvToSnapshot
+INFO: Added course: Course{subject='CS', courseNumber=102, offerings=1, Offering{offeringKey='XLST102-CS102', crossListGroup='XLST102', sections=[CRN102], 25/25 students currently enrolled}, Section{courseRegistrationNumber='CRN102', 10/15 students currently enrolled, link='CRN102'}}
+Nov 13, 2024 8:52:51 PM edu.odu.cs.cs350.Semester addCsvToSnapshot
+INFO: Reading CSV file: 2023-11-01.csv
+Nov 13, 2024 8:52:51 PM edu.odu.cs.cs350.Semester addCsvToSnapshot
+INFO: Added course: Course{subject='CS', courseNumber=101, offerings=1, Offering{offeringKey='XLST101-CS101', crossListGroup='XLST101', sections=[CRN101], 30/30 students currently enrolled}, Section{courseRegistrationNumber='CRN101', 15/20 students currently enrolled, link='CRN101'}}
+Nov 13, 2024 8:52:51 PM edu.odu.cs.cs350.Semester addCsvToSnapshot
+INFO: Added course: Course{subject='CS', courseNumber=102, offerings=1, Offering{offeringKey='XLST102-CS102', crossListGroup='XLST102', sections=[CRN102], 25/25 students currently enrolled}, Section{courseRegistrationNumber='CRN102', 10/15 students currently enrolled, link='CRN102'}}
+Nov 13, 2024 8:52:51 PM edu.odu.cs.cs350.Semester createSemester
+INFO: Creating semester: Fall2023
+Nov 13, 2024 8:52:51 PM edu.odu.cs.cs350.Semester processCsvFilesToSnapshots
+INFO: Starting CSV processing for semester: Fall2023
+Nov 13, 2024 8:52:51 PM edu.odu.cs.cs350.Semester addCsvToSnapshot
+INFO: Reading CSV file: 2023-09-01.csv
+Nov 13, 2024 8:52:51 PM edu.odu.cs.cs350.Semester addCsvToSnapshot
+INFO: Added course: Course{subject='CS', courseNumber=101, offerings=1, Offering{offeringKey='XLST101-CS101', crossListGroup='XLST101', sections=[CRN101], 30/30 students currently enrolled}, Section{courseRegistrationNumber='CRN101', 15/20 students currently enrolled, link='CRN101'}}
+Nov 13, 2024 8:52:51 PM edu.odu.cs.cs350.Semester addCsvToSnapshot
+INFO: Added course: Course{subject='CS', courseNumber=102, offerings=1, Offering{offeringKey='XLST102-CS102', crossListGroup='XLST102', sections=[CRN102], 25/25 students currently enrolled}, Section{courseRegistrationNumber='CRN102', 10/15 students currently enrolled, link='CRN102'}}
+Nov 13, 2024 8:52:51 PM edu.odu.cs.cs350.Semester addCsvToSnapshot
+INFO: Reading CSV file: 2023-10-01.csv
+Nov 13, 2024 8:52:51 PM edu.odu.cs.cs350.Semester addCsvToSnapshot
+INFO: Added course: Course{subject='CS', courseNumber=101, offerings=1, Offering{offeringKey='XLST101-CS101', crossListGroup='XLST101', sections=[CRN101], 30/30 students currently enrolled}, Section{courseRegistrationNumber='CRN101', 15/20 students currently enrolled, link='CRN101'}}
+Nov 13, 2024 8:52:51 PM edu.odu.cs.cs350.Semester addCsvToSnapshot
+INFO: Added course: Course{subject='CS', courseNumber=102, offerings=1, Offering{offeringKey='XLST102-CS102', crossListGroup='XLST102', sections=[CRN102], 25/25 students currently enrolled}, Section{courseRegistrationNumber='CRN102', 10/15 students currently enrolled, link='CRN102'}}
+Nov 13, 2024 8:52:51 PM edu.odu.cs.cs350.Semester addCsvToSnapshot
+INFO: Reading CSV file: 2023-11-01.csv
+Nov 13, 2024 8:52:51 PM edu.odu.cs.cs350.Semester addCsvToSnapshot
+INFO: Added course: Course{subject='CS', courseNumber=101, offerings=1, Offering{offeringKey='XLST101-CS101', crossListGroup='XLST101', sections=[CRN101], 30/30 students currently enrolled}, Section{courseRegistrationNumber='CRN101', 15/20 students currently enrolled, link='CRN101'}}
+Nov 13, 2024 8:52:51 PM edu.odu.cs.cs350.Semester addCsvToSnapshot
+INFO: Added course: Course{subject='CS', courseNumber=102, offerings=1, Offering{offeringKey='XLST102-CS102', crossListGroup='XLST102', sections=[CRN102], 25/25 students currently enrolled}, Section{courseRegistrationNumber='CRN102', 10/15 students currently enrolled, link='CRN102'}}
+Nov 13, 2024 8:52:51 PM edu.odu.cs.cs350.Semester extractDateFromFilename
+WARNING: No date found in filename: invalid.csv
+Nov 13, 2024 8:53:56 PM edu.odu.cs.cs350.FileLogging configureFileLogging
+INFO: File logging configured successfully for logger: edu.odu.cs.cs350.Semester
+Nov 13, 2024 8:53:56 PM edu.odu.cs.cs350.Semester processCsvFilesToSnapshots
+INFO: Starting CSV processing for semester: Fall2023
+Nov 13, 2024 8:53:56 PM edu.odu.cs.cs350.Semester addCsvToSnapshot
+INFO: Reading CSV file: 2023-09-01.csv
+Nov 13, 2024 8:53:56 PM edu.odu.cs.cs350.Semester addCsvToSnapshot
+INFO: Added course: Course{subject='CS', courseNumber=101, offerings=1, Offering{offeringKey='XLST101-CS101', crossListGroup='XLST101', sections=[CRN101], 30/30 students currently enrolled}, Section{courseRegistrationNumber='CRN101', 15/20 students currently enrolled, link='CRN101'}}
+Nov 13, 2024 8:53:56 PM edu.odu.cs.cs350.Semester addCsvToSnapshot
+INFO: Added course: Course{subject='CS', courseNumber=102, offerings=1, Offering{offeringKey='XLST102-CS102', crossListGroup='XLST102', sections=[CRN102], 25/25 students currently enrolled}, Section{courseRegistrationNumber='CRN102', 10/15 students currently enrolled, link='CRN102'}}
+Nov 13, 2024 8:53:56 PM edu.odu.cs.cs350.Semester addCsvToSnapshot
+INFO: Reading CSV file: 2023-10-01.csv
+Nov 13, 2024 8:53:56 PM edu.odu.cs.cs350.Semester addCsvToSnapshot
+INFO: Added course: Course{subject='CS', courseNumber=101, offerings=1, Offering{offeringKey='XLST101-CS101', crossListGroup='XLST101', sections=[CRN101], 30/30 students currently enrolled}, Section{courseRegistrationNumber='CRN101', 15/20 students currently enrolled, link='CRN101'}}
+Nov 13, 2024 8:53:56 PM edu.odu.cs.cs350.Semester addCsvToSnapshot
+INFO: Added course: Course{subject='CS', courseNumber=102, offerings=1, Offering{offeringKey='XLST102-CS102', crossListGroup='XLST102', sections=[CRN102], 25/25 students currently enrolled}, Section{courseRegistrationNumber='CRN102', 10/15 students currently enrolled, link='CRN102'}}
+Nov 13, 2024 8:53:56 PM edu.odu.cs.cs350.Semester addCsvToSnapshot
+INFO: Reading CSV file: 2023-11-01.csv
+Nov 13, 2024 8:53:56 PM edu.odu.cs.cs350.Semester addCsvToSnapshot
+INFO: Added course: Course{subject='CS', courseNumber=101, offerings=1, Offering{offeringKey='XLST101-CS101', crossListGroup='XLST101', sections=[CRN101], 30/30 students currently enrolled}, Section{courseRegistrationNumber='CRN101', 15/20 students currently enrolled, link='CRN101'}}
+Nov 13, 2024 8:53:56 PM edu.odu.cs.cs350.Semester addCsvToSnapshot
+INFO: Added course: Course{subject='CS', courseNumber=102, offerings=1, Offering{offeringKey='XLST102-CS102', crossListGroup='XLST102', sections=[CRN102], 25/25 students currently enrolled}, Section{courseRegistrationNumber='CRN102', 10/15 students currently enrolled, link='CRN102'}}
+Nov 13, 2024 8:53:56 PM edu.odu.cs.cs350.Semester processCsvFilesToSnapshots
+INFO: Starting CSV processing for semester: Fall2023
+Nov 13, 2024 8:53:56 PM edu.odu.cs.cs350.Semester addCsvToSnapshot
+INFO: Reading CSV file: 2023-09-01.csv
+Nov 13, 2024 8:53:56 PM edu.odu.cs.cs350.Semester addCsvToSnapshot
+INFO: Added course: Course{subject='CS', courseNumber=101, offerings=1, Offering{offeringKey='XLST101-CS101', crossListGroup='XLST101', sections=[CRN101], 30/30 students currently enrolled}, Section{courseRegistrationNumber='CRN101', 15/20 students currently enrolled, link='CRN101'}}
+Nov 13, 2024 8:53:56 PM edu.odu.cs.cs350.Semester addCsvToSnapshot
+INFO: Added course: Course{subject='CS', courseNumber=102, offerings=1, Offering{offeringKey='XLST102-CS102', crossListGroup='XLST102', sections=[CRN102], 25/25 students currently enrolled}, Section{courseRegistrationNumber='CRN102', 10/15 students currently enrolled, link='CRN102'}}
+Nov 13, 2024 8:53:56 PM edu.odu.cs.cs350.Semester addCsvToSnapshot
+INFO: Reading CSV file: 2023-10-01.csv
+Nov 13, 2024 8:53:56 PM edu.odu.cs.cs350.Semester addCsvToSnapshot
+INFO: Added course: Course{subject='CS', courseNumber=101, offerings=1, Offering{offeringKey='XLST101-CS101', crossListGroup='XLST101', sections=[CRN101], 30/30 students currently enrolled}, Section{courseRegistrationNumber='CRN101', 15/20 students currently enrolled, link='CRN101'}}
+Nov 13, 2024 8:53:56 PM edu.odu.cs.cs350.Semester addCsvToSnapshot
+INFO: Added course: Course{subject='CS', courseNumber=102, offerings=1, Offering{offeringKey='XLST102-CS102', crossListGroup='XLST102', sections=[CRN102], 25/25 students currently enrolled}, Section{courseRegistrationNumber='CRN102', 10/15 students currently enrolled, link='CRN102'}}
+Nov 13, 2024 8:53:56 PM edu.odu.cs.cs350.Semester addCsvToSnapshot
+INFO: Reading CSV file: 2023-11-01.csv
+Nov 13, 2024 8:53:56 PM edu.odu.cs.cs350.Semester addCsvToSnapshot
+INFO: Added course: Course{subject='CS', courseNumber=101, offerings=1, Offering{offeringKey='XLST101-CS101', crossListGroup='XLST101', sections=[CRN101], 30/30 students currently enrolled}, Section{courseRegistrationNumber='CRN101', 15/20 students currently enrolled, link='CRN101'}}
+Nov 13, 2024 8:53:56 PM edu.odu.cs.cs350.Semester addCsvToSnapshot
+INFO: Added course: Course{subject='CS', courseNumber=102, offerings=1, Offering{offeringKey='XLST102-CS102', crossListGroup='XLST102', sections=[CRN102], 25/25 students currently enrolled}, Section{courseRegistrationNumber='CRN102', 10/15 students currently enrolled, link='CRN102'}}
+Nov 13, 2024 8:53:56 PM edu.odu.cs.cs350.Semester processCsvFilesToSnapshots
+INFO: Starting CSV processing for semester: Fall2023
+Nov 13, 2024 8:53:56 PM edu.odu.cs.cs350.Semester addCsvToSnapshot
+INFO: Reading CSV file: 2023-09-01.csv
+Nov 13, 2024 8:53:56 PM edu.odu.cs.cs350.Semester addCsvToSnapshot
+INFO: Added course: Course{subject='CS', courseNumber=101, offerings=1, Offering{offeringKey='XLST101-CS101', crossListGroup='XLST101', sections=[CRN101], 30/30 students currently enrolled}, Section{courseRegistrationNumber='CRN101', 15/20 students currently enrolled, link='CRN101'}}
+Nov 13, 2024 8:53:56 PM edu.odu.cs.cs350.Semester addCsvToSnapshot
+INFO: Added course: Course{subject='CS', courseNumber=102, offerings=1, Offering{offeringKey='XLST102-CS102', crossListGroup='XLST102', sections=[CRN102], 25/25 students currently enrolled}, Section{courseRegistrationNumber='CRN102', 10/15 students currently enrolled, link='CRN102'}}
+Nov 13, 2024 8:53:56 PM edu.odu.cs.cs350.Semester addCsvToSnapshot
+INFO: Reading CSV file: 2023-10-01.csv
+Nov 13, 2024 8:53:56 PM edu.odu.cs.cs350.Semester addCsvToSnapshot
+INFO: Added course: Course{subject='CS', courseNumber=101, offerings=1, Offering{offeringKey='XLST101-CS101', crossListGroup='XLST101', sections=[CRN101], 30/30 students currently enrolled}, Section{courseRegistrationNumber='CRN101', 15/20 students currently enrolled, link='CRN101'}}
+Nov 13, 2024 8:53:56 PM edu.odu.cs.cs350.Semester addCsvToSnapshot
+INFO: Added course: Course{subject='CS', courseNumber=102, offerings=1, Offering{offeringKey='XLST102-CS102', crossListGroup='XLST102', sections=[CRN102], 25/25 students currently enrolled}, Section{courseRegistrationNumber='CRN102', 10/15 students currently enrolled, link='CRN102'}}
+Nov 13, 2024 8:53:56 PM edu.odu.cs.cs350.Semester addCsvToSnapshot
+INFO: Reading CSV file: 2023-11-01.csv
+Nov 13, 2024 8:53:56 PM edu.odu.cs.cs350.Semester addCsvToSnapshot
+INFO: Added course: Course{subject='CS', courseNumber=101, offerings=1, Offering{offeringKey='XLST101-CS101', crossListGroup='XLST101', sections=[CRN101], 30/30 students currently enrolled}, Section{courseRegistrationNumber='CRN101', 15/20 students currently enrolled, link='CRN101'}}
+Nov 13, 2024 8:53:56 PM edu.odu.cs.cs350.Semester addCsvToSnapshot
+INFO: Added course: Course{subject='CS', courseNumber=102, offerings=1, Offering{offeringKey='XLST102-CS102', crossListGroup='XLST102', sections=[CRN102], 25/25 students currently enrolled}, Section{courseRegistrationNumber='CRN102', 10/15 students currently enrolled, link='CRN102'}}
+Nov 13, 2024 8:53:56 PM edu.odu.cs.cs350.Semester createSemester
+INFO: Creating semester: Fall2023
+Nov 13, 2024 8:53:56 PM edu.odu.cs.cs350.Semester processCsvFilesToSnapshots
+INFO: Starting CSV processing for semester: Fall2023
+Nov 13, 2024 8:53:56 PM edu.odu.cs.cs350.Semester addCsvToSnapshot
+INFO: Reading CSV file: 2023-09-01.csv
+Nov 13, 2024 8:53:56 PM edu.odu.cs.cs350.Semester addCsvToSnapshot
+INFO: Added course: Course{subject='CS', courseNumber=101, offerings=1, Offering{offeringKey='XLST101-CS101', crossListGroup='XLST101', sections=[CRN101], 30/30 students currently enrolled}, Section{courseRegistrationNumber='CRN101', 15/20 students currently enrolled, link='CRN101'}}
+Nov 13, 2024 8:53:56 PM edu.odu.cs.cs350.Semester addCsvToSnapshot
+INFO: Added course: Course{subject='CS', courseNumber=102, offerings=1, Offering{offeringKey='XLST102-CS102', crossListGroup='XLST102', sections=[CRN102], 25/25 students currently enrolled}, Section{courseRegistrationNumber='CRN102', 10/15 students currently enrolled, link='CRN102'}}
+Nov 13, 2024 8:53:56 PM edu.odu.cs.cs350.Semester addCsvToSnapshot
+INFO: Reading CSV file: 2023-10-01.csv
+Nov 13, 2024 8:53:56 PM edu.odu.cs.cs350.Semester addCsvToSnapshot
+INFO: Added course: Course{subject='CS', courseNumber=101, offerings=1, Offering{offeringKey='XLST101-CS101', crossListGroup='XLST101', sections=[CRN101], 30/30 students currently enrolled}, Section{courseRegistrationNumber='CRN101', 15/20 students currently enrolled, link='CRN101'}}
+Nov 13, 2024 8:53:56 PM edu.odu.cs.cs350.Semester addCsvToSnapshot
+INFO: Added course: Course{subject='CS', courseNumber=102, offerings=1, Offering{offeringKey='XLST102-CS102', crossListGroup='XLST102', sections=[CRN102], 25/25 students currently enrolled}, Section{courseRegistrationNumber='CRN102', 10/15 students currently enrolled, link='CRN102'}}
+Nov 13, 2024 8:53:56 PM edu.odu.cs.cs350.Semester addCsvToSnapshot
+INFO: Reading CSV file: 2023-11-01.csv
+Nov 13, 2024 8:53:56 PM edu.odu.cs.cs350.Semester addCsvToSnapshot
+INFO: Added course: Course{subject='CS', courseNumber=101, offerings=1, Offering{offeringKey='XLST101-CS101', crossListGroup='XLST101', sections=[CRN101], 30/30 students currently enrolled}, Section{courseRegistrationNumber='CRN101', 15/20 students currently enrolled, link='CRN101'}}
+Nov 13, 2024 8:53:56 PM edu.odu.cs.cs350.Semester addCsvToSnapshot
+INFO: Added course: Course{subject='CS', courseNumber=102, offerings=1, Offering{offeringKey='XLST102-CS102', crossListGroup='XLST102', sections=[CRN102], 25/25 students currently enrolled}, Section{courseRegistrationNumber='CRN102', 10/15 students currently enrolled, link='CRN102'}}
+Nov 13, 2024 8:53:56 PM edu.odu.cs.cs350.Semester extractDateFromFilename
+WARNING: No date found in filename: invalid.csv
+Nov 13, 2024 9:04:40 PM edu.odu.cs.cs350.FileLogging configureFileLogging
+INFO: File logging configured successfully for logger: edu.odu.cs.cs350.Semester
+Nov 13, 2024 9:04:40 PM edu.odu.cs.cs350.Semester processCsvFilesToSnapshots
+INFO: Starting CSV processing for semester: Fall2023
+Nov 13, 2024 9:04:40 PM edu.odu.cs.cs350.Semester addCsvToSnapshot
+INFO: Reading CSV file: 2023-09-01.csv
+Nov 13, 2024 9:04:40 PM edu.odu.cs.cs350.Semester addCsvToSnapshot
+INFO: Added course: Course{subject='CS', courseNumber=101, offerings=1, Offering{offeringKey='XLST101-CS101', crossListGroup='XLST101', sections=[CRN101], 30/30 students currently enrolled}, Section{courseRegistrationNumber='CRN101', 15/20 students currently enrolled, link='CRN101'}}
+Nov 13, 2024 9:04:40 PM edu.odu.cs.cs350.Semester addCsvToSnapshot
+INFO: Added course: Course{subject='CS', courseNumber=102, offerings=1, Offering{offeringKey='XLST102-CS102', crossListGroup='XLST102', sections=[CRN102], 25/25 students currently enrolled}, Section{courseRegistrationNumber='CRN102', 10/15 students currently enrolled, link='CRN102'}}
+Nov 13, 2024 9:04:40 PM edu.odu.cs.cs350.Semester addCsvToSnapshot
+INFO: Reading CSV file: 2023-10-01.csv
+Nov 13, 2024 9:04:40 PM edu.odu.cs.cs350.Semester addCsvToSnapshot
+INFO: Added course: Course{subject='CS', courseNumber=101, offerings=1, Offering{offeringKey='XLST101-CS101', crossListGroup='XLST101', sections=[CRN101], 30/30 students currently enrolled}, Section{courseRegistrationNumber='CRN101', 15/20 students currently enrolled, link='CRN101'}}
+Nov 13, 2024 9:04:40 PM edu.odu.cs.cs350.Semester addCsvToSnapshot
+INFO: Added course: Course{subject='CS', courseNumber=102, offerings=1, Offering{offeringKey='XLST102-CS102', crossListGroup='XLST102', sections=[CRN102], 25/25 students currently enrolled}, Section{courseRegistrationNumber='CRN102', 10/15 students currently enrolled, link='CRN102'}}
+Nov 13, 2024 9:04:40 PM edu.odu.cs.cs350.Semester addCsvToSnapshot
+INFO: Reading CSV file: 2023-11-01.csv
+Nov 13, 2024 9:04:40 PM edu.odu.cs.cs350.Semester addCsvToSnapshot
+INFO: Added course: Course{subject='CS', courseNumber=101, offerings=1, Offering{offeringKey='XLST101-CS101', crossListGroup='XLST101', sections=[CRN101], 30/30 students currently enrolled}, Section{courseRegistrationNumber='CRN101', 15/20 students currently enrolled, link='CRN101'}}
+Nov 13, 2024 9:04:40 PM edu.odu.cs.cs350.Semester addCsvToSnapshot
+INFO: Added course: Course{subject='CS', courseNumber=102, offerings=1, Offering{offeringKey='XLST102-CS102', crossListGroup='XLST102', sections=[CRN102], 25/25 students currently enrolled}, Section{courseRegistrationNumber='CRN102', 10/15 students currently enrolled, link='CRN102'}}
+Nov 13, 2024 9:04:40 PM edu.odu.cs.cs350.Semester processCsvFilesToSnapshots
+INFO: Starting CSV processing for semester: Fall2023
+Nov 13, 2024 9:04:40 PM edu.odu.cs.cs350.Semester addCsvToSnapshot
+INFO: Reading CSV file: 2023-09-01.csv
+Nov 13, 2024 9:04:40 PM edu.odu.cs.cs350.Semester addCsvToSnapshot
+INFO: Added course: Course{subject='CS', courseNumber=101, offerings=1, Offering{offeringKey='XLST101-CS101', crossListGroup='XLST101', sections=[CRN101], 30/30 students currently enrolled}, Section{courseRegistrationNumber='CRN101', 15/20 students currently enrolled, link='CRN101'}}
+Nov 13, 2024 9:04:40 PM edu.odu.cs.cs350.Semester addCsvToSnapshot
+INFO: Added course: Course{subject='CS', courseNumber=102, offerings=1, Offering{offeringKey='XLST102-CS102', crossListGroup='XLST102', sections=[CRN102], 25/25 students currently enrolled}, Section{courseRegistrationNumber='CRN102', 10/15 students currently enrolled, link='CRN102'}}
+Nov 13, 2024 9:04:40 PM edu.odu.cs.cs350.Semester addCsvToSnapshot
+INFO: Reading CSV file: 2023-10-01.csv
+Nov 13, 2024 9:04:40 PM edu.odu.cs.cs350.Semester addCsvToSnapshot
+INFO: Added course: Course{subject='CS', courseNumber=101, offerings=1, Offering{offeringKey='XLST101-CS101', crossListGroup='XLST101', sections=[CRN101], 30/30 students currently enrolled}, Section{courseRegistrationNumber='CRN101', 15/20 students currently enrolled, link='CRN101'}}
+Nov 13, 2024 9:04:40 PM edu.odu.cs.cs350.Semester addCsvToSnapshot
+INFO: Added course: Course{subject='CS', courseNumber=102, offerings=1, Offering{offeringKey='XLST102-CS102', crossListGroup='XLST102', sections=[CRN102], 25/25 students currently enrolled}, Section{courseRegistrationNumber='CRN102', 10/15 students currently enrolled, link='CRN102'}}
+Nov 13, 2024 9:04:40 PM edu.odu.cs.cs350.Semester addCsvToSnapshot
+INFO: Reading CSV file: 2023-11-01.csv
+Nov 13, 2024 9:04:40 PM edu.odu.cs.cs350.Semester addCsvToSnapshot
+INFO: Added course: Course{subject='CS', courseNumber=101, offerings=1, Offering{offeringKey='XLST101-CS101', crossListGroup='XLST101', sections=[CRN101], 30/30 students currently enrolled}, Section{courseRegistrationNumber='CRN101', 15/20 students currently enrolled, link='CRN101'}}
+Nov 13, 2024 9:04:40 PM edu.odu.cs.cs350.Semester addCsvToSnapshot
+INFO: Added course: Course{subject='CS', courseNumber=102, offerings=1, Offering{offeringKey='XLST102-CS102', crossListGroup='XLST102', sections=[CRN102], 25/25 students currently enrolled}, Section{courseRegistrationNumber='CRN102', 10/15 students currently enrolled, link='CRN102'}}
+Nov 13, 2024 9:04:40 PM edu.odu.cs.cs350.Semester processCsvFilesToSnapshots
+INFO: Starting CSV processing for semester: Fall2023
+Nov 13, 2024 9:04:40 PM edu.odu.cs.cs350.Semester addCsvToSnapshot
+INFO: Reading CSV file: 2023-09-01.csv
+Nov 13, 2024 9:04:40 PM edu.odu.cs.cs350.Semester addCsvToSnapshot
+INFO: Added course: Course{subject='CS', courseNumber=101, offerings=1, Offering{offeringKey='XLST101-CS101', crossListGroup='XLST101', sections=[CRN101], 30/30 students currently enrolled}, Section{courseRegistrationNumber='CRN101', 15/20 students currently enrolled, link='CRN101'}}
+Nov 13, 2024 9:04:40 PM edu.odu.cs.cs350.Semester addCsvToSnapshot
+INFO: Added course: Course{subject='CS', courseNumber=102, offerings=1, Offering{offeringKey='XLST102-CS102', crossListGroup='XLST102', sections=[CRN102], 25/25 students currently enrolled}, Section{courseRegistrationNumber='CRN102', 10/15 students currently enrolled, link='CRN102'}}
+Nov 13, 2024 9:04:40 PM edu.odu.cs.cs350.Semester addCsvToSnapshot
+INFO: Reading CSV file: 2023-10-01.csv
+Nov 13, 2024 9:04:40 PM edu.odu.cs.cs350.Semester addCsvToSnapshot
+INFO: Added course: Course{subject='CS', courseNumber=101, offerings=1, Offering{offeringKey='XLST101-CS101', crossListGroup='XLST101', sections=[CRN101], 30/30 students currently enrolled}, Section{courseRegistrationNumber='CRN101', 15/20 students currently enrolled, link='CRN101'}}
+Nov 13, 2024 9:04:40 PM edu.odu.cs.cs350.Semester addCsvToSnapshot
+INFO: Added course: Course{subject='CS', courseNumber=102, offerings=1, Offering{offeringKey='XLST102-CS102', crossListGroup='XLST102', sections=[CRN102], 25/25 students currently enrolled}, Section{courseRegistrationNumber='CRN102', 10/15 students currently enrolled, link='CRN102'}}
+Nov 13, 2024 9:04:40 PM edu.odu.cs.cs350.Semester addCsvToSnapshot
+INFO: Reading CSV file: 2023-11-01.csv
+Nov 13, 2024 9:04:40 PM edu.odu.cs.cs350.Semester addCsvToSnapshot
+INFO: Added course: Course{subject='CS', courseNumber=101, offerings=1, Offering{offeringKey='XLST101-CS101', crossListGroup='XLST101', sections=[CRN101], 30/30 students currently enrolled}, Section{courseRegistrationNumber='CRN101', 15/20 students currently enrolled, link='CRN101'}}
+Nov 13, 2024 9:04:40 PM edu.odu.cs.cs350.Semester addCsvToSnapshot
+INFO: Added course: Course{subject='CS', courseNumber=102, offerings=1, Offering{offeringKey='XLST102-CS102', crossListGroup='XLST102', sections=[CRN102], 25/25 students currently enrolled}, Section{courseRegistrationNumber='CRN102', 10/15 students currently enrolled, link='CRN102'}}
+Nov 13, 2024 9:04:40 PM edu.odu.cs.cs350.Semester createSemester
+INFO: Creating semester: Fall2023
+Nov 13, 2024 9:04:40 PM edu.odu.cs.cs350.Semester processCsvFilesToSnapshots
+INFO: Starting CSV processing for semester: Fall2023
+Nov 13, 2024 9:04:40 PM edu.odu.cs.cs350.Semester addCsvToSnapshot
+INFO: Reading CSV file: 2023-09-01.csv
+Nov 13, 2024 9:04:40 PM edu.odu.cs.cs350.Semester addCsvToSnapshot
+INFO: Added course: Course{subject='CS', courseNumber=101, offerings=1, Offering{offeringKey='XLST101-CS101', crossListGroup='XLST101', sections=[CRN101], 30/30 students currently enrolled}, Section{courseRegistrationNumber='CRN101', 15/20 students currently enrolled, link='CRN101'}}
+Nov 13, 2024 9:04:40 PM edu.odu.cs.cs350.Semester addCsvToSnapshot
+INFO: Added course: Course{subject='CS', courseNumber=102, offerings=1, Offering{offeringKey='XLST102-CS102', crossListGroup='XLST102', sections=[CRN102], 25/25 students currently enrolled}, Section{courseRegistrationNumber='CRN102', 10/15 students currently enrolled, link='CRN102'}}
+Nov 13, 2024 9:04:40 PM edu.odu.cs.cs350.Semester addCsvToSnapshot
+INFO: Reading CSV file: 2023-10-01.csv
+Nov 13, 2024 9:04:40 PM edu.odu.cs.cs350.Semester addCsvToSnapshot
+INFO: Added course: Course{subject='CS', courseNumber=101, offerings=1, Offering{offeringKey='XLST101-CS101', crossListGroup='XLST101', sections=[CRN101], 30/30 students currently enrolled}, Section{courseRegistrationNumber='CRN101', 15/20 students currently enrolled, link='CRN101'}}
+Nov 13, 2024 9:04:40 PM edu.odu.cs.cs350.Semester addCsvToSnapshot
+INFO: Added course: Course{subject='CS', courseNumber=102, offerings=1, Offering{offeringKey='XLST102-CS102', crossListGroup='XLST102', sections=[CRN102], 25/25 students currently enrolled}, Section{courseRegistrationNumber='CRN102', 10/15 students currently enrolled, link='CRN102'}}
+Nov 13, 2024 9:04:40 PM edu.odu.cs.cs350.Semester addCsvToSnapshot
+INFO: Reading CSV file: 2023-11-01.csv
+Nov 13, 2024 9:04:40 PM edu.odu.cs.cs350.Semester addCsvToSnapshot
+INFO: Added course: Course{subject='CS', courseNumber=101, offerings=1, Offering{offeringKey='XLST101-CS101', crossListGroup='XLST101', sections=[CRN101], 30/30 students currently enrolled}, Section{courseRegistrationNumber='CRN101', 15/20 students currently enrolled, link='CRN101'}}
+Nov 13, 2024 9:04:40 PM edu.odu.cs.cs350.Semester addCsvToSnapshot
+INFO: Added course: Course{subject='CS', courseNumber=102, offerings=1, Offering{offeringKey='XLST102-CS102', crossListGroup='XLST102', sections=[CRN102], 25/25 students currently enrolled}, Section{courseRegistrationNumber='CRN102', 10/15 students currently enrolled, link='CRN102'}}
+Nov 13, 2024 9:04:40 PM edu.odu.cs.cs350.Semester extractDateFromFilename
+WARNING: No date found in filename: invalid.csv
+Nov 13, 2024 9:04:40 PM edu.odu.cs.cs350.Semester createSemester
+INFO: Creating semester: Fall2023
+Nov 13, 2024 9:04:40 PM edu.odu.cs.cs350.Semester processCsvFilesToSnapshots
+INFO: Starting CSV processing for semester: Fall2023

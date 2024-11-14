@@ -1,145 +1,154 @@
 package edu.odu.cs.cs350;
 
+import java.util.Objects;
+import java.util.logging.Logger;
 /**
- * Custom exception for enrollment errors, such as exceeding section capacity.
+ * The {@code Section} class represents a section of a course in an academic setting.
+ * It stores details about the section, including course registration number,
+ * enrollment, link, and cross-list capacity.
+ * 
+ * <p>The class includes validation checks to ensure that section parameters such as 
+ * capacity and enrollment adhere to logical constraints. Logging is provided for 
+ * error handling and validation exceptions.
+ * 
+ * <p>Note: This class is immutable for course registration number to maintain section integrity.
  */
-class EnrollmentException extends Exception {
-    public EnrollmentException(String message) {
-        super(message);
-    }
-}
-
 public class Section {
 
+    private static final Logger logger = Logger.getLogger(Section.class.getName());
+
+    // Fields
+    private final String courseRegistrationNumber;
+    private int crossListCapacity;
+    private String link;
+    private int enrollment;
+
+    /**
+     * Constructs a {@code Section} object with specified attributes.
+     * @param courseRegistrationNumber the Course Registration Number of the section
+     * @param crossListCapacity the cross-list capacity of the section
+     * @param enrollment the current enrollment in the section
+     * @param link a code representing section links such as lab or recitation links
+     * 
+     * @throws IllegalArgumentException if any parameter validation fails
+     */
+    public Section(String courseRegistrationNumber, int crossListCapacity, int enrollment, String link) {
+        try {
+            ValidationUtils.validateSectionParameters(courseRegistrationNumber);
+        } catch (IllegalArgumentException e) {
+            logger.info(e.getMessage());
+            throw e;
+        }
+        this.courseRegistrationNumber = courseRegistrationNumber;
+        this.crossListCapacity = crossListCapacity;
+        this.enrollment = enrollment;
+        this.link = link;
+    }
+
+    /**
+     * Sets the cross-list capacity of the section.
+     * 
+     * @param crossListCapacity the new cross-list capacity to be set
+     * @throws IllegalArgumentException if the provided capacity is invalid
+     */
+    public void setCrossListCapacity(int crossListCapacity) {
+        try {
+            ValidationUtils.validateCapacity(crossListCapacity);
+        } catch (IllegalArgumentException e) {
+            logger.info(e.getMessage());
+            throw e;
+        }
+        this.crossListCapacity = crossListCapacity;
+    }
+
+    /**
+     * Sets the enrollment for the section.
+     * 
+     * <p>This method validates the provided enrollment value against the section's capacity.
+     * If the enrollment value is valid, it updates the section's enrollment.
+     * If the enrollment value is invalid, it logs the error and rethrows an IllegalArgumentException.
+     *
+     * @param enrollment the number of students to enroll in the section
+     * @throws IllegalArgumentException if the enrollment value is invalid
+     */
+    public void setEnrollment(int enrollment) {
+        try {
+            ValidationUtils.validateEnrollment(enrollment, crossListCapacity);
+            this.enrollment = enrollment;
+        } catch (IllegalArgumentException e) {
+            logger.info(e.getMessage());
+            throw e;
+        }
+    }
     
-    // Unique identifier for each section
-    private String CRN;
-
-    // Cross-list cap: the maximum number of students that can enroll in this section
-    private int XLST_CAP;
-    // Cross-list group identifier
-    private String XLST_GROUP;
-    // Number of students currently enrolled in this section
-    private int ENR;
-
-    // Used to associate labs and recitations to a lecture
-    // LINK consists of an uppercase alphabetic letter and a digit:
-    // "1" for lecture, "2" for recitation, and "3" for lab
-    private String LINK;
-
-    // Semester in which the section is offered (fall, spring, or summer)
-    private String semester;
-
-    // Campus where the section is offered
-    private String campus;
-
-    // Whether the section is cross-listed
-    private boolean crossListed;
-
-    public Section(String crn, String semester, String campus, int XLST_CAP, int ENR, String LINK,String XLST_GROUP) {
-        this.CRN = crn;
-        this.semester = semester;
-        this.LINK = LINK;
-        this.campus = campus;
-        this.XLST_CAP = XLST_CAP;
-        this.ENR = ENR;
-        this.XLST_GROUP = XLST_GROUP;
+    /**
+     * Retrieves the cross-list capacity of the section.
+     *
+     * @return the cross-list capacity of the section
+     */
+    public int getCrossListCapacity() {
+        return crossListCapacity;
     }
 
-    public String getXlstGroup(){
-        return XLST_GROUP;
-    }
-    public String getCrn() {
-        return CRN;
-    }
-
-    public String getSemester() {
-        return semester;
+    /**
+     * Returns the number of students currently enrolled in the section.
+     *
+     * @return the section enrollment count
+     */
+    public int getEnrollment() {
+        return enrollment;
     }
 
-    public String getCampus() {
-        return campus;
+    /**
+     * Sets the link associated with the section.
+     * 
+     * @param link the new link value
+     */
+    public void setLink(String link) {
+        this.link = link;
     }
 
-    public int getXlstCap() {
-        return XLST_CAP;
+    /**
+     * Retrieves the unique course registration number for the section.
+     * 
+     * @return the course registration number as a String
+     */
+    public String getCourseRegistrationNumber() {
+        return courseRegistrationNumber;
     }
 
-    public int getEnr() {
-        return ENR;
-    }
-
+    /**
+     * Retrieves the link associated with the section.
+     * 
+     * @return the link as a String
+     */
     public String getLink() {
-        return LINK;
+        return link;
     }
 
     /**
-     * Determines if this section is a lecture based on `LINK`.
-     * Only sections with `LINK` ending in "1" are considered lectures.
-     *
-     * @return true if this section is a lecture, false otherwise
+     * Returns a string representation of the section.
+     * 
+     * <p>The string contains details about the section, including course registration number,
+     * enrollment, cross-list capacity, and link.
+     * 
+     * @return a formatted string representing the section
      */
-    public boolean isLecture() {
-        try {
-            return LINK != null && LINK.length() == 2 && LINK.endsWith("1");
-        } catch (NullPointerException e) {
-            System.out.println("Error: LINK code is null.");
-            return false;
-        }
-    }
-
-    /**
-     * Enroll a student in this section if section capacity allows.
-     *
-     * @return true if enrollment succeeded, false if section is full
-     */
-    public boolean enrollStudent() {
-        try {
-            if (ENR >= XLST_CAP) {
-                throw new EnrollmentException("Enrollment failed: Section capacity of " + XLST_CAP + " reached.");
-            }
-            ENR++;
-            return true;
-        } catch (EnrollmentException e) {
-            System.out.println(e.getMessage());
-            return false;
-        }
+    @Override
+    public String toString() {
+        return String.format("Section{courseRegistrationNumber='%s', %d/%d students currently enrolled, link='%s'}", courseRegistrationNumber, enrollment, crossListCapacity, link);
     }
 
     @Override
     public int hashCode() {
-        try {
-            final int prime = 31;
-            int result = 1;
-            result = prime * result + ((CRN == null) ? 0 : CRN.hashCode());
-            result = prime * result + ((semester == null) ? 0 : semester.hashCode());
-            return result;
-        } catch (Exception e) {
-            System.out.println("Error calculating hash code: " + e.getMessage());
-            return 0;
-        }
+        return Objects.hash(courseRegistrationNumber);
     }
 
     @Override
     public boolean equals(Object obj) {
-        try {
-            if (this == obj) return true;
-            if (obj == null || getClass() != obj.getClass()) return false;
-            Section other = (Section) obj;
-            return CRN.equals(other.CRN) && semester.equals(other.semester);
-        } catch (NullPointerException e) {
-            System.out.println("Error comparing sections: One or more fields are null.");
-            return false;
-        }
-    }
-
-    @Override
-    public String toString() {
-        try {
-            return "Section [CRN=" + CRN + ", XLST_CAP=" + XLST_CAP + ", ENR=" + ENR + ", LINK=" + LINK + 
-                   ", semester=" + semester + ", campus=" + campus + ", crossListed=" + crossListed + "]";
-        } catch (Exception e) {
-            return "Error generating string representation of Section.";
-        }
+        if (this == obj) return true;
+        if (obj == null || getClass() != obj.getClass()) return false;
+        Section other = (Section) obj;
+        return Objects.equals(courseRegistrationNumber, other.courseRegistrationNumber);
     }
 }
