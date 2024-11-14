@@ -101,7 +101,7 @@ public class Course implements Comparable<Course> {
         String determinedcrossListGroup = ValidationUtils.determineXlstGroup(crossListGroup, crn);
         ValidationUtils.validateCapacity(sectionCapacity);
         ValidationUtils.validateEnrollment(sectionEnrollment, sectionCapacity);
-        Offering offering = getOrCreateOffering(determinedcrossListGroup, offeringCapacity, offeringEnrollment);
+        Offering offering = addOffering(determinedcrossListGroup, offeringCapacity, offeringEnrollment);
         addSectionToOffering(offering, crn, sectionCapacity, sectionEnrollment, sanitizedLink);
     }
 
@@ -225,7 +225,7 @@ public class Course implements Comparable<Course> {
      * @param offeringEnrollment the current enrollment of the offering
      * @return the existing or newly created Offering
      */
-    private Offering getOrCreateOffering(String crossListGroup, int offeringCapacity, int offeringEnrollment) {
+    private Offering addOffering(String crossListGroup, int offeringCapacity, int offeringEnrollment) {
         String offeringKey = generateOfferingKey(crossListGroup);
         return offerings.computeIfAbsent(offeringKey, key -> createNewOffering(key, offeringCapacity, offeringEnrollment));
     }

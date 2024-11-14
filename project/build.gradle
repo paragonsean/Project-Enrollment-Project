@@ -29,16 +29,13 @@ dependencies {
     // This dependency is used by the application.
     implementation 'com.google.guava:guava:32.1.2-jre'
     testImplementation 'org.mockito:mockito-core:5.2.0' // Latest version as of 2023
-
     // If you need to use Mockito with JUnit 5, also add the Mockito JUnit Jupiter extension
     testImplementation 'org.mockito:mockito-junit-jupiter:5.2.0'
     // This dependency is used by the application for CSV reading/writing
     implementation 'com.opencsv:opencsv:5.8'
-    
+     testImplementation 'org.junit.jupiter:junit-jupiter:5.10.0'  // JUnit for tests
     // This dependency is used by the application for reading/writing Excel Spreadsheets
     implementation 'org.apache.poi:poi:5.2.3','org.apache.poi:poi-ooxml:5.2.3'
-    testImplementation 'org.junit.jupiter:junit-jupiter:5.8.1'
-
 
 }
 test {

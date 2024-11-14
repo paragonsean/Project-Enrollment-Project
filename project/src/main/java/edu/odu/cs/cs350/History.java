@@ -1,8 +1,6 @@
 package edu.odu.cs.cs350;
 
-import java.io.BufferedReader;
 import java.io.File;
-import java.io.FileReader;
 import java.io.IOException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -15,22 +13,25 @@ import java.util.Objects;
 import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
-import java.util.logging.Logger;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import com.google.common.collect.ArrayListMultimap;
 import com.google.common.collect.ListMultimap;
 
 public class History {
 
-    private static final Logger logger = Logger.getLogger(History.class.getName());
+    private static final Logger logger = LoggerFactory.getLogger(History.class);
     private Map<String, Semester> semesters;  // Store semesters by semester name or code
 
     // Constructor
     public History() {
         this.semesters = new HashMap<>();
     }
+
 
     /**
      * Scans a list of directories, reads `dates.txt` to determine the date range, and creates
@@ -43,36 +44,36 @@ public class History {
     public void loadSemestersFromDirectories(List<File> directories, DateTimeFormatter formatter) throws IOException {
         for (File directory : directories) {
             if (!directory.exists() || !directory.isDirectory()) {
-                logger.warning(String.format("Directory does not exist or is not a directory: %s", directory.getPath()));
+                logger.warn("Directory does not exist or is not a directory: {}", directory.getPath());
                 continue;
             }
 
-            // Read `dates.txt` for each directory to get preRegDate and addDeadline
-            LocalDate preRegDate = null;
-            LocalDate addDeadline = null;
-            File datesFile = new File(directory, "dates.txt");
-            if (datesFile.exists()) {
-                preRegDate = extractDateFromDatesFile(datesFile, "preRegDate", formatter);
-                addDeadline = extractDateFromDatesFile(datesFile, "addDeadline", formatter);
-            } else {
-                logger.warning(String.format("dates.txt not found in directory: %s", directory.getPath()));
-                continue;  // Skip this directory if `dates.txt` is missing
+            try {
+                // Use DateReader to load semester dates
+                DateReader dateReader = new DateReader(directory.getAbsolutePath());
+                LocalDate preRegDate = dateReader.getPreregistrationDate();
+                LocalDate addDeadline = dateReader.getDeadlineDate();
+
+                // Filter CSV files within the date range specified in `dates.txt`
+                List<File> csvFiles = filterCsvFilesByDate(directory, preRegDate, addDeadline, formatter);
+                if (csvFiles.size() < 2) {
+                    throw new IOException("Not enough CSV files in directory: " + directory.getName());
+                }
+
+                // Use the factory method to create and initialize a Semester
+                String semesterName = directory.getName();
+                Semester semester = Semester.createSemester(semesterName, preRegDate, addDeadline, csvFiles);
+                addSemester(semester);
+            } catch (IOException e) {
+                logger.error("Error processing directory {}: {}", directory.getPath(), e.getMessage());
             }
-
-            // Filter CSV files within the date range specified in `dates.txt`
-            List<File> csvFiles = filterCsvFilesByDate(directory, preRegDate, addDeadline, formatter);
-
-            // Use the factory method to create and initialize a Semester
-            String semesterName = directory.getName();
-            Semester semester = Semester.createSemester(semesterName, preRegDate, addDeadline, csvFiles);
-            addSemester(semester);
         }
     }
 
     // Add a semester to the history
     public void addSemester(Semester semester) {
         if (semesters.containsKey(semester.getName())) {
-            logger.warning(String.format("Semester with name %s already exists. Overwriting.", semester.getName()));
+            logger.warn("Semester with name {} already exists. Overwriting.", semester.getName());
         }
         semesters.put(semester.getName(), semester);
     }
@@ -88,31 +89,6 @@ public class History {
     }
 
     /**
-     * Extracts a specific date from `dates.txt`.
-     *
-     * @param datesFile The `dates.txt` file.
-     * @param dateType  The type of date to extract (e.g., "preRegDate" or "addDeadline").
-     * @param formatter The DateTimeFormatter used for parsing dates.
-     * @return The parsed LocalDate, or null if parsing fails.
-     */
-    protected  LocalDate extractDateFromDatesFile(File datesFile, String dateType, DateTimeFormatter formatter) {
-        try (BufferedReader reader = new BufferedReader(new FileReader(datesFile))) {
-            String line;
-            while ((line = reader.readLine()) != null) {
-                if (line.startsWith(dateType)) {
-                    String[] parts = line.split("=");
-                    if (parts.length == 2) {
-                        return LocalDate.parse(parts[1].trim(), formatter);
-                    }
-                }
-            }
-        } catch (IOException | DateTimeParseException e) {
-            logger.severe(String.format("Error reading %s from dates.txt: %s", dateType, e.getMessage()));
-        }
-        return null;
-    }
-
-    /**
      * Filters CSV files in a directory based on a specified date range.
      *
      * @param directory   The directory containing CSV files.
@@ -121,7 +97,7 @@ public class History {
      * @param formatter   The DateTimeFormatter for parsing dates in filenames.
      * @return A list of CSV files within the specified date range.
      */
-    protected  List<File> filterCsvFilesByDate(File directory, LocalDate preRegDate, LocalDate addDeadline, DateTimeFormatter formatter) {
+    protected List<File> filterCsvFilesByDate(File directory, LocalDate preRegDate, LocalDate addDeadline, DateTimeFormatter formatter) {
         List<File> filteredCsvFiles = new ArrayList<>();
         Pattern datePattern = Pattern.compile(".*(\\d{4}-\\d{2}-\\d{2})\\.csv$");
 
@@ -134,13 +110,13 @@ public class History {
                     if ((preRegDate == null || !fileDate.isBefore(preRegDate)) && (addDeadline == null || !fileDate.isAfter(addDeadline))) {
                         filteredCsvFiles.add(file);
                     } else {
-                        logger.info(String.format("Skipping file %s outside date range.", file.getName()));
+                        logger.info("Skipping file {} outside date range.", file.getName());
                     }
                 } catch (DateTimeParseException ex) {
-                    logger.severe(String.format("Error parsing date from filename %s: %s", fileName, ex.getMessage()));
+                    logger.error("Error parsing date from filename {}: {}", fileName, ex.getMessage());
                 }
             } else {
-                logger.warning(String.format("Filename does not match expected date format: %s", fileName));
+                logger.warn("Filename does not match expected date format: {}", fileName);
             }
         }
 
@@ -169,10 +145,10 @@ public class History {
                         LocalDate fileDate = LocalDate.parse(dateString, formatter);
                         csvFileDateMap.put(fileDate, csvFile.getAbsolutePath());
                     } else {
-                        logger.warning(String.format("Filename does not match expected format: %s", fileName));
+                        logger.warn("Filename does not match expected format: {}", fileName);
                     }
                 } catch (DateTimeParseException ex) {
-                    logger.severe(String.format("Error parsing date from filename: %s. Date string: '%s'. Error message: %s", fileName, fileName, ex.getMessage()));
+                    logger.error("Error parsing date from filename: {}. Date string: '{}'. Error message: {}", fileName, fileName, ex.getMessage());
                 }
             }
         }
@@ -180,14 +156,13 @@ public class History {
         return csvFileDateMap;
     }
 
-
     // Compare enrollments for a specific course across two semesters
     public void compareCourseEnrollments(String courseKey, String semester1Name, String semester2Name) {
         Semester semester1 = semesters.get(semester1Name);
         Semester semester2 = semesters.get(semester2Name);
 
         if (semester1 == null || semester2 == null) {
-            logger.warning("One or both of the specified semesters not found.");
+            logger.warn("One or both of the specified semesters not found.");
             return;
         }
 
@@ -257,7 +232,7 @@ public class History {
         Semester semester2 = semesters.get(semester2Name);
 
         if (semester1 == null || semester2 == null) {
-            logger.warning("One or both of the specified semesters not found.");
+            logger.warn("One or both of the specified semesters not found.");
             return;
         }
 

@@ -1,4 +1,5 @@
 package edu.odu.cs.cs350;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.nio.file.Files;
@@ -16,7 +17,7 @@ import java.util.logging.Logger;
 
 /**
  * A utility class for reading and processing date-related information
- * for semesters, including preregistration and add deadline dates.
+ * for semesters
  */
 public class DateReader {
     private static final Logger LOGGER = Logger.getLogger(DateReader.class.getName());
@@ -24,14 +25,16 @@ public class DateReader {
     private static final String ERROR_INVALID_DATE_FORMAT = "Invalid date format: ";
     private static final String ERROR_EXPECTED_FORMAT = ". Expected format: yyyy-MM-dd";
     private static final String ERROR_INSUFFICIENT_DATES = "dates.txt must contain at least two valid dates in semester directory: ";
+    private static final String ERROR_PREREGISTRATION_AFTER_ADD_DEADLINE = "Preregistration date must be before add deadline date.";
+    private static final String ERROR_CURRENT_DATE_OUT_OF_BOUNDS = "Current date must be between preregistration date and add deadline date.";
+    private static final String ERROR_SAME_PREREGISTRATION_ADD_DEADLINE = "Preregistration date and add deadline date cannot be the same.";
     private static final String INVALID_DATE_FORMAT_ERROR_MESSAGE = "Invalid date format in file name: ";
     private static final DateTimeFormatter dateFormat = DateTimeFormatter.ofPattern("yyyy-MM-dd");
     private static final String CSV_EXTENSION = ".csv";
-    
     private LocalDate preregistrationDate;
     private LocalDate addDeadlineDate;
     private final Map<String, Double> cachedElapsedPercentages = new HashMap<>();
-    private static final String DATE_FILE = "dates.txt";
+    private static final String dateFile = "dates.txt";
     private Path datesFile;
     private Path semesterPath;
 
@@ -46,24 +49,27 @@ public class DateReader {
     }
 
     private void initialize(String semesterDir) throws IOException {
+        // Initialize semesterPath and datesFile correctly
         this.semesterPath = Paths.get(semesterDir);
-        this.datesFile = semesterPath.resolve(DATE_FILE);
+        this.datesFile = semesterPath.resolve(dateFile);
         this.loadDates(); // IOException will propagate if loading fails
     }
 
     /**
-     * Retrieves the add deadline date from the dates file.
+     * Retrieves the add deadline date from a specified directory containing a dates
+     * file.
      *
-     * @return the add deadline date as a LocalDate
+     * @return the add deadline date as a LocalDate from the dates file
      */
     public LocalDate getDeadlineDate() {
         return this.addDeadlineDate;
     }
 
     /**
-     * Retrieves the preregistration date from the dates file.
+     * Retrieves the preregistration date from a specified directory containing a
+     * dates file.
      *
-     * @return the preregistration date as a LocalDate
+     * @return the preregistration date as a LocalDate from the dates file
      */
     public LocalDate getPreregistrationDate() {
         return this.preregistrationDate;
@@ -92,7 +98,7 @@ public class DateReader {
      * @param dateString the date string to validate
      * @return true if the date string is in the valid format, false otherwise
      */
-    private static boolean isValidDate(String dateString) {
+    private boolean isValidDate(String dateString) {
         try {
             LocalDate.parse(dateString, dateFormat);
             return true;
@@ -121,9 +127,10 @@ public class DateReader {
      * deadline dates.
      *
      * @throws IOException if the dates.txt file is missing or doesn't have enough
-     *                     dates
+     *                     dates throws an IOException if the dates.txt plus
+     *                     semester code
      */
-    private void loadDates() throws IOException {
+    public void loadDates() throws IOException {
         List<LocalDate> dates = new ArrayList<>();
         if (!Files.exists(this.datesFile)) {
             throw new IOException(ERROR_MISSING_DATES_FILE + semesterPath.getFileName());
@@ -136,7 +143,7 @@ public class DateReader {
                     LocalDate parsedDate = LocalDate.parse(line, dateFormat);
                     dates.add(parsedDate);
                 } else {
-                    LOGGER.log(Level.WARNING, "Skipping invalid date format in dates.txt: {0}", line);
+                    LOGGER.log(Level.WARNING, "Skipping invalid date format in dates.txt: {0}", new Object[] { line });
                 }
             }
         }
@@ -145,14 +152,9 @@ public class DateReader {
             throw new IOException(ERROR_INSUFFICIENT_DATES + semesterPath.getFileName());
         }
 
-        // Assign dates
+        // Set preregistration and add deadline dates
         this.preregistrationDate = dates.get(0);
         this.addDeadlineDate = dates.get(1);
-
-        // Validation check for date ordering
-        if (!this.preregistrationDate.isBefore(this.addDeadlineDate)) {
-            throw new IllegalArgumentException("Preregistration date must be before add deadline date.");
-        }
     }
 
 }

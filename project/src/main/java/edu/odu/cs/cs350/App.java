@@ -1,6 +1,4 @@
 package edu.odu.cs.cs350;
-
-
 import java.io.File;
 import java.io.IOException;
 import java.time.LocalDate;
@@ -15,8 +13,8 @@ public class App {
 
         // List of semester directories to scan
         List<File> semesterDirs = Arrays.asList(
-            new File("/home/sean/Desktop/cs350/summary/202230"),
-            new File("/home/sean/Desktop/cs350/summary/202310")
+            new File("/home/spoca/Desktop/summary/202230"),
+            new File("/home/spoca/Desktop/summary/202310")
         );
 
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");

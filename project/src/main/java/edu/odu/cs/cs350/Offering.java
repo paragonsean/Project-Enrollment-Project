@@ -32,6 +32,11 @@ public class Offering {
      *
      * @param offeringKey the unique key for the offering
      * @return the derived cross-list group
+    /**
+     * Derives the cross-list group from the offering key by splitting on '-'.
+     *
+     * @param offeringKey the unique key for the offering
+     * @return the derived cross-list group
      */
     private String deriveCrossListGroup(String offeringKey) {
         String[] parts = offeringKey.split("-");

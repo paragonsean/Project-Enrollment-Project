@@ -76,21 +76,7 @@ public class HistoryTest {
         assertThat(history.getSemester("Fall2023"), is(notNullValue()));
     }
 
-    @Test
-    public void testExtractDateFromDatesFile() throws IOException {
-        File datesFile = new File(tempDir, "dates.txt");
-
-        try (BufferedWriter writer = new BufferedWriter(new FileWriter(datesFile))) {
-            writer.write("preRegDate=2023-08-01\naddDeadline=2023-12-01\n");
-        }
-
-        LocalDate preRegDate = history.extractDateFromDatesFile(datesFile, "preRegDate", formatter);
-        assertThat(preRegDate, is(LocalDate.parse("2023-08-01", formatter)));
-
-        LocalDate addDeadline = history.extractDateFromDatesFile(datesFile, "addDeadline", formatter);
-        assertThat(addDeadline, is(LocalDate.parse("2023-12-01", formatter)));
-    }
-
+ 
     @Test
     public void testFilterCsvFilesByDate() throws IOException {
         File directory = new File(tempDir, "csvFiles");
@@ -103,7 +89,8 @@ public class HistoryTest {
 
         List<File> csvFiles = history.filterCsvFilesByDate(directory,
                 LocalDate.parse("2023-09-01", formatter),
-                LocalDate.parse("2023-09-30", formatter), formatter);
+                LocalDate.parse("2023-09-30", formatter),
+                formatter);
 
         assertThat(csvFiles, hasSize(1));
         assertThat(csvFiles.get(0).getName(), is("2023-09-01.csv"));
