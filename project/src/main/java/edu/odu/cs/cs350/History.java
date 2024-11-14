@@ -134,13 +134,13 @@ public class History {
                     if ((preRegDate == null || !fileDate.isBefore(preRegDate)) && (addDeadline == null || !fileDate.isAfter(addDeadline))) {
                         filteredCsvFiles.add(file);
                     } else {
-                        logger.info("Skipping file " + file.getName() + " outside date range.");
+                        logger.info(String.format("Skipping file %s outside date range.", file.getName()));
                     }
                 } catch (DateTimeParseException ex) {
-                    logger.severe("Error parsing date from filename " + fileName + ": " + ex.getMessage());
+                    logger.severe(String.format("Error parsing date from filename %s: %s", fileName, ex.getMessage()));
                 }
             } else {
-                logger.warning("Filename does not match expected date format: " + fileName);
+                logger.warning(String.format("Filename does not match expected date format: %s", fileName));
             }
         }
 
