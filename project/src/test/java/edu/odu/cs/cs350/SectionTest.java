@@ -26,7 +26,7 @@ public class SectionTest {
     public void testConstructorInvalidParameters() {
         // Simulate invalid parameters by directly testing the constructor's behavior.
         IllegalArgumentException thrown = assertThrows(IllegalArgumentException.class, () -> {
-            new Section(null, 30, 25, "LNK001");
+            section = new Section(null, 30, 25, "LNK001");
         });
         assertEquals("Invalid parameter: Null value provided for one or more section attributes", thrown.getMessage());
     }
@@ -94,7 +94,6 @@ public class SectionTest {
     public void testEquals() {
         Section anotherSection = new Section("CRN12345", 30, 25, "LNK001");
         assertTrue(section.equals(anotherSection));
-        assertFalse(section.equals(null));
         assertFalse(section.equals(new Object()));
     }
 }

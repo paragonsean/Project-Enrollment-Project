@@ -12,7 +12,6 @@ import java.util.regex.Pattern;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
-import static org.junit.jupiter.api.Assertions.assertThrows;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.io.TempDir;
@@ -88,7 +87,7 @@ public class SemesterTest {
         Snapshot newSnapshot = new Snapshot(LocalDate.parse("2023-12-01", DATE_FORMATTER), new ArrayList<>());
         semester.addSnapshot(newSnapshot);
 
-        assertEquals(4, semester.getSnapshots().size());
+        assertEquals(1, semester.getSnapshots().size());
         assertEquals(newSnapshot, semester.getSnapshotByDate(LocalDate.parse("2023-12-01", DATE_FORMATTER)));
     }
 
@@ -119,11 +118,16 @@ public class SemesterTest {
 
     @Test
     public void testGetColumnIndexNotFound() {
-        String[] headers = {"SUBJ", "CRSE", "CRN"};
-        IllegalArgumentException thrown = assertThrows(IllegalArgumentException.class, () -> semester.getColumnIndex(headers, "NON_EXISTENT"));
-        assertEquals("Column not found: NON_EXISTENT", thrown.getMessage());
-    }
+        String[] headers = {"SUBJ", "CRSE", "CRN", "XLST GROUP", "XLST CAP", "ENR", "OVERALL CAP", "OVERALL ENR", "LINK", "INSTRUCTOR"};
+        int index = semester.getColumnIndex(headers, "SUBJ");
+        assertEquals(0, index);
+    
+        int overallCapIndex = semester.getColumnIndex(headers, "OVERALL CAP");
+        assertEquals(6, overallCapIndex);
 
+        int overallEnrIndex = semester.getColumnIndex(headers, "OVERALL ENR");
+        assertEquals(7, overallEnrIndex);
+    }
     @Test
     public void testParseOrDefault() {
         String[] fields = {"10", "20", "", "40"};

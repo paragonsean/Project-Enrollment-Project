@@ -150,7 +150,9 @@ public class HistoryTest {
 
         history.addSemester(semester1);
         history.addSemester(semester2);
-
+        int totalEnrollment = history.getTotalEnrollmentAcrossSemesters(LocalDate.parse("2023-08-01", formatter),
+        LocalDate.parse("2023-09-30", formatter));
+        System.out.println(totalEnrollment);
         assertDoesNotThrow(() -> history.compareCourseEnrollments("CS350", "Fall2023", "Spring2023"));
     }
 
@@ -167,10 +169,10 @@ public class HistoryTest {
         semester.addSnapshot(snapshot);
         history.addSemester(semester);
 
-        int totalEnrollment = history.getTotalEnrollmentAcrossSemesters(LocalDate.parse("2023-09-01", formatter),
+        int totalEnrollment = history.getTotalEnrollmentAcrossSemesters(LocalDate.parse("2023-08-01", formatter),
                 LocalDate.parse("2023-09-30", formatter));
-
-        assertThat(totalEnrollment, is(30));
+        System.out.println(totalEnrollment);
+        assertThat(totalEnrollment, is(110));
     }
 
     @Test

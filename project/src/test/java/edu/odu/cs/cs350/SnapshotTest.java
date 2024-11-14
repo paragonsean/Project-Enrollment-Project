@@ -51,7 +51,7 @@ public class SnapshotTest {
 
     @Test(expected = IllegalArgumentException.class)
     public void testParameterizedConstructorWithInvalidFilename() {
-        new Snapshot("invalid_filename.csv", Arrays.asList(course1, course2));
+        Snapshot snapshot = new Snapshot("invalid_filename.csv", Arrays.asList(course1, course2));
     }
 
     @Test

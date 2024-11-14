@@ -139,11 +139,23 @@ public class Section {
         return String.format("Section{courseRegistrationNumber='%s', %d/%d students currently enrolled, link='%s'}", courseRegistrationNumber, enrollment, crossListCapacity, link);
     }
 
+    /**
+     * Generates a hash code for this Section object based on its course registration number.
+     *
+     * @return an integer hash code value for this Section object
+     */
     @Override
     public int hashCode() {
         return Objects.hash(courseRegistrationNumber);
     }
 
+    /**
+     * Indicates whether some other object is "equal to" this one.
+     * 
+     * @param obj the reference object with which to compare.
+     * @return {@code true} if this object is the same as the obj argument;
+     *         {@code false} otherwise.
+     */
     @Override
     public boolean equals(Object obj) {
         if (this == obj) return true;
