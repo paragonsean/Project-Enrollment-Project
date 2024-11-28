@@ -2,11 +2,8 @@ package edu.odu.cs.cs350;
 
 import java.io.File;
 import java.time.LocalDate;
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Map;
+import java.time.temporal.ChronoUnit;
+import java.util.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -61,6 +58,36 @@ public class Semester implements Iterable<Snapshot> {
 
     public List<File> getCsvFiles() {
         return csvFiles;
+    }
+
+    /**
+     * Get the enrollment history of a specific course in this semester.
+     *
+     * @param courseKey The key representing the course (e.g., course ID or name).
+     * @return A map where the key is the normalized date (double between 0 and 1),
+     * and the value is the total enrollment for that course on that date.
+     */
+    public Map<Double, Integer> getCourseEnrollmentHistory(String courseKey) {
+        Map<Double, Integer> enrollmentHistory = new TreeMap<>();
+        long totalDays = ChronoUnit.DAYS.between(preRegDate, addDeadline);
+
+        for (Snapshot snapshot : snapshots.values()) {
+            LocalDate snapshotDate = snapshot.getDate();
+            if (!snapshotDate.isBefore(preRegDate) && !snapshotDate.isAfter(addDeadline)) {
+                Course course = snapshot.getCourse(courseKey);
+                if (course != null) {
+                    // Normalize the date to a range of 0-1
+                    long daysFromStart = ChronoUnit.DAYS.between(preRegDate, snapshotDate);
+                    double normalizedDate = (double) daysFromStart / totalDays;
+
+                    // Add to the map
+                    enrollmentHistory.put(normalizedDate, course.getTotalSectionEnrollment());
+                }
+            } else {
+                logger.warning("Snapshot date " + snapshotDate + " is outside the semester range.");
+            }
+        }
+        return enrollmentHistory;
     }
 
     @Override
