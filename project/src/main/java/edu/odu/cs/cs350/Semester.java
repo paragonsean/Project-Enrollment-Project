@@ -4,6 +4,8 @@ import java.io.File;
 import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
 import java.util.*;
+import java.util.AbstractMap.SimpleEntry;
+import java.util.Map.Entry;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -89,6 +91,33 @@ public class Semester implements Iterable<Snapshot> {
         }
         return enrollmentHistory;
     }
+    
+    public Map<String, List<Entry<Double, Integer>>> getAllCoursesEnrollmentHistory() {
+    Map<String, List<Entry<Double, Integer>>> courseEnrollmentHistory = new HashMap<>();
+    long totalDays = ChronoUnit.DAYS.between(preRegDate, addDeadline);
+
+    // Iterate through all snapshots
+    for (Snapshot snapshot : snapshots.values()) {
+        LocalDate snapshotDate = snapshot.getDate();
+        if (!snapshotDate.isBefore(preRegDate) && !snapshotDate.isAfter(addDeadline)) {
+            // Iterate through each course in the snapshot
+            snapshot.getCourses().forEach((courseName, course) -> {
+                // Normalize the snapshot date
+                long daysFromStart = ChronoUnit.DAYS.between(preRegDate, snapshotDate);
+                double normalizedDate = (double) daysFromStart / totalDays;
+
+                // Add normalized date and enrollment as a pair to the list
+                courseEnrollmentHistory
+                        .computeIfAbsent(courseName, k -> new ArrayList<>())
+                        .add(new SimpleEntry<>(normalizedDate, course.getTotalSectionEnrollment()));
+            });
+        } else {
+            logger.warning("Snapshot date " + snapshotDate + " is outside the semester range.");
+        }
+    }
+
+    return courseEnrollmentHistory;
+}
 
     @Override
     public Iterator<Snapshot> iterator() {

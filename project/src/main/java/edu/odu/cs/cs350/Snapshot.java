@@ -81,20 +81,7 @@ public final class Snapshot implements Iterable<Course> {
         return courseEnrollments;
     }
 
-    // Calculate the total section enrollment for all courses in this snapshot
-    public int getTotalSectionEnrollment() {
-        return coursesByKey.values().stream()
-                .mapToInt(Course::getTotalSectionEnrollment)
-                .sum();
-    }
-
-    // Calculate the total section capacity for all courses in this snapshot
-    public int getTotalSectionCapacity() {
-        return coursesByKey.values().stream()
-                .mapToInt(Course::getTotalSectionCapacity)
-                .sum();
-    }
-
+   
     // Extracts date from filename using regex pattern and formatter
     private LocalDate extractDateFromFilename(String filename, Pattern datePattern, DateTimeFormatter formatter) {
         Matcher matcher = datePattern.matcher(filename);

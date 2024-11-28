@@ -14,8 +14,9 @@ public class App {
 
         // List of semester directories to scan
         List<File> semesterDirs = List.of(
+            new File("/Users/spocam/Downloads/summary/202330"),
             new File("/Users/spocam/Downloads/summary/202320"),
-            new File("/Users/spocam/Downloads/summary/202330")
+            new File("/Users/spocam/Downloads/summary/202310")
         );
 
         // Load semesters from directories
@@ -27,13 +28,15 @@ public class App {
         history.generateEnrollmentReport();
 
         // Compare two specific semesters
-        System.out.println("\nComparison of Semesters 202230 and 202310:");
-        history.compareSemesters("202230", "202310");
 
         // Retrieve and print the enrollment history of a specific course
         System.out.println("\nEnrollment History for Course CS350:");
         Map<LocalDate, Integer> enrollmentHistory = history.getCourseEnrollmentHistory("CS350");
         enrollmentHistory.forEach((date, enrollment) ->
+            System.out.printf("Date: %s | Enrollment: %d\n", date, enrollment)
+        );
+        Map<LocalDate, Integer> enrollmentHistorys = history.getCourseEnrollmentHistory("CS110");
+        enrollmentHistorys.forEach((date, enrollment) ->
             System.out.printf("Date: %s | Enrollment: %d\n", date, enrollment)
         );
     }
