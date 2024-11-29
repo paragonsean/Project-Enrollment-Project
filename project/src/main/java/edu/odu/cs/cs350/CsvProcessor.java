@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.time.LocalDate;
+import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -27,7 +28,8 @@ public class CsvProcessor {
     private static final String OVERALL_ENR_COLUMN = "OVERALL ENR";
     private static final String LINK_COLUMN = "LINK";
     private static final String INSTRUCTOR_COLUMN = "INSTRUCTOR";
-
+    private static final String PRTM_START = "PTRM START";
+    private static final String PTRM_END = "PTRM END";
     public static void processCsvFilesToSnapshots(Semester semester) {
         logger.log(Level.INFO, "Starting CSV processing for semester: {0}", semester.getName());
         for (File csvFile : semester.getCsvFiles()) {
@@ -71,7 +73,9 @@ public class CsvProcessor {
             int offeringEnrollment = parseOrDefault(fields, getHeaderIndex(headerIndexMap, OVERALL_ENR_COLUMN), 0);
             String link = getFieldValue(fields, headerIndexMap, LINK_COLUMN, "");
             String instructor = getFieldValue(fields, headerIndexMap, INSTRUCTOR_COLUMN, "");
-            
+            String start_of_semester = getFieldValue(fields, headerIndexMap,PRTM_START, "");
+            String end_of_semester = getFieldValue(fields, headerIndexMap, PTRM_END, "");
+
             Course course = new Course(subject, courseNumber);
             course.addOfferingsAndSections(crn, xlstGroup, sectionCapacity, sectionEnrollment, offeringCapacity, offeringEnrollment, link);
             return course;
@@ -145,4 +149,5 @@ public class CsvProcessor {
     protected  static int getHeaderIndex(Map<String, Integer> headerIndexMap, String columnName) {
         return headerIndexMap.getOrDefault(columnName.toUpperCase(), -1);
     }
+
 }

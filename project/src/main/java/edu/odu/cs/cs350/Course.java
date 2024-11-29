@@ -1,4 +1,5 @@
 package edu.odu.cs.cs350;
+import java.time.LocalDate;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
@@ -52,7 +53,9 @@ public class Course implements Comparable<Course> {
      * The unique identifier for the course.
      */
     protected String courseKey;
-
+    private LocalDate PTRM_START;
+    private LocalDate PTRM_END;
+    private double normalizedDate;
     /**
      * A map that stores course offerings.
      * The key is a string representing the course identifier,
@@ -119,6 +122,24 @@ public class Course implements Comparable<Course> {
         offering.addSection(crn, sectionCapacity, sectionEnrollment, crn);
     }
 
+    public void setPTRM_START(LocalDate start) {
+        PTRM_START = start;
+    }
+    public void setPTRM_END(LocalDate end) {
+        PTRM_END = end;
+    }
+    public void setNormalizedDate(double normalizedDate){
+        this.normalizedDate = normalizedDate;
+    }
+    public double getNormalizedDate(){
+        return this.normalizedDate;
+    }
+    public LocalDate getPTRM_START(){
+        return this.PTRM_START;
+    }
+    public LocalDate getPTRM_END(){
+        return this.PTRM_END;
+    }
     /**
         return Collections.unmodifiableMap(offerings);
      *
@@ -251,6 +272,42 @@ public class Course implements Comparable<Course> {
     public int getTotalOfferingEnrollment() {
         return offerings.values().stream().mapToInt(Offering::getOverallEnrollment).sum();
     }
+    /**
+     * Calculates the total enrollment for the course, which is the larger of
+     * the total section enrollment and the total offering capacity.
+     *
+     * @return the larger of total section enrollment and total offering capacity.
+     */
+    public int getTotalEnrollment() {
+        int totalSectionEnrollment = offerings.values().stream()
+                .flatMap(offering -> offering.getSections().values().stream())
+                .mapToInt(Section::getEnrollment)
+                .sum();
+
+        int totalOfferingCapacity = offerings.values().stream()
+                .mapToInt(Offering::getOverallCapacity)
+                .sum();
+
+        return Math.max(totalSectionEnrollment, totalOfferingCapacity);
+    }
+    /**
+     * Calculates the total capacity for the course, which is the larger of
+     * the total section capacity and the total offering capacity.
+     *
+     * @return the larger of total section capacity and total offering capacity.
+     */
+    public int getTotalCapacity() {
+        int totalSectionCapacity = offerings.values().stream()
+                .flatMap(offering -> offering.getSections().values().stream())
+                .mapToInt(Section::getCrossListCapacity)
+                .sum();
+
+        int totalOfferingCapacity = offerings.values().stream()
+                .mapToInt(Offering::getOverallCapacity)
+                .sum();
+
+        return Math.max(totalSectionCapacity, totalOfferingCapacity);
+    }
 
     /**
      * Calculates the total enrollment across all sections of all offerings.
@@ -373,11 +430,11 @@ public class Course implements Comparable<Course> {
      *         subject is less than, equal to, or greater than the specified object's subject.
      *         If the specified Course object is null, returns 1.
      */
-    @Override
-    public int compareTo(Course other) {
-        if (other == null) {
-            return 1;
-        }
-        return this.subject.compareTo(other.subject);
+  @Override
+public int compareTo(Course other) {
+    if (other == null) {
+        return 1;
     }
+    return Double.compare(this.normalizedDate, other.normalizedDate);
+}
 }

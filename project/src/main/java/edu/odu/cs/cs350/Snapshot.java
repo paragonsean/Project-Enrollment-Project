@@ -69,19 +69,62 @@ public final class Snapshot implements Iterable<Course> {
         return coursesByKey.get(courseCode);
     }
 
-    // Get total enrollments for all courses in this snapshot
+    /**
+     * Get total enrollments for all courses in this snapshot.
+     *
+     * @return A map of course keys to their total enrollments.
+     *         If totalEnrollment > totalSectionEnrollment, totalEnrollment is used.
+     */
     public Map<String, Integer> getCourseEnrollments() {
         Map<String, Integer> courseEnrollments = new HashMap<>();
+
         for (Map.Entry<String, Course> entry : coursesByKey.entrySet()) {
             String courseKey = entry.getKey();
             Course course = entry.getValue();
-            int totalEnrollment = course.getTotalOfferingEnrollment(); // Assuming Course class has this method
-            courseEnrollments.put(courseKey, totalEnrollment);
+
+            // Assuming Course class has these methods
+            int totalEnrollment = course.getTotalOfferingEnrollment();
+            int totalSectionEnrollment = course.getTotalSectionEnrollment();
+
+            // Add course to map based on condition
+            courseEnrollments.put(courseKey, Math.max(totalEnrollment, totalSectionEnrollment));
         }
+
         return courseEnrollments;
     }
+    public int getCourseEnrollment(String courseKey) {
+        Course course = coursesByKey.get(courseKey);
 
-   
+        if (course == null) {
+            throw new IllegalArgumentException("Course with key " + courseKey + " does not exist.");
+        }
+
+        // Assuming Course class has these methods
+        int totalEnrollment = course.getTotalOfferingEnrollment();
+        int totalSectionEnrollment = course.getTotalSectionEnrollment();
+
+        // Return the maximum of total enrollment or total section enrollment
+        return Math.max(totalEnrollment, totalSectionEnrollment);
+    }
+    public int getCourseCapacity(String courseKey) {
+        Course course = coursesByKey.get(courseKey);
+
+        if (course == null) {
+            throw new IllegalArgumentException("Course with key " + courseKey + " does not exist.");
+        }
+
+        // Assuming Course class has these methods
+        int totalOfferingCapacity = course.getTotalOfferingCapacity();
+        int totalSectionCapacity = course.getTotalSectionCapacity();
+
+        // Return the maximum of total offering capacity or total section capacity
+        return Math.max(totalOfferingCapacity, totalSectionCapacity);
+    }
+
+    public boolean hasCourse(String courseKey) {
+        return coursesByKey.containsKey(courseKey);
+    }
+
     // Extracts date from filename using regex pattern and formatter
     private LocalDate extractDateFromFilename(String filename, Pattern datePattern, DateTimeFormatter formatter) {
         Matcher matcher = datePattern.matcher(filename);

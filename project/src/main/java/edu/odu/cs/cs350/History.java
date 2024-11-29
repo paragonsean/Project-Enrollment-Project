@@ -1,97 +1,96 @@
 package edu.odu.cs.cs350;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.io.File;
 import java.io.IOException;
 import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 import java.util.*;
 import java.util.stream.Collectors;
 
 public class History {
 
-    private Map<String, Semester> semesters;
+    private static final Logger logger = LoggerFactory.getLogger(History.class);
+    private final NavigableSet<Semester> semesters;
 
     public History() {
-        this.semesters = new HashMap<>();
+        // TreeSet ensures the semesters are sorted by addDeadline
+        this.semesters = new TreeSet<>(Comparator.comparing(Semester::getAddDeadline));
     }
 
     /**
-     * Add a semester to the history. If the semester already exists, it is replaced.
-     * 
+     * Add a semester to the history.
+     *
      * @param semester The semester to add.
      */
     public void addSemester(Semester semester) {
-        semesters.computeIfAbsent(semester.getName(), k -> {
-            System.out.printf("Adding new semester: %s\n", semester.getName());
-            return semester;
-        });
+        if (semester == null) {
+            throw new IllegalArgumentException("Semester cannot be null.");
+        }
+        boolean added = semesters.add(semester);
+        if (added) {
+            logger.info("Added semester: {}", semester.getName());
+        } else {
+            logger.warn("Semester already exists and was not added: {}", semester.getName());
+        }
     }
 
     /**
      * Retrieve a semester by its name.
-     * 
+     *
      * @param semesterName The name of the semester.
-     * @return The Semester object if found, null otherwise.
+     * @return An Optional containing the Semester if found, otherwise empty.
      */
-    public Semester getSemester(String semesterName) {
-        return semesters.get(semesterName);
+    public Optional<Semester> getSemester(String semesterName) {
+        return semesters.stream()
+                .filter(semester -> semester.getName().equalsIgnoreCase(semesterName))
+                .findFirst();
     }
 
     /**
-     * Retrieve all semester names.
-     * 
-     * @return A set of all semester names.
+     * Retrieve all semesters.
+     *
+     * @return A list of all semesters, sorted by their addDeadline.
      */
-    public Set<String> getSemesterNames() {
-        return semesters.keySet();
+    public List<Semester> getSemesters() {
+        return new ArrayList<>(semesters);
     }
 
     /**
-     * Generate an enrollment report for all semesters, courses, and snapshots.
-     */
-    public void generateEnrollmentReport() {
-        semesters.values().forEach(semester -> {
-            System.out.printf("Semester: %s\n", semester.getName());
-            semester.getSnapshots().forEach(snapshot -> {
-                System.out.printf("  Date: %s\n", snapshot.getDate());
-                snapshot.getCourses().forEach((courseKey, course) -> {
-                    System.out.printf("    Course: %s | Enrollment: %d\n",
-                            courseKey, course.getTotalSectionEnrollment());
-                });
-            });
-        });
-    }
-
-    /**
-     * Retrieve the enrollment history of a specific course across all semesters.
-     * 
-     * @param courseKey The key representing the course (e.g., course ID or name).
-     * @return A map where the key is the date and the value is the total enrollment for the course.
-     */
-    public Map<LocalDate, Integer> getCourseEnrollmentHistory(String courseKey) {
-        return semesters.values().stream()
-            .flatMap(semester -> semester.getSnapshots().stream())
-            .filter(snapshot -> snapshot.getCourse(courseKey) != null)
-            .collect(Collectors.toMap(
-                Snapshot::getDate,
-                snapshot -> snapshot.getCourse(courseKey).getTotalSectionEnrollment(),
-                (v1, v2) -> v1,  // Handle duplicate keys by keeping the first value
-                TreeMap::new      // Use TreeMap for sorted dates
-            ));
-    }
-
-    /**
-     * Load semesters from a list of directories using a specified formatter.
-     * 
+     * Load semesters from a list of directories.
+     *
      * @param directories List of directories containing semester data.
-     * @param formatter   The DateTimeFormatter used to parse dates.
+     * @param cutoffDate  Optional cutoff date for filtering data.
      * @throws IOException If an error occurs during loading.
      */
-    public void loadSemestersFromDirectories(List<File> directories, DateTimeFormatter formatter) throws IOException {
+    public void loadSemestersFromDirectories(List<File> directories, Optional<LocalDate> cutoffDate) throws IOException {
         FileProcessor processor = new FileProcessor();
-        List<Semester> loadedSemesters = processor.loadSemestersFromDirectories(directories, formatter);
-        for (Semester semester : loadedSemesters) {
-            addSemester(semester);
+        List<Semester> loadedSemesters = processor.loadSemestersFromDirectories(directories, cutoffDate);
+        loadedSemesters.forEach(this::addSemester);
+        logger.info("Loaded {} semesters from directories.", loadedSemesters.size());
+    }
+
+    /**
+     * Extract all historical semesters (excluding the most recent).
+     *
+     * @return A list of historical semesters.
+     */
+    public List<Semester> extractLastHistoricalSemesters() {
+        if (semesters.isEmpty()) {
+            logger.warn("No historical semesters available.");
+            return Collections.emptyList();
         }
+
+        return new ArrayList<>(semesters.headSet(semesters.last(), false));
+    }
+
+    /**
+     * Get the most recent semester.
+     *
+     * @return An Optional containing the most recent Semester, or empty if no semesters exist.
+     */
+    public Optional<Semester> getMostRecentSemester() {
+        return Optional.ofNullable(semesters.isEmpty() ? null : semesters.last());
     }
 }
