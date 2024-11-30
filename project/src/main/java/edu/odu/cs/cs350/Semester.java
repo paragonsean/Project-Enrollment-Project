@@ -24,7 +24,7 @@ class Semester implements Iterable<Snapshot> {
         this.path = new File(path);
         FileProcessor fileProcessor = new FileProcessor();
         this.name = new File(path).getName();
-        this.csvFiles = Collections.unmodifiableList(fileProcessor.convertStringToFiles(path));
+        this.csvFiles = Collections.unmodifiableList(convertStringToFiles(path));
         this.dateReader = new DateReader(this.path.getAbsolutePath());
         this.preRegDate = dateReader.getPreregistrationDate() != null ? dateReader.getPreregistrationDate() : LocalDate.now();
         this.addDeadline = dateReader.getDeadlineDate() != null ? dateReader.getDeadlineDate() : LocalDate.now().plusMonths(1);
@@ -51,7 +51,17 @@ class Semester implements Iterable<Snapshot> {
         semester.processCsvFilesToSnapshots();
         return semester;
     }
-
+    public List<File> convertStringToFiles(String directory) {
+        List<File> files = new ArrayList<>();
+        File dir = new File(directory);
+        if (dir.exists() && dir.isDirectory()) {
+            File[] fileArray = dir.listFiles();
+            if (fileArray != null) {
+                files.addAll(Arrays.asList(fileArray));
+            }
+        }
+        return files;
+    }
     public void addSnapshot(Snapshot snapshot) {
         snapshots.put(snapshot.getDate(), snapshot);
     }
