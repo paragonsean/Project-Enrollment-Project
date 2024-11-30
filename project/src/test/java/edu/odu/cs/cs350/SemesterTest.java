@@ -1,94 +1,140 @@
 package edu.odu.cs.cs350;
-import java.io.File;
-import java.time.LocalDate;
-import java.util.Arrays;
-import java.util.List;
 
-import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.Matchers.containsInAnyOrder;
-import static org.hamcrest.Matchers.empty;
-import static org.hamcrest.Matchers.is;
-import static org.hamcrest.Matchers.nullValue;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.when;
+import org.junit.jupiter.api.io.TempDir;
 
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
+import static org.junit.jupiter.api.Assertions.*;
 
 public class SemesterTest {
 
+    @TempDir
+    File tempDir;
+
     private Semester semester;
-    private String name;
-    private LocalDate preRegDate;
-    private LocalDate addDeadline;
-    private List<File> csvFiles;
 
     @BeforeEach
-    public void setUp() {
-        name = "Fall 2023";
-        preRegDate = LocalDate.of(2023, 8, 1);
-        addDeadline = LocalDate.of(2023, 9, 1);
-        csvFiles = Arrays.asList(new File("file1.csv"), new File("file2.csv"));
-        semester = new Semester(name, preRegDate, addDeadline, csvFiles);
+    public void setUp() throws IOException {
+        // Create a temporary directory to mimic semester directories
+        File semesterDir = new File(tempDir, "TestSemester");
+        semesterDir.mkdir();
+
+        // Create a dates.txt file with pre-registration and add-deadline dates
+        File datesFile = new File(semesterDir, "dates.txt");
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(datesFile))) {
+            writer.write("2023-01-01\n");
+            writer.write("2023-05-01\n");
+        }
+
+        // Create mock CSV files
+        File csv1 = new File(semesterDir, "2023-01-23.csv");
+        File csv2 = new File(semesterDir, "2023-02-15.csv");
+        csv1.createNewFile();
+        csv2.createNewFile();
+
+        // Prepare Semester instance
+        List<File> csvFiles = List.of(csv1, csv2);
+        semester = new Semester("TestSemester", semesterDir.getPath(),
+                LocalDate.of(2023, 1, 1),
+                LocalDate.of(2023, 5, 1),
+                csvFiles,
+                new DateReader(semesterDir.getPath())
+        );
     }
 
     @Test
     public void testConstructor() {
-        assertThat(semester.getName(), is(name));
-        assertThat(semester.getPreRegDate(), is(preRegDate));
-        assertThat(semester.getAddDeadline(), is(addDeadline));
-        assertThat(semester.getCsvFiles(), is(csvFiles));
-        assertThat(semester.getSnapshots(), is(empty()));
-    }
-
-    @Test
-    public void testCreateSemester() {
-        Semester createdSemester = Semester.createSemester(name, preRegDate, addDeadline, csvFiles);
-        assertThat(createdSemester.getName(), is(name));
-        assertThat(createdSemester.getPreRegDate(), is(preRegDate));
-        assertThat(createdSemester.getAddDeadline(), is(addDeadline));
-        assertThat(createdSemester.getCsvFiles(), is(csvFiles));
-    
-        CsvProcessor.processCsvFilesToSnapshots(createdSemester);
+        assertEquals("TestSemester", semester.getName());
+        assertEquals(LocalDate.of(2023, 1, 1), semester.getPreRegDate());
+        assertEquals(LocalDate.of(2023, 5, 1), semester.getAddDeadline());
+        assertEquals(2, semester.getCsvFiles().size());
     }
 
     @Test
     public void testAddSnapshot() {
-        Snapshot snapshot = mock(Snapshot.class);
-        when(snapshot.getDate()).thenReturn(LocalDate.of(2023, 8, 15));
+        Snapshot snapshot = new Snapshot(LocalDate.of(2023, 2, 1), new ArrayList<>());
         semester.addSnapshot(snapshot);
-        assertThat(semester.getSnapshotByDate(LocalDate.of(2023, 8, 15)), is(snapshot));
-    }
-
-    @Test
-    public void testGetSnapshotByDate() {
-        Snapshot snapshot = mock(Snapshot.class);
-        when(snapshot.getDate()).thenReturn(LocalDate.of(2023, 8, 15));
-        semester.addSnapshot(snapshot);
-        assertThat(semester.getSnapshotByDate(LocalDate.of(2023, 8, 15)), is(snapshot));
-        assertThat(semester.getSnapshotByDate(LocalDate.of(2023, 8, 16)), is(nullValue()));
+        Snapshot retrievedSnapshot = semester.getSnapshotByDate(LocalDate.of(2023, 2, 1));
+        assertNotNull(retrievedSnapshot);
+        assertEquals(snapshot, retrievedSnapshot);
     }
 
     @Test
     public void testGetSnapshots() {
-        Snapshot snapshot1 = mock(Snapshot.class);
-        when(snapshot1.getDate()).thenReturn(LocalDate.of(2023, 8, 15));
-        Snapshot snapshot2 = mock(Snapshot.class);
-        when(snapshot2.getDate()).thenReturn(LocalDate.of(2023, 8, 16));
+        Snapshot snapshot1 = new Snapshot(LocalDate.of(2023, 2, 1), new ArrayList<>());
+        Snapshot snapshot2 = new Snapshot(LocalDate.of(2023, 3, 1), new ArrayList<>());
         semester.addSnapshot(snapshot1);
         semester.addSnapshot(snapshot2);
-        assertThat(semester.getSnapshots(), containsInAnyOrder(snapshot1, snapshot2));
+
+        List<Snapshot> snapshots = new ArrayList<>(semester.getSnapshots());
+        assertEquals(2, snapshots.size());
+        assertTrue(snapshots.contains(snapshot1));
+        assertTrue(snapshots.contains(snapshot2));
     }
 
     @Test
-    public void testIterator() {
-        Snapshot snapshot1 = mock(Snapshot.class);
-        when(snapshot1.getDate()).thenReturn(LocalDate.of(2023, 8, 15));
-        Snapshot snapshot2 = mock(Snapshot.class);
-        when(snapshot2.getDate()).thenReturn(LocalDate.of(2023, 8, 16));
-        semester.addSnapshot(snapshot1);
-        semester.addSnapshot(snapshot2);
-        assertThat(semester, containsInAnyOrder(snapshot1, snapshot2));
+    public void testNormalizeDate() {
+        double normalizedDate = semester.normalizeDate(LocalDate.of(2023, 3, 1));
+        assertEquals(0.5, normalizedDate, 0.01);
+    }
+
+    @Test
+    public void testNormalizeDateWithNullDate() {
+        Exception exception = assertThrows(IllegalArgumentException.class, () -> {
+            semester.normalizeDate(null);
+        });
+        assertEquals("Date cannot be null", exception.getMessage());
+    }
+
+    @Test
+    public void testNormalizeDateOutOfRange() {
+        Exception exception = assertThrows(IllegalArgumentException.class, () -> {
+            semester.normalizeDate(LocalDate.of(2022, 12, 31));
+        });
+        assertEquals("Date is out of range", exception.getMessage());
+    }
+
+    @Test
+    public void testProcessCsvFilesToSnapshots() {
+        semester.processCsvFilesToSnapshots();
+        assertFalse(semester.getSnapshots().isEmpty());
+    }
+
+    @Test
+    public void testCreateSemester() throws IOException {
+        File semesterDir = new File(tempDir, "CreatedSemester");
+        semesterDir.mkdir();
+
+        File datesFile = new File(semesterDir, "dates.txt");
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(datesFile))) {
+            writer.write("2023-01-01\n");
+            writer.write("2023-05-01\n");
+        }
+
+        File csv1 = new File(semesterDir, "2023-01-23.csv");
+        File csv2 = new File(semesterDir, "2023-02-15.csv");
+        csv1.createNewFile();
+        csv2.createNewFile();
+
+        List<File> csvFiles = List.of(csv1, csv2);
+        Semester createdSemester = Semester.createSemester("CreatedSemester",
+                LocalDate.of(2023, 1, 1),
+                LocalDate.of(2023, 5, 1),
+                csvFiles,
+                semesterDir.getPath()
+        );
+
+        assertEquals("CreatedSemester", createdSemester.getName());
+        assertEquals(LocalDate.of(2023, 1, 1), createdSemester.getPreRegDate());
+        assertEquals(LocalDate.of(2023, 5, 1), createdSemester.getAddDeadline());
+        assertEquals(2, createdSemester.getCsvFiles().size());
     }
 }

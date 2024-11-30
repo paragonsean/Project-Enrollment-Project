@@ -11,3 +11,4 @@
 **/bin/
 project/src/main/java/edu/odu/cs/cs350/AbstractDateReader
 project/src/main/java/edu/odu/cs/cs350/abstraccsvreader.java
+project/src/main/java/edu/odu/cs/cs350/DetailedReportGenerator.java

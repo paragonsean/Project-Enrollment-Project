@@ -118,7 +118,7 @@ public class Course implements Comparable<Course> {
      * @param sanitizedLink a sanitized link associated with the section
      */
     private void addSectionToOffering(Offering offering, String crn, int sectionCapacity, int sectionEnrollment, String sanitizedLink) {
-        logger.info(String.format("Adding section with CRN: %s to Offering: %s", crn, offering.getOfferingKey()));
+        // logger.info(String.format("Adding section with CRN: %s to Offering: %s", crn, offering.getOfferingKey()));
         offering.addSection(crn, sectionCapacity, sectionEnrollment, crn);
     }
 
@@ -260,7 +260,7 @@ public class Course implements Comparable<Course> {
      * @return a new Offering instance with the specified parameters
      */
     private Offering createNewOffering(String offeringKey, int capacity, int enrollment) {
-        logger.info(String.format("Creating new Offering with key: %s", offeringKey));
+        // logger.info(String.format("Creating new Offering with key: %s", offeringKey));
         return new Offering(offeringKey, capacity, enrollment); // Only pass offeringKey here
     }
 

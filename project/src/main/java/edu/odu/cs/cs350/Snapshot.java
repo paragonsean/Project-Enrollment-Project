@@ -115,10 +115,13 @@ public final class Snapshot implements Iterable<Course> {
 
         // Assuming Course class has these methods
         int totalOfferingCapacity = course.getTotalOfferingCapacity();
-        int totalSectionCapacity = course.getTotalSectionCapacity();
+        if(totalOfferingCapacity == 0) {
+            totalOfferingCapacity = course.getTotalSectionCapacity();
+        }
+         
 
         // Return the maximum of total offering capacity or total section capacity
-        return Math.max(totalOfferingCapacity, totalSectionCapacity);
+        return totalOfferingCapacity;
     }
 
     public boolean hasCourse(String courseKey) {
@@ -155,7 +158,7 @@ public final class Snapshot implements Iterable<Course> {
     public LocalDate getDate() {
         return this.snapshotDate;
     }
-
+    
     // toString method to provide a human-readable representation of the snapshot
     @Override
     public String toString() {

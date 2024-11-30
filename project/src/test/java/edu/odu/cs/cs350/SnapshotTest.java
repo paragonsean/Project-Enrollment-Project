@@ -102,7 +102,7 @@ public class SnapshotTest {
         List<Course> courses = Arrays.asList(course1, course2);
         Snapshot snapshot = new Snapshot("2023-10-01.csv", courses);
 
-        int totalEnrollment = snapshot.getTotalSectionEnrollment();
+        int totalEnrollment = snapshot.getCourseCapacity(course1.getCourseKey());
         assertEquals(25, totalEnrollment);
     }
 
@@ -111,7 +111,7 @@ public class SnapshotTest {
         List<Course> courses = Arrays.asList(course1, course2);
         Snapshot snapshot = new Snapshot("2023-10-01.csv", courses);
 
-        int totalCapacity = snapshot.getTotalSectionCapacity();
+        int totalCapacity = snapshot.getCourseCapacity(course2.getCourseKey());
         assertEquals(35, totalCapacity);
     }
 

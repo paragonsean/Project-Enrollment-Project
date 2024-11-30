@@ -13,7 +13,7 @@ repositories {
 }
 
 application {
-    mainClass = 'edu.odu.cs.cs350.App'
+    mainClass = 'edu.odu.cs.cs350.Projector'
 }
 
 dependencies {

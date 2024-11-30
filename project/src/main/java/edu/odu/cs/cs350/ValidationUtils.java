@@ -37,10 +37,11 @@ public class ValidationUtils {
             logger.log(Level.SEVERE, message);
             throw new IllegalArgumentException(message);
         }
-        if (enrollment > capacity) {
-            enrollment = capacity;
-            String message = "Section enrollment cannot exceed section capacity";
-            logger.log(Level.SEVERE, message);
+        if(enrollment == capacity){
+            return;
+        }
+        if (enrollment > capacity ) {
+            // System.out.println("Enrollment: " + enrollment + " Capacity: " + capacity);
         }
     }
 

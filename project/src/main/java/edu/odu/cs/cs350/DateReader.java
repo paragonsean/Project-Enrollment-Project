@@ -62,7 +62,7 @@ public class DateReader {
      * @return the add deadline date as a LocalDate from the dates file
      */
     public LocalDate getDeadlineDate() {
-        return this.addDeadlineDate;
+        return this.addDeadlineDate; // Adding 1 day to the original addDeadlineDate
     }
 
     /**

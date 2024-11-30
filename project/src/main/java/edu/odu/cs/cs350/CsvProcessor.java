@@ -30,14 +30,46 @@ public class CsvProcessor {
     private static final String INSTRUCTOR_COLUMN = "INSTRUCTOR";
     private static final String PRTM_START = "PTRM START";
     private static final String PTRM_END = "PTRM END";
+    
     public static void processCsvFilesToSnapshots(Semester semester) {
         logger.log(Level.INFO, "Starting CSV processing for semester: {0}", semester.getName());
         for (File csvFile : semester.getCsvFiles()) {
             processCsvFile(semester, csvFile);
         }
     }
+    
+    public static void processCsvFile(Semester semester, File csvFile) {
+        LocalDate fileDate;
+        try {
+            fileDate = DateReader.extractDateFromFileName(csvFile.getName());
+        } catch (IllegalArgumentException e) {
+            logger.log(Level.WARNING, "Skipping file with invalid date format: {0}", csvFile.getName());
+            return;
+        }
 
-    protected static void addCsvToSnapshot(Snapshot snapshot, File csvFile) throws Exception {
+        if (!isFileWithinDateRange(fileDate, semester)) {
+            logger.log(Level.INFO, "Skipping file outside date range: {0}", csvFile.getName());
+            return;
+        }
+
+        Snapshot snapshot = getOrCreateSnapshot(semester, fileDate);
+        try {
+            addCsvToSnapshot(snapshot, csvFile);
+        } catch (Exception e) {
+            logger.log(Level.SEVERE, "Error adding CSV to snapshot for file {0}: {1}",
+                    new Object[]{csvFile.getName(), e.getMessage()});
+        }
+    }
+
+    protected static Snapshot getOrCreateSnapshot(Semester semester, LocalDate fileDate) {
+        Snapshot snapshot = semester.getSnapshotByDate(fileDate);
+        if (snapshot == null) {
+            snapshot = new Snapshot(fileDate, new ArrayList<>());
+            semester.addSnapshot(snapshot);
+        }
+        return snapshot;
+    }
+    public static void addCsvToSnapshot(Snapshot snapshot, File csvFile) throws Exception {
         logger.log(Level.INFO, "Reading CSV file: {0}", csvFile.getName());
 
         try (FileReader reader = new FileReader(csvFile); CSVReader csvReader = new CSVReader(reader)) {
@@ -53,7 +85,7 @@ public class CsvProcessor {
                 Course course = mapFieldsToCourse(row, headerIndexMap, snapshot.getDate());
                 if (course != null) {
                     snapshot.addCourse(course);
-                    logger.log(Level.INFO, "Added course: {0}", course);
+                    // logger.log(Level.INFO, "Added course: {0}", course);
                 }
             }
         } catch (IOException | CsvValidationException e) {
@@ -96,42 +128,13 @@ public class CsvProcessor {
         }
     }
 
-    protected static void processCsvFile(Semester semester, File csvFile) {
-        LocalDate fileDate;
-        try {
-            fileDate = DateReader.extractDateFromFileName(csvFile.getName());
-        } catch (IllegalArgumentException e) {
-            logger.log(Level.WARNING, "Skipping file with invalid date format: {0}", csvFile.getName());
-            return;
-        }
-
-        if (!isFileWithinDateRange(fileDate, semester)) {
-            logger.log(Level.INFO, "Skipping file outside date range: {0}", csvFile.getName());
-            return;
-        }
-
-        Snapshot snapshot = getOrCreateSnapshot(semester, fileDate);
-        try {
-            addCsvToSnapshot(snapshot, csvFile);
-        } catch (Exception e) {
-            logger.log(Level.SEVERE, "Error adding CSV to snapshot for file {0}: {1}",
-                    new Object[]{csvFile.getName(), e.getMessage()});
-        }
-    }
 
     protected static boolean isFileWithinDateRange(LocalDate fileDate, Semester semester) {
         return !(semester.getPreRegDate() != null && fileDate.isBefore(semester.getPreRegDate())) &&
                 !(semester.getAddDeadline() != null && fileDate.isAfter(semester.getAddDeadline()));
     }
 
-    protected static Snapshot getOrCreateSnapshot(Semester semester, LocalDate fileDate) {
-        Snapshot snapshot = semester.getSnapshotByDate(fileDate);
-        if (snapshot == null) {
-            snapshot = new Snapshot(fileDate, new ArrayList<>());
-            semester.addSnapshot(snapshot);
-        }
-        return snapshot;
-    }
+
 
     protected static Map<String, Integer> createHeaderIndexMap(String[] headers) {
         Map<String, Integer> headerIndexMap = new HashMap<>();
