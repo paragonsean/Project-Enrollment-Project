@@ -8,7 +8,7 @@ import java.util.StringJoiner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-public class Course implements Comparable<Course> {
+public class Course  {
 
     /**
      * Logger instance for the Course class.
@@ -53,9 +53,7 @@ public class Course implements Comparable<Course> {
      * The unique identifier for the course.
      */
     protected String courseKey;
-    private LocalDate PTRM_START;
-    private LocalDate PTRM_END;
-    private double normalizedDate;
+ 
     /**
      * A map that stores course offerings.
      * The key is a string representing the course identifier,
@@ -122,24 +120,7 @@ public class Course implements Comparable<Course> {
         offering.addSection(crn, sectionCapacity, sectionEnrollment, crn);
     }
 
-    public void setPTRM_START(LocalDate start) {
-        PTRM_START = start;
-    }
-    public void setPTRM_END(LocalDate end) {
-        PTRM_END = end;
-    }
-    public void setNormalizedDate(double normalizedDate){
-        this.normalizedDate = normalizedDate;
-    }
-    public double getNormalizedDate(){
-        return this.normalizedDate;
-    }
-    public LocalDate getPTRM_START(){
-        return this.PTRM_START;
-    }
-    public LocalDate getPTRM_END(){
-        return this.PTRM_END;
-    }
+
     /**
         return Collections.unmodifiableMap(offerings);
      *
@@ -420,21 +401,5 @@ public class Course implements Comparable<Course> {
         return Objects.hash(courseKey);
     }
 
-    /**
-     * Compares this Course object with the specified Course object for order.
-     * Returns a negative integer, zero, or a positive integer as this object's
-     * subject is less than, equal to, or greater than the specified object's subject.
-     *
-     * @param other the Course object to be compared.
-     * @return a negative integer, zero, or a positive integer as this object's
-     *         subject is less than, equal to, or greater than the specified object's subject.
-     *         If the specified Course object is null, returns 1.
-     */
-  @Override
-public int compareTo(Course other) {
-    if (other == null) {
-        return 1;
-    }
-    return Double.compare(this.normalizedDate, other.normalizedDate);
-}
+
 }
