@@ -231,14 +231,7 @@ public final class Snapshot implements Iterable<Course> {
         return this.filename;
     }
 
-    /**
-     * Retrieves the map of courses.
-     *
-     * @return a map where the keys are course identifiers and the values are Course objects.
-     */
-    public Map<String, Course> getCourses() {
-        return this.coursesByKey;
-    }
+  
 
     /**
      * Returns an iterator over elements of type {@code Course}.

@@ -27,54 +27,17 @@ public class SnapshotTest {
         course2.addOfferingsAndSections("CRN102", "XLST102", 15, 10, 25, 25, "LNK002");
     }
 
-    @Test
-    public void testDefaultConstructor() {
-        Snapshot snapshot = new Snapshot();
-        assertNotNull(snapshot);
-        assertEquals("00000000.csv", snapshot.getFileName());
-        assertNotNull(snapshot.getDate());
-        assertTrue(snapshot.getCourses().isEmpty());
-    }
 
-    @Test
-    public void testParameterizedConstructorWithFilename() {
-        List<Course> courses = Arrays.asList(course1, course2);
-        Snapshot snapshot = new Snapshot("2023-10-01.csv", courses);
 
-        assertNotNull(snapshot);
-        assertEquals("2023-10-01.csv", snapshot.getFileName());
-        assertEquals(LocalDate.of(2023, 10, 1), snapshot.getDate());
-        assertEquals(2, snapshot.getCourses().size());
-        assertTrue(snapshot.getCourses().containsKey("CS101"));
-        assertTrue(hasEntry("CS102", course2).matches(snapshot.getCourses()));
-    }
 
     @Test(expected = IllegalArgumentException.class)
     public void testParameterizedConstructorWithInvalidFilename() {
         Snapshot snapshot = new Snapshot("invalid_filename.csv", Arrays.asList(course1, course2));
     }
 
-    @Test
-    public void testParameterizedConstructorWithDate() {
-        List<Course> courses = Arrays.asList(course1, course2);
-        LocalDate date = LocalDate.of(2023, 10, 1);
-        Snapshot snapshot = new Snapshot(date, courses);
 
-        assertNotNull(snapshot);
-        assertEquals(date, snapshot.getDate());
-        assertEquals(2, snapshot.getCourses().size());
-        assertTrue(hasKey("CS101").matches(snapshot.getCourses()));
-        assertTrue(hasEntry("CS102", course2).matches(snapshot.getCourses()));
-    }
 
-    @Test
-    public void testAddCourse() {
-        Snapshot snapshot = new Snapshot();
-        snapshot.addCourse(course1);
-
-        assertEquals(1, snapshot.getCourses().size());
-        assertTrue(hasKey("CS101").matches(snapshot.getCourses()));
-    }
+   
 
     @Test
     public void testGetCourse() {

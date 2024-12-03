@@ -160,22 +160,7 @@ public class CourseTest {
         assertEquals(10, course.getTotalSectionCapacity());
     }
 
-    @Test
-    public void testGetSectionEnrollment() {
-        course.addOfferingsAndSections("CRN12347", "XLST2", 10, 10, 10, 10, "link");
-        int enrollment = course.getSectionEnrollment("CRN12347", "XLST2");
-        assertEquals(10, enrollment);
-    }
-
-    @Test
-    public void testGetSectionEnrollmentThrowsException() {
-        Exception exception = assertThrows(IllegalArgumentException.class, () -> {
-            course.getSectionEnrollment("99999", "XLST1");
-        });
-        String expectedMessage = "Section not found for CRN: 99999 in XLST Group: XLST1";
-        String actualMessage = exception.getMessage();
-        assertTrue(actualMessage.contains(expectedMessage));
-    }
+    
 
     @Test
     public void testToString() {

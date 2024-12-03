@@ -1,5 +1,4 @@
 package edu.odu.cs.cs350;
-import java.time.LocalDate;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
@@ -8,7 +7,7 @@ import java.util.StringJoiner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-public class Course  {
+public class Course implements Comparable<Course> {
 
     /**
      * Logger instance for the Course class.
@@ -53,7 +52,7 @@ public class Course  {
      * The unique identifier for the course.
      */
     protected String courseKey;
- 
+
     /**
      * A map that stores course offerings.
      * The key is a string representing the course identifier,
@@ -116,10 +115,9 @@ public class Course  {
      * @param sanitizedLink a sanitized link associated with the section
      */
     private void addSectionToOffering(Offering offering, String crn, int sectionCapacity, int sectionEnrollment, String sanitizedLink) {
-        // logger.info(String.format("Adding section with CRN: %s to Offering: %s", crn, offering.getOfferingKey()));
+        logger.info(String.format("Adding section with CRN: %s to Offering: %s", crn, offering.getOfferingKey()));
         offering.addSection(crn, sectionCapacity, sectionEnrollment, crn);
     }
-
 
     /**
         return Collections.unmodifiableMap(offerings);
@@ -241,7 +239,7 @@ public class Course  {
      * @return a new Offering instance with the specified parameters
      */
     private Offering createNewOffering(String offeringKey, int capacity, int enrollment) {
-        // logger.info(String.format("Creating new Offering with key: %s", offeringKey));
+        logger.info(String.format("Creating new Offering with key: %s", offeringKey));
         return new Offering(offeringKey, capacity, enrollment); // Only pass offeringKey here
     }
 
@@ -252,42 +250,6 @@ public class Course  {
      */
     public int getTotalOfferingEnrollment() {
         return offerings.values().stream().mapToInt(Offering::getOverallEnrollment).sum();
-    }
-    /**
-     * Calculates the total enrollment for the course, which is the larger of
-     * the total section enrollment and the total offering capacity.
-     *
-     * @return the larger of total section enrollment and total offering capacity.
-     */
-    public int getTotalEnrollment() {
-        int totalSectionEnrollment = offerings.values().stream()
-                .flatMap(offering -> offering.getSections().values().stream())
-                .mapToInt(Section::getEnrollment)
-                .sum();
-
-        int totalOfferingCapacity = offerings.values().stream()
-                .mapToInt(Offering::getOverallCapacity)
-                .sum();
-
-        return Math.max(totalSectionEnrollment, totalOfferingCapacity);
-    }
-    /**
-     * Calculates the total capacity for the course, which is the larger of
-     * the total section capacity and the total offering capacity.
-     *
-     * @return the larger of total section capacity and total offering capacity.
-     */
-    public int getTotalCapacity() {
-        int totalSectionCapacity = offerings.values().stream()
-                .flatMap(offering -> offering.getSections().values().stream())
-                .mapToInt(Section::getCrossListCapacity)
-                .sum();
-
-        int totalOfferingCapacity = offerings.values().stream()
-                .mapToInt(Offering::getOverallCapacity)
-                .sum();
-
-        return Math.max(totalSectionCapacity, totalOfferingCapacity);
     }
 
     /**
@@ -328,29 +290,25 @@ public class Course  {
                 .sum();
     }
 
+
     /**
-     * Retrieves the enrollment number for a specific section identified by its CRN (Course Reference Number)
-     * within a given cross-list group.
-     *
-     * @param crn the Course Reference Number of the section
-     * @param crossListGroup the cross-list group identifier
-     * @return the enrollment number of the specified section
-     * @throws IllegalArgumentException if the section is not found for the given CRN and cross-list group
-     */
-    public int getSectionEnrollment(String crn, String crossListGroup) {
-        ValidationUtils.validateSectionParameters(crn);
-        String offeringKey = generateOfferingKey(crossListGroup);
-        Offering offering = offerings.get(offeringKey);
-        if (offering != null) {
-            Section section = offering.getSections().get(crn);
-            if (section != null) {
-                return section.getEnrollment();
-            }
-        }
-        String errorMessage = String.format("Section not found for CRN: %s in XLST Group: %s", crn, crossListGroup);
-        logger.log(Level.SEVERE, errorMessage);
-        throw new IllegalArgumentException(errorMessage);
-    }
+ * Calculates the total enrollment for the course, which is the greater of
+ * the total enrollment across all offerings and the total enrollment across
+ * all sections.
+ *
+ * @return the maximum value between total offering enrollment and total section enrollment.
+ */
+public int getTotalEnrollment() {
+    int totalOfferingEnrollment = getTotalOfferingEnrollment();
+    int totalSectionEnrollment = getTotalSectionEnrollment();
+    return Math.max(totalOfferingEnrollment, totalSectionEnrollment);
+}
+
+public int getTotalCapacity() {
+    int totalOfferingCapacity = getTotalOfferingCapacity();
+    int totalSectionCapacity = getTotalSectionCapacity();
+    return Math.max(totalOfferingCapacity, totalSectionCapacity);
+}
 
     /**
      * Returns a string representation of the Course object.
@@ -401,5 +359,21 @@ public class Course  {
         return Objects.hash(courseKey);
     }
 
-
+    /**
+     * Compares this Course object with the specified Course object for order.
+     * Returns a negative integer, zero, or a positive integer as this object's
+     * subject is less than, equal to, or greater than the specified object's subject.
+     *
+     * @param other the Course object to be compared.
+     * @return a negative integer, zero, or a positive integer as this object's
+     *         subject is less than, equal to, or greater than the specified object's subject.
+     *         If the specified Course object is null, returns 1.
+     */
+    @Override
+    public int compareTo(Course other) {
+        if (other == null) {
+            return 1;
+        }
+        return this.subject.compareTo(other.subject);
+    }
 }
