@@ -1,5 +1,4 @@
 * [Design Brainstorm](https://docs.google.com/document/d/1OQ0Xv7hy7S868KrXXS7HTUkGfZLbmSvmY7WGknZN2Ls/edit?tab=t.0)
-
 # Enrollment Projection Project
 
 A Java application that **projects final course enrollment** for an upcoming/active
