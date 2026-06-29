@@ -1,4 +1,3 @@
-* [Design Brainstorm](https://docs.google.com/document/d/1OQ0Xv7hy7S868KrXXS7HTUkGfZLbmSvmY7WGknZN2Ls/edit?tab=t.0)
 # Enrollment Projection Project
 
 A Java application that **projects final course enrollment** for an upcoming/active
@@ -80,6 +79,19 @@ Offering  ──has many──▶ Section  (a CRN; Lecture/Recitation/Lab via LI
 
 A `Section`'s `LINK` code suffix classifies it: `…1`=Lecture, `…2`=Recitation,
 `…3`=Lab. Enrollment rolls up Section → Offering → Course → Snapshot.
+
+### UML class diagram
+
+The diagram below reconstructs the class structure. **Blue** classes were specified
+in the original *CS 350 TA2 Brainstorm* design document; **orange** classes exist
+only in the implementation (the data-acquisition and projection layers the
+brainstorm never specified). Diamonds denote composition (1-to-many).
+
+![UML class diagram](images/uml_class_diagram.png)
+
+> A full written comparison of the brainstorm design against the as-built code —
+> what matched, what diverged, and what was missing — is in
+> **[`DESIGN_REVIEW.md`](DESIGN_REVIEW.md)**.
 
 ---
 
